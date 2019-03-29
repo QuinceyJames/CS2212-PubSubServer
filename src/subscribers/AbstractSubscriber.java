@@ -29,20 +29,20 @@ public abstract class AbstractSubscriber implements IEntity {
 	 * @param event the AbstractEvent that's received
 	 * @param channelName the name of the channel that sent the AbstractEvent to the ISubscriber
 	 */
-	public void alert(AbstractEvent event, String channelName) {};
+	public abstract void alert(AbstractEvent event, String channelName);
 	
 	
 	/**
 	 * subscribes to the channel whose name is provided by the parameter channelName 
 	 * @param channelName type String
 	 */
-	public void subscribe(String channelName) {};
+	public abstract void subscribe(String channelName);
 	
 	
 	/**
 	 * unsubscribes from the channel whose name is provided by the parameter channelName
 	 * @param channelName type String
 	 */
-	public void unsubscribe(String channelName) {};
+	public abstract void unsubscribe(String channelName);
 	
 }

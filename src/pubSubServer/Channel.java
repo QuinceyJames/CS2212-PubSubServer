@@ -17,6 +17,7 @@ class Channel extends AbstractChannel {
 	private Set<AbstractSubscriber> subscribers = new HashSet<AbstractSubscriber>();
 	private String channelTopic;
 	private Queue<AbstractEvent> events = new ArrayDeque<AbstractEvent>();
+	private ChannelAccessControl accessControler = ChannelAccessControl.getInstance();
 
 	public Channel(String channelTopic) {
 		this.channelTopic = channelTopic;
@@ -62,10 +63,10 @@ class Channel extends AbstractChannel {
 	 * @param event the event that's to be disseminated to the subscribers
 	 */
 	private void notifySubscribers(AbstractEvent event) {
-		AbstractEvent currentEvent;
-		currentEvent = event;
+		AbstractEvent currentEvent = event;
 		for (AbstractSubscriber subscriber : subscribers) {
-			subscriber.alert(currentEvent, this.channelTopic);
+			if (!accessControler.checkIfBlocked(subscriber, getChannelTopic()))
+				subscriber.alert(currentEvent, this.channelTopic);
 		}
 	}
 
