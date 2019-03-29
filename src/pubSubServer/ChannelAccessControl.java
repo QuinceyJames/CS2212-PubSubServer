@@ -1,6 +1,10 @@
 
 package pubSubServer;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -16,14 +20,19 @@ import subscribers.AbstractSubscriber;
  * blocking and unblocking of specific subscribers for specific channels
  * 
  */
+
 public class ChannelAccessControl {
 
-	
-	protected static ChannelAccessControl getInstance() {
-		return instance;
-	}
+	private static ChannelAccessControl instance = null;
 	Map<String, List<AbstractSubscriber>> blackList = new HashMap<>();
 	
+	private ChannelAccessControl() {}
+	
+	protected static ChannelAccessControl getInstance() {
+		if (instance == null)
+			instance = new ChannelAccessControl();
+		return instance;
+	}
 	
 	
 	/**
