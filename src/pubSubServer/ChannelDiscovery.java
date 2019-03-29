@@ -12,8 +12,13 @@ import subscribers.AbstractSubscriber;
  */
 public class ChannelDiscovery {
 	
+	private static ChannelDiscovery instance = null;
+	
+	private ChannelDiscovery() {}
 	
 	public static ChannelDiscovery getInstance() {
+		if (instance == null)
+			instance = new ChannelDiscovery();
 		return instance;
 	}
 	
