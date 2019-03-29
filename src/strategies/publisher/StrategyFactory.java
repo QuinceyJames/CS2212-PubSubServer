@@ -15,17 +15,15 @@ public class StrategyFactory {
 	 * @return the newly created {@link IStrategy} instance 
 	 */
 	public static IStrategy createStrategy(StrategyName strategyName) {
-		IStrategy strategy;
 		switch(strategyName) {
-			case AStrategy:
-				strategy = new AStrategy();
-				return strategy;
-			case BStrategy:
-				strategy = new BStrategy();
-				return strategy;
+			case AlphaStrategy:
+				return new AlphaStrategy();
+			case BetaStrategy:
+				return new BetaStrategy();
+			case GammaStrategy:
+				return new GammaStrategy();
 			default:
-				strategy = new DefaultStrategy();
-				return strategy;
+				return new DefaultStrategy();	
 		}
 	}
 	
