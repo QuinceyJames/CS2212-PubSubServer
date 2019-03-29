@@ -23,7 +23,7 @@ public abstract class AbstractChannel {
 	/**
 	 * @param event the event that's to be published
 	 */
-	protected void publishEvent(AbstractEvent event) {};
+	protected abstract void publishEvent(AbstractEvent event);
 	
 	/**
 	 * @param subscriber the handle of subscriber that wants to subscribe to the channel
