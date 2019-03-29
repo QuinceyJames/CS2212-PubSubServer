@@ -11,7 +11,7 @@ import subscribers.AbstractSubscriber;
  */
 public class SubscriptionManager {
 
-	private SubscriptionManager cpManager;
+	private ChannelPoolManager cpManager;
 	
 	private static SubscriptionManager instance = null;
 	
@@ -46,10 +46,6 @@ public class SubscriptionManager {
 		AbstractChannel channel = cpManager.findChannel(channelName);
 		channel.unsubscribe(subscriber);
 		
-	}
-	
-	private AbstractChannel findChannel(String channelName) {
-		return null;
 	}
 	
 }
