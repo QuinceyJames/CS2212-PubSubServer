@@ -6,7 +6,7 @@ import publishers.AbstractPublisher;
  * @author kkontog, ktsiouni, mgrigori
  *
  */
-public class EventFactory {
+public class EventFactory  {
 
 	/**
 	 * This is an implementation of the Factory Method design pattern Creates an
