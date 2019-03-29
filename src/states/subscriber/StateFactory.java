@@ -17,8 +17,12 @@ public class StateFactory {
 	 */
 	public static IState createState(StateName stateName) {
 		switch(stateName) {
-			case astate : 
-				return new AState();
+			case alphaState : 
+				return new AlphaState();
+			case betaState :
+				return new BetaState();
+			case gammaState :
+				return new GammaState();
 			default :
 				return new DefaultState();
 		}
