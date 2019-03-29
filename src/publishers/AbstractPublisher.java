@@ -33,6 +33,6 @@ public abstract class AbstractPublisher implements IEntity {
 	 * @param event an event which is to be published
 	 * 
 	 */
-	public void publish() {};
+	public abstract void publish();
 
 }
