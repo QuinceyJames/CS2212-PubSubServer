@@ -22,12 +22,14 @@ public class EventFactory {
 	 */
 	public static AbstractEvent createEvent(EventType eventType, int eventPublisherId, EventMessage payload) {
 		switch (eventType) {
-		case TypeA:
-			return new EventTypeA(EventIDMaker.getNewEventID(), eventPublisherId, payload);
-		case TypeB:
-			return new EventTypeB(EventIDMaker.getNewEventID(), eventPublisherId, payload);
+		case AlphaEvent:
+			return new AlphaEvent(EventIDMaker.getNewEventID(), eventPublisherId, payload);
+		case BetaEvent:
+			return new BetaEvent(EventIDMaker.getNewEventID(), eventPublisherId, payload);
+		case GammaEvent:
+			return new GammaEvent(EventIDMaker.getNewEventID(), eventPublisherId, payload);
 		default: 
-			throw new EnumConstantNotPresentException(EventType.class, eventType.toString());
+			return new DefaultEvent(EventIDMaker.getNewEventID(), eventPublisherId, payload);
 		}
 	}
 
