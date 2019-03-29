@@ -6,7 +6,7 @@ import publishers.AbstractPublisher;
  * @author kkontog, ktsiouni, mgrigori
  *
  */
-public class EventFactory  {
+public class EventFactory {
 
 	/**
 	 * This is an implementation of the Factory Method design pattern Creates an
@@ -28,7 +28,7 @@ public class EventFactory  {
 			return new BetaEvent(EventIDMaker.getNewEventID(), eventPublisherId, payload);
 		case GammaEvent:
 			return new GammaEvent(EventIDMaker.getNewEventID(), eventPublisherId, payload);
-		default: 
+		default:
 			return new DefaultEvent(EventIDMaker.getNewEventID(), eventPublisherId, payload);
 		}
 	}

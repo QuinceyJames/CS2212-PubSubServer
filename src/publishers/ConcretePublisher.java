@@ -29,7 +29,10 @@ public class ConcretePublisher extends AbstractPublisher {
 	 */
 	@Override
 	public void publish(AbstractEvent event) {
-		publishingStrategy.doPublish(event, this.hashCode());
+		if (event == null)
+			System.err.println("EVENT WAS NULL");
+		else
+			publishingStrategy.doPublish(event, this.hashCode());
 	}
 
 	/*
