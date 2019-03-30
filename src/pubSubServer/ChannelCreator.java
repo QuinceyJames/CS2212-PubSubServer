@@ -16,7 +16,7 @@ public class ChannelCreator {
 	
 	private ChannelCreator() {}
 	
-	protected static ChannelCreator getInstance() {
+	public static ChannelCreator getInstance() {
 		if (instance == null)
 			instance = new ChannelCreator();
 		return instance;
