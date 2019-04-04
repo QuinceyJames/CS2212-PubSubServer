@@ -1,6 +1,5 @@
 package subscribers;
 
-
 import events.AbstractEvent;
 import pubSubServer.SubscriptionManager;
 import states.subscriber.StateFactory;

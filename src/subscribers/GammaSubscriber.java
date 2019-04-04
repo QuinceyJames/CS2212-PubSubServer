@@ -23,7 +23,6 @@ public class GammaSubscriber extends AbstractSubscriber  {
 		state = StateFactory.createState(stateName);
 	}
 	
-	
 	/* (non-Javadoc)
 	 * @see subscribers.ISubscriber#alert(events.AbstractEvent, java.lang.String)
 	 */

@@ -24,7 +24,6 @@ public abstract class AbstractSubscriber implements IEntity {
 	}
 	
 	
-	
 	/**
 	 * set's the {@link IState} for this ISubscriber implementation using the {@link StateFactory}
 	 * @param stateName the entry from the {@link StateName} enumeration that we want the new IState of the ISubscriber to be 
@@ -53,5 +52,6 @@ public abstract class AbstractSubscriber implements IEntity {
 	 * @param channelName type String
 	 */
 	public abstract void unsubscribe(String channelName);
+	
 	
 }

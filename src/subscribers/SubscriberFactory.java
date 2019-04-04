@@ -14,7 +14,6 @@ import states.subscriber.StateName;
  * implements the FactoryMethod design pattern   
  */
 public class SubscriberFactory {
-
 	
 	/**
 	 * creates a new {@link AbstractSubscriber} using an entry from the {@link SubscriberType} enumeration
