@@ -20,7 +20,10 @@ public abstract class AbstractSubscriber implements IEntity {
 	//package protected meaning only factory can instantiate
 	AbstractSubscriber(StateName stateName) {
 		
-		state = StateFactory.createState(stateName);
+		this.state = StateFactory.createState(stateName);
+		System.out.println(this + " has been created.");
+		System.out.println(this + " has " + stateName + ".");
+		
 	}
 	
 	

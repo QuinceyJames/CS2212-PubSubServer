@@ -17,6 +17,15 @@ import subscribers.AbstractSubscriber;
 // TODO modify comments to hint at creation of ChannelFactory
 public abstract class AbstractChannel {
 
+	public AbstractChannel(String channelTopic) {
+		System.out.println(this + " '" + channelTopic + "' has been created.");
+	}
+	
+	@Override
+	public String toString() {
+		return getClass().getSimpleName();
+	}
+	
 	/**
 	 * @param event the event that's to be published
 	 */

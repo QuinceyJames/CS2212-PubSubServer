@@ -20,7 +20,7 @@ class Channel extends AbstractChannel {
 	private ChannelAccessControl accessControler = ChannelAccessControl.getInstance();
 
 	public Channel(String channelTopic) {
-		this.channelTopic = channelTopic;
+		super(channelTopic);
 	}
 
 	/*

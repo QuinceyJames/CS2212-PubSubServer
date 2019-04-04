@@ -6,4 +6,9 @@ public abstract class AbstractStrategy implements IStrategy{
 		// TODO: delete the IStrategy 
 	}
 	
+	@Override
+	public String toString() {
+		return getClass().getSimpleName();
+	}
+	
 }
