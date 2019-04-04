@@ -1,7 +1,9 @@
 package events;
 
+import publishers.AbstractPublisher;
+
 public class AlphaEvent extends AbstractEvent {
-	public AlphaEvent(long eventID, int eventPublisher, EventMessage payload) {
+	public AlphaEvent(long eventID, AbstractPublisher eventPublisher, EventMessage payload) {
 		super(eventID, eventPublisher, payload);
 	}
 }
