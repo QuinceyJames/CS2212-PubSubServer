@@ -2,6 +2,7 @@ package publishers;
 
 import baseEntities.IEntity;
 import events.AbstractEvent;
+import strategies.publisher.AbstractStrategy;
 import strategies.publisher.IStrategy;
 
 /**
@@ -10,7 +11,7 @@ import strategies.publisher.IStrategy;
  */
 public abstract class AbstractPublisher implements IEntity {
 
-	protected IStrategy publishingStrategy = null;
+	protected AbstractStrategy publishingStrategy = null;
 
 	/**
 	 * all implementations of this Interface MUST contain an instance variable of
@@ -37,7 +38,7 @@ public abstract class AbstractPublisher implements IEntity {
 	 */
 	public abstract void publish();
 
-	public AbstractPublisher(IStrategy concreteStrategy) {
+	public AbstractPublisher(AbstractStrategy concreteStrategy) {
 		this.publishingStrategy = concreteStrategy;
 	}
 

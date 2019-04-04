@@ -2,9 +2,10 @@ package publishers;
 
 import strategies.publisher.IStrategy;
 
-public class BetaConcretePublisher extends AbstractPublisher {
+public class AlphaPublisher extends AbstractPublisher {
 
-	public BetaConcretePublisher(IStrategy concreteStrategy) {
+		
+	public AlphaPublisher(IStrategy concreteStrategy) {
 		super(concreteStrategy);
 		// TODO Auto-generated constructor stub
 	}

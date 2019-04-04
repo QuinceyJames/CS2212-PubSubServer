@@ -14,5 +14,5 @@ package publishers;
  * 
  */
 public enum PublisherType {
-	alphaPub, betaPub, gammaPub, deltaPub
+	ALPHA_PUBLISHER, BETA_PUBLISHER, GAMMA_PUBLISHER, DEFAULT_PUBLISHER
 }
