@@ -1,14 +1,15 @@
 package events;
 
+import publishers.AbstractPublisher;
 
 /**
  * @author kkontog, ktsiouni, mgrigori 
  *
  */
 public abstract class AbstractEvent {
-	private long eventId = -1;
-	private int eventPublisherId;
-	private EventMessage payload = null;
+	private long eventId;
+	private AbstractPublisher eventPublisher;
+	private EventMessage payload;
 	
 	/**
 	 * Default Constructor for the abstract class AbstractEvent
@@ -17,9 +18,9 @@ public abstract class AbstractEvent {
 	 * @param payload is a {@link EventMessage} which contains a title and a message for the event. Normally there should be a rich hierarchy of 
 	 * EventMessage types.
 	 */
-	public AbstractEvent(long eventID, int eventPublisher, EventMessage payload) {
+	public AbstractEvent(long eventID, AbstractPublisher eventPublisher, EventMessage payload) {
+		this.eventPublisher = eventPublisher;
 		this.eventId = eventID;
-		this.eventPublisherId = eventPublisher;
 		this.payload = payload;
 	}
 	
@@ -37,8 +38,8 @@ public abstract class AbstractEvent {
 	 * 
 	 * @return Event Publisher's hashcode
 	 */
-	protected int getEventPublisher() {
-		return eventPublisherId;
+	protected AbstractPublisher getEventPublisher() {
+		return eventPublisher;
 	}
 	
 	
