@@ -24,7 +24,6 @@ public class PublisherFactory {
 	 * @return an instance of the specified IPublisher implementation with the specified strategyName attached to it
 	 */
 	public static AbstractPublisher createPublisher(PublisherType publisherType, StrategyName strategyName) {
-		AbstractPublisher ip;
 		switch (publisherType) {
 			case alphaPub : 
 				return new AlphaConcretePublisher(StrategyFactory.createStrategy(strategyName));
