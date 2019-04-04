@@ -1,5 +1,6 @@
 package subscribers;
 
+
 /**
  * @author kkontog, ktsiouni, mgrigori
  * 	an enumeration of all the available
@@ -9,5 +10,5 @@ package subscribers;
  *  must be added here   
  */
 public enum SubscriberType {
-	alpha, beta, gamma
+	ALPHA_SUBSCRIBER, BETA_SUBSCRIBER, GAMMA_SUBSCRIBER, DEFAULT_SUBSCRIBER;
 }

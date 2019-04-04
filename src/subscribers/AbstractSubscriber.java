@@ -2,6 +2,7 @@ package subscribers;
 
 import baseEntities.IEntity;
 import events.AbstractEvent;
+import states.subscriber.AbstractState;
 import states.subscriber.IState;
 import states.subscriber.StateFactory;
 import states.subscriber.StateName;
@@ -16,11 +17,18 @@ public abstract class AbstractSubscriber implements IEntity {
 	
 	protected IState state;
 
+	//package protected meaning only factory can instantiate
+	AbstractSubscriber(StateName stateName) {
+		
+		state = StateFactory.createState(stateName);
+	}
+	
+	
 	/**
 	 * set's the {@link IState} for this ISubscriber implementation using the {@link StateFactory}
 	 * @param stateName the entry from the {@link StateName} enumeration that we want the new IState of the ISubscriber to be 
 	 */
-	public void setState(StateName stateName) {};
+	public abstract void setState(StateName stateName);
 
 	
 	/**
@@ -44,5 +52,6 @@ public abstract class AbstractSubscriber implements IEntity {
 	 * @param channelName type String
 	 */
 	public abstract void unsubscribe(String channelName);
+	
 	
 }

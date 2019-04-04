@@ -14,7 +14,6 @@ import states.subscriber.StateName;
  * implements the FactoryMethod design pattern   
  */
 public class SubscriberFactory {
-
 	
 	/**
 	 * creates a new {@link AbstractSubscriber} using an entry from the {@link SubscriberType} enumeration
@@ -22,12 +21,15 @@ public class SubscriberFactory {
 	 * @return the newly created {@link AbstractSubscriber} instance 
 	 */
 	public static AbstractSubscriber createSubscriber(SubscriberType subscriberType, StateName stateName) {
-		AbstractSubscriber CSA = null;
 		switch (subscriberType) {
-			case alpha : 
-				return CSA;
+			case ALPHA_SUBSCRIBER : 
+				return new AlphaSubscriber(stateName);
+			case BETA_SUBSCRIBER : 
+				return new BetaSubscriber(stateName);
+			case GAMMA_SUBSCRIBER : 
+				return new GammaSubscriber(stateName);
 			default:
-				return CSA;
+				return new DefaultSubscriber(stateName);
 		}
 	}
 	

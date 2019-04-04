@@ -16,11 +16,11 @@ public class StrategyFactory {
 	 */
 	public static IStrategy createStrategy(StrategyName strategyName) {
 		switch(strategyName) {
-			case AlphaStrategy:
+			case ALPHA_STRATEGY:
 				return new AlphaStrategy();
-			case BetaStrategy:
+			case BETA_STRATEGY:
 				return new BetaStrategy();
-			case GammaStrategy:
+			case GAMMA_STRATEGY:
 				return new GammaStrategy();
 			default:
 				return new DefaultStrategy();	
