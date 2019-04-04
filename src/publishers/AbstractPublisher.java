@@ -13,9 +13,10 @@ import strategies.publisher.StrategyName;
  */
 public abstract class AbstractPublisher implements IEntity {
 
-	protected AbstractStrategy publishingStrategy = null;
+	protected AbstractStrategy publishingStrategy;
 
-	public AbstractPublisher(StrategyName strategyName) {
+	// Package-private method
+	AbstractPublisher(StrategyName strategyName) {
 		this.publishingStrategy = StrategyFactory.createStrategy(strategyName);
 	}
 
