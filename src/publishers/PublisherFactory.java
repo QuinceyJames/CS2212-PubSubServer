@@ -1,6 +1,5 @@
 package publishers;
 
-import strategies.publisher.StrategyFactory;
 import strategies.publisher.StrategyName;
 
 /**
@@ -26,13 +25,13 @@ public class PublisherFactory {
 	public static AbstractPublisher createPublisher(PublisherType publisherType, StrategyName strategyName) {
 		switch (publisherType) {
 		case ALPHA_PUBLISHER:
-			return new AlphaPublisher(StrategyFactory.createStrategy(strategyName));
+			return new AlphaPublisher(strategyName);
 		case BETA_PUBLISHER:
-			return new BetaPublisher(StrategyFactory.createStrategy(strategyName));
+			return new BetaPublisher(strategyName);
 		case GAMMA_PUBLISHER:
-			return new GammaPublisher(StrategyFactory.createStrategy(strategyName));
+			return new GammaPublisher(strategyName);
 		default:
-			return new DefaultPublisher(StrategyFactory.createStrategy(strategyName));
+			return new DefaultPublisher(strategyName);
 		}
 	}
 

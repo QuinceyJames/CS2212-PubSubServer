@@ -1,11 +1,11 @@
 package publishers;
 
-import strategies.publisher.AbstractStrategy;
+import strategies.publisher.StrategyName;
 
 public class DefaultPublisher extends AbstractPublisher {
 
-	public DefaultPublisher(AbstractStrategy concreteStrategy) {
-		super(concreteStrategy);
+	public DefaultPublisher(StrategyName strategyName) {
+		super(strategyName);
 	}
 
 	@Override

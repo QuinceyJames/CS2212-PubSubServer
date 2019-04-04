@@ -1,11 +1,11 @@
 package publishers;
 
-import java.util.Objects;
-
 import baseEntities.IEntity;
 import events.AbstractEvent;
 import strategies.publisher.AbstractStrategy;
 import strategies.publisher.IStrategy;
+import strategies.publisher.StrategyFactory;
+import strategies.publisher.StrategyName;
 
 /**
  * @author kkontog, ktsiouni, mgrigori base Interface implemented by all
@@ -15,8 +15,8 @@ public abstract class AbstractPublisher implements IEntity {
 
 	protected AbstractStrategy publishingStrategy = null;
 
-	public AbstractPublisher(AbstractStrategy concreteStrategy) {
-		this.publishingStrategy = Objects.requireNonNull(concreteStrategy);
+	public AbstractPublisher(StrategyName strategyName) {
+		this.publishingStrategy = StrategyFactory.createStrategy(strategyName);
 	}
 
 	public void setStrategy(AbstractStrategy publishingStrategy) {

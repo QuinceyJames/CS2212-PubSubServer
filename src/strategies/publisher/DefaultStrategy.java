@@ -2,7 +2,7 @@ package strategies.publisher;
 
 import events.AbstractEvent;
 
-public class DefaultStrategy implements IStrategy {
+public class DefaultStrategy extends AbstractStrategy {
 
 	protected DefaultStrategy () {
 		super();

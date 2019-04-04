@@ -1,7 +1,6 @@
 package states.subscriber;
 
 import events.AbstractEvent;
-import events.EventMessage;
 
 public class AlphaState extends AbstractState {
 

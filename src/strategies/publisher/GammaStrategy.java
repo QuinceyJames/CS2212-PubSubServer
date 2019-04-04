@@ -2,7 +2,7 @@ package strategies.publisher;
 
 import events.AbstractEvent;
 
-public class GammaStrategy implements IStrategy {
+public class GammaStrategy extends AbstractStrategy {
 
 	protected GammaStrategy() {
 		super();

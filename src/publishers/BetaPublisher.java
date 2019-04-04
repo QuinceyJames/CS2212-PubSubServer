@@ -1,12 +1,11 @@
 package publishers;
 
-import strategies.publisher.AbstractStrategy;
+import strategies.publisher.StrategyName;
 
 public class BetaPublisher extends AbstractPublisher {
 
-	public BetaPublisher(AbstractStrategy concreteStrategy) {
-		super(concreteStrategy);
-		// TODO Auto-generated constructor stub
+	public BetaPublisher(StrategyName strategyName) {
+		super(strategyName);
 	}
 
 	@Override
