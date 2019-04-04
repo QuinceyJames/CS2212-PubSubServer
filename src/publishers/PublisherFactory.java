@@ -24,23 +24,17 @@ public class PublisherFactory {
 	 * @return an instance of the specified IPublisher implementation with the specified strategyName attached to it
 	 */
 	public static AbstractPublisher createPublisher(PublisherType publisherType, StrategyName strategyName) {
-		AbstractPublisher ip;
 		switch (publisherType) {
 			case alphaPub : 
-				ip = new AlphaConcretePublisher(StrategyFactory.createStrategy(strategyName));
-				return ip;
+				return new AlphaConcretePublisher(StrategyFactory.createStrategy(strategyName));
 			case betaPub : 
-				ip = new BetaConcretePublisher(StrategyFactory.createStrategy(strategyName));
-				return ip;
+				return new BetaConcretePublisher(StrategyFactory.createStrategy(strategyName));
 			case gammaPub : 
-				ip = new GammaConcretePublisher(StrategyFactory.createStrategy(strategyName));
-				return ip;
+				return new GammaConcretePublisher(StrategyFactory.createStrategy(strategyName));
 			case deltaPub : 
-				ip = new DeltaConcretePublisher(StrategyFactory.createStrategy(strategyName));
-				return ip;
+				return new DeltaConcretePublisher(StrategyFactory.createStrategy(strategyName));
 			default:
-				ip = new DefaultConcretePublisher(StrategyFactory.createStrategy(strategyName));
-				return ip;
+				return new DefaultConcretePublisher(StrategyFactory.createStrategy(strategyName));	
 		}
 	}
 	
