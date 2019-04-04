@@ -33,7 +33,7 @@ public class SubscriptionManager {
 	public void subscribe(String channelName, AbstractSubscriber subscriber) {
 		AbstractChannel channel = cpManager.findChannel(channelName);
 		channel.subscribe(subscriber);
-		System.out.println("Subscriber" + subscriber. + "");
+		System.out.println(subscriber + "subscribes to " + channelName);
 	}
 
 	/**
@@ -47,6 +47,7 @@ public class SubscriptionManager {
 	public void unSubscribe(String channelName, AbstractSubscriber subscriber) {
 		AbstractChannel channel = cpManager.findChannel(channelName);
 		channel.unsubscribe(subscriber);
+		System.out.println(subscriber + "unsubscribes from " + channelName);
 	}
 
 }
