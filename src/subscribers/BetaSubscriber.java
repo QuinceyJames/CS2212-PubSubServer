@@ -2,20 +2,18 @@ package subscribers;
 
 import events.AbstractEvent;
 import pubSubServer.SubscriptionManager;
-import states.subscriber.IState;
 import states.subscriber.StateFactory;
 import states.subscriber.StateName;
-
 
 /**
  * @author kkontog, ktsiouni, mgrigori
  * an example concrete subscriber
  */
-class ConcreteSubscriberA extends AbstractSubscriber {
+public class BetaSubscriber extends AbstractSubscriber  {
 
-	
-	protected ConcreteSubscriberA() {
-		state = StateFactory.createState(StateName.defaultState);
+
+	protected BetaSubscriber(StateName stateName) {
+		super(stateName);
 	}
 	
 	/* (non-Javadoc)
@@ -53,4 +51,8 @@ class ConcreteSubscriberA extends AbstractSubscriber {
 	}
 	
 	// TODO: make a toString()
+
+	
+	
+	
 }

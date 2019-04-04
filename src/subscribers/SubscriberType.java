@@ -9,5 +9,5 @@ package subscribers;
  *  must be added here   
  */
 public enum SubscriberType {
-	alpha, beta, gamma
+	ALPHA_SUBSCRIBER, BETA_SUBSCRIBER, GAMMA_SUBSCRIBER
 }
