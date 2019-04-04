@@ -10,5 +10,5 @@ package subscribers;
  *  must be added here   
  */
 public enum SubscriberType {
-	ALPHA_SUBSCRIBER, BETA_SUBSCRIBER, GAMMA_SUBSCRIBER
+	ALPHA_SUBSCRIBER, BETA_SUBSCRIBER, GAMMA_SUBSCRIBER, DEFAULT_SUBSCRIBER;
 }
