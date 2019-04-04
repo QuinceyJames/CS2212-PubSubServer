@@ -27,19 +27,19 @@ public class PublisherFactory {
 		AbstractPublisher ip;
 		switch (publisherType) {
 			case alphaPub : 
-				ip = new ConcretePublisher(StrategyFactory.createStrategy(strategyName));
+				ip = new AlphaConcretePublisher(StrategyFactory.createStrategy(strategyName));
 				return ip;
 			case betaPub : 
-				ip = new ConcretePublisher(StrategyFactory.createStrategy(strategyName));
+				ip = new BetaConcretePublisher(StrategyFactory.createStrategy(strategyName));
 				return ip;
 			case gammaPub : 
-				ip = new ConcretePublisher(StrategyFactory.createStrategy(strategyName));
+				ip = new GammaConcretePublisher(StrategyFactory.createStrategy(strategyName));
 				return ip;
 			case deltaPub : 
-				ip = new ConcretePublisher(StrategyFactory.createStrategy(strategyName));
+				ip = new DeltaConcretePublisher(StrategyFactory.createStrategy(strategyName));
 				return ip;
 			default:
-				ip = new ConcretePublisher(StrategyFactory.createStrategy(strategyName));
+				ip = new DefaultConcretePublisher(StrategyFactory.createStrategy(strategyName));
 				return ip;
 		}
 	}
