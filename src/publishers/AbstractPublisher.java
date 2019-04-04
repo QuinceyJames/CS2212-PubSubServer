@@ -26,14 +26,13 @@ public abstract class AbstractPublisher implements IEntity {
 	public String toString() {
 		return getClass().getSimpleName();
 	}
-	
+
 	public void setStrategy(AbstractStrategy publishingStrategy) {
 		if (publishingStrategy == null)
 			System.out.println("CANNOT BE NULL");
 		else
 			this.publishingStrategy = publishingStrategy;
 	}
-
 
 	/**
 	 * all implementations of this Interface MUST contain an instance variable of
@@ -46,5 +45,7 @@ public abstract class AbstractPublisher implements IEntity {
 	 * 
 	 */
 	public abstract void publish();
+
+	public abstract void publish(AbstractEvent event);
 
 }

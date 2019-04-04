@@ -27,6 +27,6 @@ public interface IStrategy {
 	 * @param event the event to be published
 	 * @param publisherId  the hashCode or any other unique identifier of the publisher of an AbstractEvent 
 	 */
-	public void doPublish(AbstractEvent event, int publisherId);
+	public void doPublish(AbstractEvent event);
 	
 }

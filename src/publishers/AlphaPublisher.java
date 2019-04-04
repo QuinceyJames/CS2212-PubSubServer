@@ -1,5 +1,7 @@
 package publishers;
 
+import events.AbstractEvent;
+import pubSubServer.ChannelEventDispatcher;
 import strategies.publisher.StrategyName;
 
 public class AlphaPublisher extends AbstractPublisher {
@@ -10,8 +12,12 @@ public class AlphaPublisher extends AbstractPublisher {
 
 	@Override
 	public void publish() {
-		// TODO Auto-generated method stub
+		
+	}
 
+	@Override
+	public void publish(AbstractEvent event) {
+		publishingStrategy.doPublish(event);
 	}
 
 }
