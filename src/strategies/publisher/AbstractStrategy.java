@@ -1,16 +1,21 @@
 package strategies.publisher;
 
-public abstract class AbstractStrategy implements IStrategy{
-	
+import events.AbstractEvent;
+import publishers.AbstractPublisher;
+
+public abstract class AbstractStrategy {
+
 	public AbstractStrategy() {
-		// TODO: delete the IStrategy 
+		// TODO: delete the IStrategy
 	}
-	
-	
-	
+
+	public abstract void doPublish(AbstractPublisher publisher);
+
+	public abstract void doPublish(AbstractEvent event);
+
 	@Override
 	public String toString() {
 		return getClass().getSimpleName();
 	}
-	
+
 }
