@@ -22,11 +22,11 @@ public class EventFactory {
 	 */
 	public static AbstractEvent createEvent(EventType eventType, int eventPublisherId, EventMessage payload) {
 		switch (eventType) {
-		case AlphaEvent:
+		case ALPHA_EVENT:
 			return new AlphaEvent(EventIDMaker.getNewEventID(), eventPublisherId, payload);
-		case BetaEvent:
+		case BETA_EVENT:
 			return new BetaEvent(EventIDMaker.getNewEventID(), eventPublisherId, payload);
-		case GammaEvent:
+		case GAMMA_EVENT:
 			return new GammaEvent(EventIDMaker.getNewEventID(), eventPublisherId, payload);
 		default:
 			return new DefaultEvent(EventIDMaker.getNewEventID(), eventPublisherId, payload);
