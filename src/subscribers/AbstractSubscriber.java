@@ -26,6 +26,10 @@ public abstract class AbstractSubscriber implements IEntity {
 		
 	}
 	
+	@Override
+	public String toString() {
+		return getClass().getSimpleName();
+	}
 	
 	/**
 	 * set's the {@link IState} for this ISubscriber implementation using the {@link StateFactory}
