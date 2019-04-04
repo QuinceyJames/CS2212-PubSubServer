@@ -1,6 +1,5 @@
 package publishers;
 
-import events.AbstractEvent;
 import strategies.publisher.AbstractStrategy;
 
 public class DefaultPublisher extends AbstractPublisher {
@@ -13,12 +12,6 @@ public class DefaultPublisher extends AbstractPublisher {
 	public void publish() {
 		// TODO Auto-generated method stub
 
-	}
-
-	@Override
-	public void publish(AbstractEvent event) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }
