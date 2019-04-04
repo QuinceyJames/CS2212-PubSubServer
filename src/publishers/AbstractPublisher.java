@@ -18,8 +18,15 @@ public abstract class AbstractPublisher implements IEntity {
 	// Package-private method
 	AbstractPublisher(StrategyName strategyName) {
 		this.publishingStrategy = StrategyFactory.createStrategy(strategyName);
+		System.out.println(this + " has been created.");
+		System.out.println(this + " has " + this.publishingStrategy + ".");
 	}
 
+	@Override
+	public String toString() {
+		return getClass().getSimpleName();
+	}
+	
 	public void setStrategy(AbstractStrategy publishingStrategy) {
 		if (publishingStrategy == null)
 			System.out.println("CANNOT BE NULL");
