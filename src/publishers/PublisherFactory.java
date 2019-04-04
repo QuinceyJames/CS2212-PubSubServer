@@ -26,13 +26,13 @@ public class PublisherFactory {
 	public static AbstractPublisher createPublisher(PublisherType publisherType, StrategyName strategyName) {
 		switch (publisherType) {
 		case ALPHA_PUBLISHER:
-			return new AlphaConcretePublisher(StrategyFactory.createStrategy(strategyName));
+			return new AlphaPublisher(StrategyFactory.createStrategy(strategyName));
 		case BETA_PUBLISHER:
-			return new BetaConcretePublisher(StrategyFactory.createStrategy(strategyName));
+			return new BetaPublisher(StrategyFactory.createStrategy(strategyName));
 		case GAMMA_PUBLISHER:
-			return new GammaConcretePublisher(StrategyFactory.createStrategy(strategyName));
+			return new GammaPublisher(StrategyFactory.createStrategy(strategyName));
 		default:
-			return new DefaultConcretePublisher(StrategyFactory.createStrategy(strategyName));
+			return new DefaultPublisher(StrategyFactory.createStrategy(strategyName));
 		}
 	}
 

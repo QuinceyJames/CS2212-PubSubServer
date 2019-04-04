@@ -1,5 +1,7 @@
 package publishers;
 
+import java.util.Objects;
+
 import baseEntities.IEntity;
 import events.AbstractEvent;
 import strategies.publisher.AbstractStrategy;
@@ -13,6 +15,17 @@ public abstract class AbstractPublisher implements IEntity {
 
 	protected AbstractStrategy publishingStrategy = null;
 
+	public AbstractPublisher(AbstractStrategy concreteStrategy) {
+		this.publishingStrategy = Objects.requireNonNull(concreteStrategy);
+	}
+
+	public void setStrategy(AbstractStrategy publishingStrategy) {
+		if (publishingStrategy == null)
+			System.out.println("CANNOT BE NULL");
+		else
+			this.publishingStrategy = publishingStrategy;
+	}
+
 	/**
 	 * all implementations of this Interface MUST contain an instance variable of
 	 * type {@link IStrategy} which has the methods: 1)
@@ -23,8 +36,7 @@ public abstract class AbstractPublisher implements IEntity {
 	 * @param event an event which is to be published
 	 * 
 	 */
-	public void publish(AbstractEvent event) {
-	};
+	public abstract void publish(AbstractEvent event);
 
 	/**
 	 * all implementations of this Interface MUST contain an instance variable of
@@ -37,9 +49,5 @@ public abstract class AbstractPublisher implements IEntity {
 	 * 
 	 */
 	public abstract void publish();
-
-	public AbstractPublisher(AbstractStrategy concreteStrategy) {
-		this.publishingStrategy = concreteStrategy;
-	}
 
 }
