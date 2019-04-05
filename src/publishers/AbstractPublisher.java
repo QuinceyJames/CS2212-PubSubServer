@@ -44,8 +44,12 @@ public abstract class AbstractPublisher implements IEntity {
 	 * @param event an event which is to be published
 	 * 
 	 */
-	public abstract void publish();
+	
+	public void publish() {
+		publishingStrategy.doPublish(this);
+	}
 
-	public abstract void publish(AbstractEvent event);
-
+	public void publish(AbstractEvent event) {
+		publishingStrategy.doPublish(event);
+	}
 }
