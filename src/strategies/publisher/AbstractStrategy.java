@@ -1,6 +1,8 @@
 package strategies.publisher;
 
 import events.AbstractEvent;
+import pubSubServer.ChannelDiscovery;
+import pubSubServer.ChannelEventDispatcher;
 import publishers.AbstractPublisher;
 
 public abstract class AbstractStrategy {
@@ -14,7 +16,7 @@ public abstract class AbstractStrategy {
 	}
 
 	public void doPublish(AbstractEvent event) {
-		
+		ChannelEventDispatcher.getInstance().postEvent(event, ChannelDiscovery.getInstance().listChannels());
 	}
 
 	@Override
