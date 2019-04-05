@@ -2,13 +2,13 @@ package driver;
 
 import java.util.Scanner;
 
-import orchestration.Orchestration;
 import pubSubServer.SubscriptionManager;
 import subscribers.AbstractSubscriber;
+import subscribers.SubscriberDiscovery;
 
 public class UnblockerDriver implements DriverInterface {
 	public void execute(Scanner scanner) {
-		AbstractSubscriber subscriber = Orchestration.getInstance().getSubscriber(scanner.nextInt());
+		AbstractSubscriber subscriber = SubscriberDiscovery.getInstance().findSubscriber(scanner.nextInt());
 		// TODO: in case channel name has a space in it
 		SubscriptionManager.getInstance().unblock(subscriber, scanner.next());
 	}

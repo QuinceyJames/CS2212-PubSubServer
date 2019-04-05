@@ -3,14 +3,13 @@ package driver;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
-import orchestration.Orchestration;
 import publishers .AbstractPublisher;
 
 public class PublisherDriver implements DriverInterface {
 
 	@Override
 	public void execute(Scanner scanner) {
-		AbstractPublisher publisher = Orchestration.getInstance().getPublisher(scanner.nextInt());
+		AbstractPublisher publisher = PublisherDiscovery.getInstance().findPublisher(scanner.nextInt());
 //		if (scanner.countTokens() > 2) {
 //			int eventType = Integer.parseInt(tokenizer.nextToken());
 //			EventType type = EventType.values()[eventType];
