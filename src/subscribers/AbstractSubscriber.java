@@ -2,6 +2,7 @@ package subscribers;
 
 import baseEntities.IEntity;
 import events.AbstractEvent;
+import pubSubServer.SubscriptionManager;
 import states.subscriber.IState;
 import states.subscriber.StateFactory;
 import states.subscriber.StateName;
@@ -12,7 +13,6 @@ import states.subscriber.StateName;
  * the base Interface for the Subscriber hierarchy
  */
 public abstract class AbstractSubscriber implements IEntity {
-	
 	
 	protected IState state;
 
@@ -43,21 +43,27 @@ public abstract class AbstractSubscriber implements IEntity {
 	 * @param event the AbstractEvent that's received
 	 * @param channelName the name of the channel that sent the AbstractEvent to the ISubscriber
 	 */
-	public abstract void alert(AbstractEvent event, String channelName);
+	public void alert(AbstractEvent event, String channelName) {
+		System.out.println("Subscriber " + this + " handling event ::" + event + ":: published on channel " + channelName);
+		state.handleEvent(event, channelName);
+	};
 	
 	
 	/**
 	 * subscribes to the channel whose name is provided by the parameter channelName 
 	 * @param channelName type String
 	 */
-	public abstract void subscribe(String channelName);
+	public void subscribe(String channelName) {
+		SubscriptionManager.getInstance().subscribe(channelName, this);	
+	};
 	
 	
 	/**
 	 * unsubscribes from the channel whose name is provided by the parameter channelName
 	 * @param channelName type String
 	 */
-	public abstract void unsubscribe(String channelName);
-	
+	public void unsubscribe(String channelName) {
+	SubscriptionManager.getInstance().unSubscribe(channelName, this);
+	}
 	
 }
