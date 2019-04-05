@@ -21,6 +21,7 @@ public abstract class AbstractSubscriber implements IEntity {
 	AbstractSubscriber(StateName stateName) {
 		
 		this.state = StateFactory.createState(stateName);
+		//TODO add subscriber discovery class so that id can be used 
 		System.out.println(this + " has been created.");
 		System.out.println(this + " has " + this.state + ".");
 	}

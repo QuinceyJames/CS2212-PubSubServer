@@ -33,7 +33,7 @@ public class SubscriptionManager {
 	public void subscribe(String channelName, AbstractSubscriber subscriber) {
 		AbstractChannel channel = cpManager.findChannel(channelName);
 		channel.subscribe(subscriber);
-		System.out.println(subscriber + "subscribes to " + channelName);
+		System.out.println(subscriber + "subscribes to Channel " + channel.getChannelTopic() + ".");
 	}
 
 	/**
