@@ -4,7 +4,8 @@ import strategies.publisher.StrategyName;
 
 public class AlphaPublisher extends AbstractPublisher {
 
-	public AlphaPublisher(StrategyName strategyName) {
-		super(strategyName);
+	protected AlphaPublisher(StrategyName strategyName, int publisherID) {
+		super(strategyName, publisherID);
 	}
+
 }

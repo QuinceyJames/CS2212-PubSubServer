@@ -40,6 +40,10 @@ public class ChannelAccessControl {
 	 * @return
 	 */
 	protected boolean blockSubcriber(AbstractSubscriber subscriber, String channelName) {
+		if (subscriber == null) {
+			System.err.println("SUB is NULL");
+			return false;
+		}
 		TreeSet<AbstractSubscriber> blockedSubscribers = blackList.getOrDefault(channelName,
 				new TreeSet<AbstractSubscriber>());
 		boolean result = blockedSubscribers.add(subscriber);

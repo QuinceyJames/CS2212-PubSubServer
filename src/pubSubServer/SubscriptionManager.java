@@ -9,7 +9,7 @@ import subscribers.AbstractSubscriber;
  */
 public class SubscriptionManager {
 
-	private ChannelPoolManager cpManager;
+	private static ChannelPoolManager cpManager = ChannelPoolManager.getInstance();
 
 	private static SubscriptionManager instance = null;
 

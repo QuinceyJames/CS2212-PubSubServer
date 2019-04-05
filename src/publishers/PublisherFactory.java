@@ -22,16 +22,16 @@ public class PublisherFactory {
 	 * @return an instance of the specified IPublisher implementation with the
 	 *         specified strategyName attached to it
 	 */
-	public static AbstractPublisher createPublisher(PublisherType publisherType, StrategyName strategyName) {
+	public static AbstractPublisher createPublisher(PublisherType publisherType, StrategyName strategyName, int publisherID) {
 		switch (publisherType) {
 		case ALPHA_PUBLISHER:
-			return new AlphaPublisher(strategyName);
+			return new AlphaPublisher(strategyName, publisherID);
 		case BETA_PUBLISHER:
-			return new BetaPublisher(strategyName);
+			return new BetaPublisher(strategyName, publisherID);
 		case GAMMA_PUBLISHER:
-			return new GammaPublisher(strategyName);
+			return new GammaPublisher(strategyName, publisherID);
 		default:
-			return new DefaultPublisher(strategyName);
+			return new DefaultPublisher(strategyName, publisherID);
 		}
 	}
 

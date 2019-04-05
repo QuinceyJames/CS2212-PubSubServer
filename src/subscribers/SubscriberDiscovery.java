@@ -8,6 +8,7 @@ package subscribers;
  */
 public class SubscriberDiscovery {
 
+	private static final SubscriberPoolManager POOL_MANAGER = SubscriberPoolManager.getInstance();
 	private static SubscriberDiscovery INSTANCE = new SubscriberDiscovery();
 
 	private SubscriberDiscovery() {
@@ -23,11 +24,11 @@ public class SubscriberDiscovery {
 	 *         provided as input
 	 */
 	public AbstractSubscriber findSubscriber(int subscriberID) { // may not be able to use ID
-		return SubscriberPoolManager.getInstance().findSubscriber(subscriberID); // may not be able to use ID
+		return POOL_MANAGER.findSubscriber(subscriberID); // may not be able to use ID
 	}
 
 	public int findID(AbstractSubscriber subscriber) { // may not be able to use ID
-		return SubscriberPoolManager.getInstance().findID(subscriber); // may not be able to use ID
+		return POOL_MANAGER.findID(subscriber); // may not be able to use ID
 	}
 
 }

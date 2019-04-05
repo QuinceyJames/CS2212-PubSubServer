@@ -10,21 +10,22 @@ import strategies.publisher.StrategyName;
  * @author kkontog, ktsiouni, mgrigori base Interface implemented by all
  *         ConcretePublisher Classes
  */
-public abstract class AbstractPublisher implements IEntity {
+public abstract class AbstractPublisher implements IEntity, Comparable<AbstractPublisher> {
 
 	protected AbstractStrategy publishingStrategy;
+	protected int publisherID;
 
 	// Package-private method
-	AbstractPublisher(StrategyName strategyName) {
+	AbstractPublisher(StrategyName strategyName, int publisherID) {
 		this.publishingStrategy = StrategyFactory.createStrategy(strategyName);
-		//TODO add publisher discovery such that we can print IDs here 
+		this.publisherID = publisherID;
 		System.out.println(this + " has been created.");
 		System.out.println(this + " has " + this.publishingStrategy + ".");
 	}
 
 	@Override
 	public String toString() {
-		return getClass().getSimpleName();
+		return String.format("%s with ID %d", getClass().getSimpleName(), publisherID);
 	}
 
 	public void setStrategy(AbstractStrategy publishingStrategy) {
@@ -44,12 +45,16 @@ public abstract class AbstractPublisher implements IEntity {
 	 * @param event an event which is to be published
 	 * 
 	 */
-	
 	public void publish() {
 		publishingStrategy.doPublish(this);
 	}
 
 	public void publish(AbstractEvent event) {
 		publishingStrategy.doPublish(event);
+	}
+
+	@Override
+	public int compareTo(AbstractPublisher o) {
+		return o.publisherID - publisherID;
 	}
 }

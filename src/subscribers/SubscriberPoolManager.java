@@ -19,7 +19,7 @@ import states.subscriber.StateName;
  */
 public class SubscriberPoolManager {
 
-	private static SubscriberPoolManager INSTANCE = null;
+	private static SubscriberPoolManager INSTANCE = new SubscriberPoolManager();
 	private Map<AbstractSubscriber, Integer> subscribersMap = new HashMap<>();
 
 	private SubscriberPoolManager() {
@@ -39,9 +39,6 @@ public class SubscriberPoolManager {
 	}
 
 	protected static SubscriberPoolManager getInstance() {
-		if (INSTANCE == null)
-			INSTANCE = new SubscriberPoolManager();
-		
 		return INSTANCE;
 	}
 
