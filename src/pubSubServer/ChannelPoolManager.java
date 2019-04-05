@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,7 +20,7 @@ public class ChannelPoolManager {
 
 	private static ChannelPoolManager instance = null;
 	private Map<String, AbstractChannel> channelsMap = new HashMap<String, AbstractChannel>();
-	private List<AbstractChannel> channelList = new ArrayList<AbstractChannel>();
+	
 
 	private ChannelPoolManager() {
 		try {
@@ -52,7 +51,6 @@ public class ChannelPoolManager {
 
 		Channel ch = new Channel(channelName);
 		channelsMap.put(channelName, ch);
-		channelList.add(ch);
 		return ch;
 	}
 
@@ -63,7 +61,6 @@ public class ChannelPoolManager {
 	 */
 	protected void deleteChannel(String channelName) {
 
-		channelList.remove(channelsMap.get(channelName));
 		channelsMap.remove(channelName);
 	}
 
@@ -73,7 +70,7 @@ public class ChannelPoolManager {
 	 * @return a list of type {@link AbstractChannel}
 	 */
 	protected List<AbstractChannel> listChannels() {
-		return channelList;
+		return List.copyOf(channelsMap.values());
 	}
 
 	
