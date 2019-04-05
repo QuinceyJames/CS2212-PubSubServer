@@ -1,8 +1,6 @@
 package publishers;
 
-import java.util.Map;
-
-import publishers.AbstractPublisher;
+import subscribers.AbstractSubscriber;
 
 
 /**
@@ -26,11 +24,11 @@ public class PublisherDiscovery {
 	 * @param subscriberID the ID number of the looked-up subscriber
 	 * @return a {@link AbstractSubscriber} type object corresponding the the ID provided as input
 	 */
-	protected AbstractPublisher findPublisher(int publisherID) { //may not be able to use ID
+	public AbstractPublisher findPublisher(int publisherID) { //may not be able to use ID
 		return PublisherPoolManager.getInstance().findPublisher(publisherID); //may not be able to use ID
 	}
 	
-	protected int findID(AbstractPublisher publisher) { //may not be able to use ID
+	public int findID(AbstractPublisher publisher) { //may not be able to use ID
 		return PublisherPoolManager.getInstance().findID(publisher); //may not be able to use ID
 	}
 	
