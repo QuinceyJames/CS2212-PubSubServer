@@ -3,7 +3,6 @@ package publishers;
 import baseEntities.IEntity;
 import events.AbstractEvent;
 import strategies.publisher.AbstractStrategy;
-import strategies.publisher.IStrategy;
 import strategies.publisher.StrategyFactory;
 import strategies.publisher.StrategyName;
 
