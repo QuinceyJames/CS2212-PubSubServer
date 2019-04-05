@@ -20,16 +20,16 @@ public class EventFactory {
 	 * @param payload          an object of type {@link EventMessage}
 	 * @return
 	 */
-	public static AbstractEvent createEvent(EventType eventType, AbstractPublisher eventPublisher, EventMessage payload) {
+	public static AbstractEvent createEvent(EventType eventType, AbstractPublisher eventPublisher, String header, String payload) {
 		switch (eventType) {
 		case ALPHA_EVENT:
-			return new AlphaEvent(EventIDMaker.getNewEventID(), eventPublisher, payload);
+			return new AlphaEvent(EventIDMaker.getNewEventID(), eventPublisher, new EventMessage(header, payload));
 		case BETA_EVENT:
-			return new BetaEvent(EventIDMaker.getNewEventID(), eventPublisher, payload);
+			return new BetaEvent(EventIDMaker.getNewEventID(), eventPublisher, new EventMessage(header, payload));
 		case GAMMA_EVENT:
-			return new GammaEvent(EventIDMaker.getNewEventID(), eventPublisher, payload);
+			return new GammaEvent(EventIDMaker.getNewEventID(), eventPublisher, new EventMessage(header, payload));
 		default:
-			return new DefaultEvent(EventIDMaker.getNewEventID(), eventPublisher, payload);
+			return new DefaultEvent(EventIDMaker.getNewEventID(), eventPublisher, new EventMessage(header, payload));
 		}
 	}
 
