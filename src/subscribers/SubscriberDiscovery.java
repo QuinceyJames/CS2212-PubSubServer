@@ -1,6 +1,6 @@
 package subscribers;
 
-import java.util.List;
+import java.util.Map;
 
 import subscribers.AbstractSubscriber;
 
@@ -29,7 +29,7 @@ public class SubscriberDiscovery {
 	 * @return a list of {@link AbstractSubscriber} type elements containing all available subscribers 
 	 * currently in the PubSubServer 
 	 */
-	public List<AbstractSubscriber> listSubscribers() {
+	public Map<Integer,AbstractSubscriber> listSubscribers() {
 		return SubscriberPoolManager.getInstance().listSubscribers();
 	}
 
@@ -39,11 +39,11 @@ public class SubscriberDiscovery {
 	 * @return a {@link AbstractSubscriber} type object corresponding the the ID provided as input
 	 */
 	protected AbstractSubscriber findSubscriber(int subscriberID) { //may not be able to use ID
-		return SubscriberPoolManager.getInstance().listSubscribers().get(subscriberID); //may not be able to use ID
+		return SubscriberPoolManager.getInstance().findSubscriber(subscriberID); //may not be able to use ID
 	}
 	
 	protected int findID(AbstractSubscriber subscriber) { //may not be able to use ID
-		return SubscriberPoolManager.getInstance().listSubscribers().get(subscriberID); //may not be able to use ID
+		return SubscriberPoolManager.getInstance().findID(subscriber); //may not be able to use ID
 	}
 	
 }
