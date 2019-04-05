@@ -1,28 +1,26 @@
 package driver;
 
+import java.util.Scanner;
 import java.util.StringTokenizer;
 
-import events.AbstractEvent;
-import events.EventFactory;
-import events.EventType;
 import orchestration.Orchestration;
 import publishers .AbstractPublisher;
 
-public class  PublisherDriver implements DriverInterface {
+public class PublisherDriver implements DriverInterface {
 
 	@Override
-	public void execute(StringTokenizer tokenizer) {
-		AbstractPublisher publisher = Orchestration.getInstance().getPublisher(Integer.parseInt(tokenizer.nextToken()));
-		if (tokenizer.countTokens() > 2) {
-			int eventType = Integer.parseInt(tokenizer.nextToken());
-			EventType type = EventType.values()[eventType];
-			AbstractEvent newEvent = EventFactory.createEvent(type, publisher, tokenizer.nextToken("|"), tokenizer.nextToken("|"));
-			publisher.publish(newEvent);
-		}
-		
-		else {
+	public void execute(Scanner scanner) {
+		AbstractPublisher publisher = Orchestration.getInstance().getPublisher(scanner.nextInt());
+//		if (scanner.countTokens() > 2) {
+//			int eventType = Integer.parseInt(tokenizer.nextToken());
+//			EventType type = EventType.values()[eventType];
+//			AbstractEvent newEvent = EventFactory.createEvent(type, publisher, tokenizer.nextToken("|"), tokenizer.nextToken("|"));
+//			publisher.publish(newEvent);
+//		}
+//		
+//		else {
 			publisher.publish();
-		}
+//		}
 		
 	}
 	public static void main (String[] args) {

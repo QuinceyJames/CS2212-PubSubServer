@@ -1,21 +1,15 @@
 package driver;
 
-import java.util.StringTokenizer;
+import java.util.Scanner;
 
 import orchestration.Orchestration;
-import pubSubServer.AbstractChannel;
-import pubSubServer.ChannelDiscovery;
 import pubSubServer.SubscriptionManager;
 import subscribers.AbstractSubscriber;
 
-public class BlockerDriver {
-	
-	public void execute(StringTokenizer tokenizer) {
-		AbstractSubscriber subscriber = Orchestration.getInstance().getSubscriber(Integer.parseInt(tokenizer.nextToken()));
-		String channelName = tokenizer.nextToken().trim();
-		AbstractChannel channel = ChannelDiscovery.getInstance().findChannel(channelName);
-		if (channel != null) {
-			SubscriptionManager.getInstance().Block(subscriber, channelName);
-		}	
+public class BlockerDriver implements DriverInterface {
+
+	public void execute(Scanner scanner) {
+		AbstractSubscriber subscriber = Orchestration.getInstance().getSubscriber(scanner.nextInt());
+		SubscriptionManager.getInstance().block(subscriber, scanner.next());
 	}
 }

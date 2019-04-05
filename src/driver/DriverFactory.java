@@ -1,26 +1,26 @@
 package driver;
 
-import java.util.StringTokenizer;
+import java.util.Scanner;
 
 public class DriverFactory {
 
 	public static void createDriver(String line) {
-		StringTokenizer tokenizer = new StringTokenizer(line);
-		switch (tokenizer.nextToken().toUpperCase().trim()) {
+		Scanner scanner = new Scanner(line);
+		switch (scanner.next().toUpperCase()) {
 		case "PUB":
-			new PublisherDriver().execute(tokenizer);
+			new PublisherDriver().execute(scanner);
 			break;
 		case "SUB":
-			new SubscriberDriver().execute(tokenizer);
+			new SubscriberDriver().execute(scanner);
 			break;
 		case "UNSUB":
-			new UnSubscribeDriver().execute(tokenizer);
+			new UnsubscribeDriver().execute(scanner);
 			break;
 		case "BLOCK":
-			new BlockerDriver().execute(tokenizer);
+			new BlockerDriver().execute(scanner);
 			break;
 		case "UNBLOCK":
-			new UnblockerDriver().execute(tokenizer);
+			new UnblockerDriver().execute(scanner);
 			break;
 		default:
 			System.err.println("UNKNOWN COMMAND");

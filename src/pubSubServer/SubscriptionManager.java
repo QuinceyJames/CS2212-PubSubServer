@@ -50,11 +50,11 @@ public class SubscriptionManager {
 		System.out.println(subscriber + "unsubscribes from " + channelName);
 	}
 	
-	public boolean Unblock(AbstractSubscriber subscriber, String channelName) {
+	public boolean unblock(AbstractSubscriber subscriber, String channelName) {
 		return ChannelAccessControl.getInstance().unBlockSubscriber(subscriber, channelName);
 	}
 	
-	public boolean Block(AbstractSubscriber subscriber, String channelName) {
+	public boolean block(AbstractSubscriber subscriber, String channelName) {
 		return ChannelAccessControl.getInstance().blockSubcriber(subscriber, channelName);
 	}
 }

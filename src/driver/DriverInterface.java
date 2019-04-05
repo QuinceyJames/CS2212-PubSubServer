@@ -1,9 +1,7 @@
 package driver;
 
-import java.util.StringTokenizer;
+import java.util.Scanner;
 
 public interface DriverInterface {
-	public void execute(StringTokenizer tokenizer);
-		
-
+	public void execute(Scanner scanner);
 }
