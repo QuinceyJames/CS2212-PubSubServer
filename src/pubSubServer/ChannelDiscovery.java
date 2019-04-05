@@ -37,7 +37,7 @@ public class ChannelDiscovery {
 	 * @param channelName the topic/name of the looked-up channel
 	 * @return a {@link AbstractChannel} type object corresponding the the channelName provided as input
 	 */
-	protected AbstractChannel findChannel(String channelName) {
+	public AbstractChannel findChannel(String channelName) {
 		return ChannelPoolManager.getInstance().getChannelsMap().get(channelName);
 	}
 	
