@@ -22,8 +22,7 @@ public abstract class AbstractSubscriber implements IEntity {
 		
 		this.state = StateFactory.createState(stateName);
 		System.out.println(this + " has been created.");
-		System.out.println(this + " has " + stateName + ".");
-		
+		System.out.println(this + " has " + this.state + ".");
 	}
 	
 	@Override
