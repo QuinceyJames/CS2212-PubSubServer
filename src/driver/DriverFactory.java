@@ -12,8 +12,18 @@ public class DriverFactory {
 			break;
 		case "SUB":
 			new SubscriberDriver().execute(tokenizer);
+			break;
+		case "UNSUB":
+			new SubscriberDriver().execute(tokenizer);
+			break;
+		case "BLOCK":
+			new BlockerDriver().execute(tokenizer);
+			break;
+		case "UNBLOCK":
+			new UnblockerDriver().execute(tokenizer);
+			break;
+		default:
+			System.err.println("UNKNOWN COMMAND");
 		}
-		
-		
 	}
 }
