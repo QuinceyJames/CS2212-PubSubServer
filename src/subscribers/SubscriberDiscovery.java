@@ -22,18 +22,6 @@ public class SubscriberDiscovery {
 		return instance;
 	}
 	
-	
-	
-	/**
-	 * 
-	 * @return a list of {@link AbstractSubscriber} type elements containing all available subscribers 
-	 * currently in the PubSubServer 
-	 */
-	public Map<Integer,AbstractSubscriber> listSubscribers() {
-		return SubscriberPoolManager.getInstance().listSubscribers();
-	}
-
-	
 	/**
 	 * @param subscriberID the ID number of the looked-up subscriber
 	 * @return a {@link AbstractSubscriber} type object corresponding the the ID provided as input
