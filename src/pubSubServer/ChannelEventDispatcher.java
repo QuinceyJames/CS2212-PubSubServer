@@ -30,16 +30,10 @@ public class ChannelEventDispatcher {
 	 * @param listOfChannels list of channel names to which the event must be
 	 *                       published to
 	 */
-	public void postEvent(AbstractEvent event, List<String> listOfChannels) {
+	public void postEvent(AbstractEvent event, List<AbstractChannel> listOfChannels) {
 
-		for (String channelName : listOfChannels) {
-			AbstractChannel channel = cpManager.findChannel(channelName);
-			if (channel == null) {
-				channel = ChannelCreator.getInstance().addChannel(channelName);
-			}
-
+		for (AbstractChannel channel : listOfChannels) {
 			channel.publishEvent(event);
 		}
 	}
-
 }
