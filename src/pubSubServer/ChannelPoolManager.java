@@ -1,7 +1,6 @@
 package pubSubServer;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,26 +18,26 @@ import java.util.Map;
  */
 public class ChannelPoolManager {
 
-	private static ChannelPoolManager instance = null;
+	private static ChannelPoolManager INSTANCE = null;
 	private Map<String, AbstractChannel> channelsMap = new HashMap<String, AbstractChannel>();
 
 	private ChannelPoolManager() {
-		try {
-			BufferedReader channelListReader = new BufferedReader(new FileReader(new File("Channels.chl")));
+		try (BufferedReader channelListReader = new BufferedReader(new FileReader("Channels.chl"))) {
+
 			while (channelListReader.ready())
 				addChannel(channelListReader.readLine());
-			channelListReader.close();
-		} catch (IOException ioe) {
+
+		} catch (IOException e) {
 			System.out.println("Error with loading from file, creating one no_theme_channel");
 			addChannel("no_theme");
 		}
 	}
 
 	protected static ChannelPoolManager getInstance() {
+		if (INSTANCE == null)
+			INSTANCE = new ChannelPoolManager();
 
-		if (instance == null)
-			instance = new ChannelPoolManager();
-		return instance;
+		return INSTANCE;
 	}
 
 	/**
@@ -49,7 +48,6 @@ public class ChannelPoolManager {
 	 * @return the new AbstractChannel
 	 */
 	protected AbstractChannel addChannel(String channelName) {
-
 		Channel ch = new Channel(channelName);
 		channelsMap.put(channelName, ch);
 		return ch;
@@ -61,7 +59,6 @@ public class ChannelPoolManager {
 	 * @param channelName the name of the AbstractChannel to be removed
 	 */
 	protected void deleteChannel(String channelName) {
-
 		channelsMap.remove(channelName);
 	}
 
