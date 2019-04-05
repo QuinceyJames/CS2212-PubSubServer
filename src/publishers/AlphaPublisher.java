@@ -8,15 +8,4 @@ public class AlphaPublisher extends AbstractPublisher {
 	public AlphaPublisher(StrategyName strategyName) {
 		super(strategyName);
 	}
-
-	@Override
-	public void publish() {
-		
-	}
-
-	@Override
-	public void publish(AbstractEvent event) {
-		publishingStrategy.doPublish(event);
-	}
-
 }

@@ -9,9 +9,13 @@ public abstract class AbstractStrategy {
 		// TODO: delete the IStrategy
 	}
 
-	public abstract void doPublish(AbstractPublisher publisher);
+	public void doPublish(AbstractPublisher publisher) {
+		
+	}
 
-	public abstract void doPublish(AbstractEvent event);
+	public void doPublish(AbstractEvent event) {
+		
+	}
 
 	@Override
 	public String toString() {
