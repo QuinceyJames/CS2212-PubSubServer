@@ -14,7 +14,7 @@ public class DriverFactory {
 			new SubscriberDriver().execute(tokenizer);
 			break;
 		case "UNSUB":
-			new SubscriberDriver().execute(tokenizer);
+			new UnSubscribeDriver().execute(tokenizer);
 			break;
 		case "BLOCK":
 			new BlockerDriver().execute(tokenizer);
