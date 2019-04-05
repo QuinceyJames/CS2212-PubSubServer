@@ -1,5 +1,7 @@
 package orchestration;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -24,14 +26,14 @@ public class Orchestration {
 			loadStrategies();
 			loadStates();
 			runDriver();
-		} catch (IOException e) {
+		} catch (FileNotFoundException e) {
 			System.err.println(e.getMessage());
 			System.exit(1);
 		}
 	}
 
-	private void loadStrategies() throws IOException {
-		try (Scanner scanner = new Scanner("Strategies.str")) {
+	private void loadStrategies() throws FileNotFoundException {
+		try (Scanner scanner = new Scanner(new File("Strategies.str"))) {
 
 			for (int publisherID = 0; scanner.hasNextLine(); publisherID++) {
 				PublisherType publisherType = PublisherType.values()[scanner.nextInt()];
@@ -43,8 +45,8 @@ public class Orchestration {
 		}
 	}
 
-	private void loadStates() throws IOException {
-		try (Scanner scanner = new Scanner("States.sts")) {
+	private void loadStates() throws FileNotFoundException {
+		try (Scanner scanner = new Scanner(new File("States.sts"))) {
 
 			for (int subscriberID = 0; scanner.hasNextLine(); subscriberID++) {
 				SubscriberType subscriberType = SubscriberType.values()[scanner.nextInt()];
@@ -56,8 +58,8 @@ public class Orchestration {
 		}
 	}
 
-	private void runDriver() {
-		try (Scanner scanner = new Scanner("Driver.dvr")) {
+	private void runDriver() throws FileNotFoundException {
+		try (Scanner scanner = new Scanner(new File("Driver.dvr"))) {
 
 			while (scanner.hasNextLine())
 				DriverFactory.createDriver(scanner.nextLine());
