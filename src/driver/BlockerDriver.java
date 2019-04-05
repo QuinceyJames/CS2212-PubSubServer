@@ -16,9 +16,6 @@ public class BlockerDriver {
 		AbstractChannel channel = ChannelDiscovery.getInstance().findChannel(channelName);
 		if (channel != null) {
 			SubscriptionManager.getInstance().Block(subscriber, channelName);
-		}
-		
-		
-		
+		}	
 	}
 }

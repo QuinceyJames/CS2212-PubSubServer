@@ -2,7 +2,6 @@ package subscribers;
 
 import baseEntities.IEntity;
 import events.AbstractEvent;
-import states.subscriber.AbstractState;
 import states.subscriber.IState;
 import states.subscriber.StateFactory;
 import states.subscriber.StateName;
