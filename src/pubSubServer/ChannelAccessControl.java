@@ -1,14 +1,12 @@
 
 package pubSubServer;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 
 import subscribers.AbstractSubscriber;
 
@@ -24,7 +22,7 @@ import subscribers.AbstractSubscriber;
 public class ChannelAccessControl {
 
 	private static ChannelAccessControl instance = null;
-	Map<String, List<AbstractSubscriber>> blackList = new HashMap<>();
+	Map<String, TreeSet<AbstractSubscriber>> blackList = new HashMap<>();
 	
 	private ChannelAccessControl() {}
 	
@@ -40,25 +38,29 @@ public class ChannelAccessControl {
 	 * blocks the provided subscriber from accessing the designated channel
 	 * @param subscriber an instance of any implementation of {@link AbstractSubscriber}
 	 * @param channelName a String value representing a valid channel name
+	 * @return 
 	 */
-	protected void blockSubcriber(AbstractSubscriber subscriber, String channelName) {
-		
-		List<AbstractSubscriber> blockedSubscribers = blackList.getOrDefault(channelName, new ArrayList<AbstractSubscriber>());
-		blockedSubscribers.add(subscriber);
+	protected boolean blockSubcriber(AbstractSubscriber subscriber, String channelName) {
+		TreeSet<AbstractSubscriber> blockedSubscribers = blackList.getOrDefault(channelName, new TreeSet<AbstractSubscriber>());
+		boolean result = blockedSubscribers.add(subscriber);
 		blackList.put(channelName, blockedSubscribers);
+		System.out.println("Subscriber " + subscriber.toString() + " is blocked on channel " + channelName);
+		return result;
 	}
 
 	/**
 	 * unblocks the provided subscriber from accessing the designated channel
 	 * @param subscriber an instance of any implementation of {@link AbstractSubscriber}
 	 * @param channelName a String value representing a valid channel name
+	 * @return 
 	 */
-	protected void unBlockSubscriber(AbstractSubscriber subscriber, String channelName) {
+	protected boolean unBlockSubscriber(AbstractSubscriber subscriber, String channelName) {
 		
-		List<AbstractSubscriber> blockedSubscribers;
+		TreeSet<AbstractSubscriber> blockedSubscribers;
 		if((blockedSubscribers = blackList.get(channelName)) == null)
-			return;
-		blockedSubscribers.remove(subscriber);
+			return false;
+		System.out.println("Subscriber " + subscriber.toString() + " is un-blocked on channel " + channelName);
+		return blockedSubscribers.remove(subscriber);
 	}
 
 	
@@ -70,7 +72,7 @@ public class ChannelAccessControl {
 	 */
 	protected boolean checkIfBlocked(AbstractSubscriber subscriber, String channelName) {
 		
-		List<AbstractSubscriber> blockedSubscribers;
+		TreeSet<AbstractSubscriber> blockedSubscribers;
 		if((blockedSubscribers = blackList.get(channelName)) == null)
 			return false;
 		return (blockedSubscribers.contains(subscriber));
