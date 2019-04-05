@@ -41,6 +41,4 @@ public class ChannelDiscovery {
 		return ChannelPoolManager.getInstance().getChannelsMap().get(channelName);
 	}
 	
-	
-	
 }

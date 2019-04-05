@@ -42,4 +42,8 @@ public class SubscriberDiscovery {
 		return SubscriberPoolManager.getInstance().getSubscribersMap().get(subscriberID); //may not be able to use ID
 	}
 	
+	protected int findID(AbstractSubscriber subscriber) { //may not be able to use ID
+		return SubscriberPoolManager.getInstance().getSubscribersMap().get(subscriberID); //may not be able to use ID
+	}
+	
 }
