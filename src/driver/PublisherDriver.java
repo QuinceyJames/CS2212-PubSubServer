@@ -12,7 +12,7 @@ public class  PublisherDriver implements DriverInterface {
 
 	@Override
 	public void execute(StringTokenizer tokenizer) {
-		AbstractPublisher publisher = Orchestration.getPublisher(Integer.parseInt(tokenizer.nextToken()));
+		AbstractPublisher publisher = Orchestration.getInstance().getPublisher(Integer.parseInt(tokenizer.nextToken()));
 		if (tokenizer.countTokens() > 2) {
 			int eventType = Integer.parseInt(tokenizer.nextToken());
 			EventType type = EventType.values()[eventType];
