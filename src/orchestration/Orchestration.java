@@ -18,43 +18,13 @@ import subscribers.SubscriberType;
 
 public class Orchestration {
 	private static Orchestration INSTANCE = null;
-	private final HashMap<Integer, AbstractPublisher> publisherMap = new HashMap<>();
-	private final HashMap<Integer, AbstractSubscriber> subscriberMap = new HashMap<>();
 
 	private Orchestration() {
 		try {
-			loadStrategies();
-			loadStates();
 			runDriver();
 		} catch (FileNotFoundException e) {
 			System.err.println(e.getMessage());
 			System.exit(1);
-		}
-	}
-
-	private void loadStrategies() throws FileNotFoundException {
-		try (Scanner scanner = new Scanner(new File("Strategies.str"))) {
-
-			for (int publisherID = 0; scanner.hasNextLine(); publisherID++) {
-				PublisherType publisherType = PublisherType.values()[scanner.nextInt()];
-				StrategyName strategyName = StrategyName.values()[scanner.nextInt()];
-
-				publisherMap.put(publisherID, PublisherFactory.createPublisher(publisherType, strategyName));
-			}
-
-		}
-	}
-
-	private void loadStates() throws FileNotFoundException {
-		try (Scanner scanner = new Scanner(new File("States.sts"))) {
-
-			for (int subscriberID = 0; scanner.hasNextLine(); subscriberID++) {
-				SubscriberType subscriberType = SubscriberType.values()[scanner.nextInt()];
-				StateName stateName = StateName.values()[scanner.nextInt()];
-
-				subscriberMap.put(subscriberID, SubscriberFactory.createSubscriber(subscriberType, stateName));
-			}
-
 		}
 	}
 
