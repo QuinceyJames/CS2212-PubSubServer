@@ -1,7 +1,6 @@
 package publishers;
 
 import events.AbstractEvent;
-import pubSubServer.ChannelEventDispatcher;
 import strategies.publisher.StrategyName;
 
 public class AlphaPublisher extends AbstractPublisher {

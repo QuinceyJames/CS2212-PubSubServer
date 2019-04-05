@@ -17,6 +17,7 @@ public abstract class AbstractPublisher implements IEntity {
 	// Package-private method
 	AbstractPublisher(StrategyName strategyName) {
 		this.publishingStrategy = StrategyFactory.createStrategy(strategyName);
+		//TODO add publisher discovery such that we can print IDs here 
 		System.out.println(this + " has been created.");
 		System.out.println(this + " has " + this.publishingStrategy + ".");
 	}
