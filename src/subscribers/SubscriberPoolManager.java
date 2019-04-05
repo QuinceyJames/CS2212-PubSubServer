@@ -29,7 +29,7 @@ public class SubscriberPoolManager {
 				SubscriberType subscriberType = SubscriberType.values()[scanner.nextInt()];
 				StateName stateName = StateName.values()[scanner.nextInt()];
 
-				subscribersMap.put(SubscriberFactory.createSubscriber(subscriberType, stateName), subscriberID);
+				subscribersMap.put(SubscriberFactory.createSubscriber(subscriberType, stateName, subscriberID), subscriberID);
 			}
 
 		} catch (FileNotFoundException e) {

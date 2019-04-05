@@ -29,7 +29,7 @@ public class PublisherPoolManager {
 				PublisherType publisherType = PublisherType.values()[scanner.nextInt()];
 				StrategyName strategyName = StrategyName.values()[scanner.nextInt()];
 
-				publishersMap.put(PublisherFactory.createPublisher(publisherType, strategyName), publisherID);
+				publishersMap.put(PublisherFactory.createPublisher(publisherType, strategyName, publisherID), publisherID);
 			}
 
 		} catch (FileNotFoundException e) {

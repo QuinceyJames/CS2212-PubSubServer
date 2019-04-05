@@ -19,8 +19,7 @@ public abstract class AbstractPublisher implements IEntity, Comparable<AbstractP
 	AbstractPublisher(StrategyName strategyName, int publisherID) {
 		this.publishingStrategy = StrategyFactory.createStrategy(strategyName);
 		this.publisherID = publisherID;
-		System.out.println(this + " has been created.");
-		System.out.println(this + " has " + this.publishingStrategy + ".");
+		System.out.println(String.format("%s has %s", this, publishingStrategy));
 	}
 
 	@Override
