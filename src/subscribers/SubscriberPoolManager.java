@@ -53,5 +53,9 @@ public class SubscriberPoolManager {
 	protected AbstractSubscriber findSubscriber(Integer subscriberID) {
 		return subscribersMap.get(subscriberID);
 	}	
+	
+	protected int findID(AbstractSubscriber subscriber) {
+		return subscribersMap.get(subscriberID);
+	}	
 }
 
