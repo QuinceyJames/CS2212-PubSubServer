@@ -12,8 +12,8 @@ import states.subscriber.StateName;
 public class GammaSubscriber extends AbstractSubscriber  {
 
 
-	protected GammaSubscriber(StateName stateName) {
-		super(stateName);
+	protected GammaSubscriber(StateName stateName, int subscriberID) {
+		super(stateName, subscriberID);
 	}
 	
 	/* (non-Javadoc)

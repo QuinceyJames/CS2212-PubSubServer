@@ -20,16 +20,16 @@ public class SubscriberFactory {
 	 * @param subscriberType a value from the {@link SubscriberType} enumeration specifying the type of Subscriber to be created 
 	 * @return the newly created {@link AbstractSubscriber} instance 
 	 */
-	public static AbstractSubscriber createSubscriber(SubscriberType subscriberType, StateName stateName) {
+	public static AbstractSubscriber createSubscriber(SubscriberType subscriberType, StateName stateName, int subscriberID) {
 		switch (subscriberType) {
 			case ALPHA_SUBSCRIBER : 
-				return new AlphaSubscriber(stateName);
+				return new AlphaSubscriber(stateName, subscriberID);
 			case BETA_SUBSCRIBER : 
-				return new BetaSubscriber(stateName);
+				return new BetaSubscriber(stateName, subscriberID);
 			case GAMMA_SUBSCRIBER : 
-				return new GammaSubscriber(stateName);
+				return new GammaSubscriber(stateName, subscriberID);
 			default:
-				return new DefaultSubscriber(stateName);
+				return new DefaultSubscriber(stateName, subscriberID);
 		}
 	}
 	
