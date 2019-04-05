@@ -66,7 +66,7 @@ public class Orchestration {
 	}
 
 	public static void main(String[] args) throws IOException {
-
+		new Orchestration();
 	}
 
 	public AbstractPublisher getPublisher(int publisherID) {
