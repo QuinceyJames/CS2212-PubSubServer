@@ -33,6 +33,7 @@ public class SubscriberDiscovery {
 		return SubscriberPoolManager.getInstance().listSubscribers();
 	}
 
+	
 	/**
 	 * @param subscriberID the ID number of the looked-up subscriber
 	 * @return a {@link AbstractSubscriber} type object corresponding the the ID provided as input
