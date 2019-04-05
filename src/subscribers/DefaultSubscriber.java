@@ -11,8 +11,8 @@ import states.subscriber.StateName;
  */
 public class DefaultSubscriber extends AbstractSubscriber  {
 
-	protected DefaultSubscriber(StateName stateName) {
-		super(stateName);
+	protected DefaultSubscriber(StateName stateName,int subscriberID) {
+		super(stateName, subscriberID);
 	}
 	
 	/* (non-Javadoc)

@@ -12,13 +12,15 @@ import states.subscriber.StateName;
  * @author kkontog, ktsiouni, mgrigori
  * the base Interface for the Subscriber hierarchy
  */
-public abstract class AbstractSubscriber implements IEntity {
+public abstract class AbstractSubscriber implements IEntity, Comparable<AbstractSubscriber>  {
 	
 	protected IState state;
+	
+	protected int subscriberID;
 
-	//package protected meaning only factory can instantiate
-	protected AbstractSubscriber(StateName stateName) {
-		
+	
+	protected AbstractSubscriber(StateName stateName, int subscriberID) {
+		this.subscriberID = subscriberID;
 		this.state = StateFactory.createState(stateName);
 		//TODO add subscriber discovery class so that id can be used 
 		System.out.println(this + " " + SubscriberDiscovery.getInstance().findID(this) + " haaaas been created.");
@@ -27,7 +29,7 @@ public abstract class AbstractSubscriber implements IEntity {
 	
 	@Override
 	public String toString() {
-		return getClass().getSimpleName();
+		return String.format("%s with id %d", getClass().getSimpleName(), this.subscriberID);
 	}
 	
 	/**
@@ -64,6 +66,11 @@ public abstract class AbstractSubscriber implements IEntity {
 	 */
 	public void unsubscribe(String channelName) {
 	SubscriptionManager.getInstance().unSubscribe(channelName, this);
+	}
+	
+	@Override
+	public int compareTo(AbstractSubscriber o) {
+		return o.subscriberID - subscriberID;
 	}
 	
 }

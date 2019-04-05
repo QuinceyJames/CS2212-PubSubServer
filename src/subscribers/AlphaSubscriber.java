@@ -12,8 +12,8 @@ import states.subscriber.StateName;
 public class AlphaSubscriber extends AbstractSubscriber {
 	
 
-	protected AlphaSubscriber(StateName stateName) {
-		super(stateName);
+	protected AlphaSubscriber(StateName stateName, int subscriberID) {
+		super(stateName, subscriberID);
 	}
 	
 	/* (non-Javadoc)
