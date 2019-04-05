@@ -10,6 +10,8 @@ public class DriverFactory {
 		case "PUB":
 			new PublisherDriver().execute(tokenizer);
 			break;
+		case "SUB":
+			new SubscriberDriver().execute(tokenizer);
 		}
 		
 		

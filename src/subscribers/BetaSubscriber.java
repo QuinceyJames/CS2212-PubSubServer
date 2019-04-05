@@ -50,10 +50,5 @@ public class BetaSubscriber extends AbstractSubscriber  {
 		
 	}
 	
-	
 	// TODO: make a toString()
-
-	
-	
-	
 }
