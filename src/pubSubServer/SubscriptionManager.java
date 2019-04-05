@@ -49,5 +49,8 @@ public class SubscriptionManager {
 		channel.unsubscribe(subscriber);
 		System.out.println(subscriber + "unsubscribes from " + channelName);
 	}
-
+	
+	public void blockAndUnblock(AbstractSubscriber subscriber, String channelName) {
+		ChannelAccessControl.getInstance();
+	}
 }
