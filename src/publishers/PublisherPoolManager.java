@@ -1,5 +1,7 @@
 package publishers;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -21,7 +23,7 @@ public class PublisherPoolManager {
 	private Map<AbstractPublisher, Integer> publishersMap = new HashMap<>();
 
 	private PublisherPoolManager() {
-		try (Scanner scanner = new Scanner("Strategies.str")) {
+		try (Scanner scanner = new Scanner(new File("Strategies.str"))) {
 
 			for (int publisherID = 0; scanner.hasNextLine(); publisherID++) {
 				PublisherType publisherType = PublisherType.values()[scanner.nextInt()];
@@ -30,6 +32,9 @@ public class PublisherPoolManager {
 				publishersMap.put(PublisherFactory.createPublisher(publisherType, strategyName), publisherID);
 			}
 
+		} catch (FileNotFoundException e) {
+			System.err.println(e.getMessage());
+			System.exit(1);
 		}
 	}
 

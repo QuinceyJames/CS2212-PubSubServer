@@ -4,6 +4,7 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 import publishers .AbstractPublisher;
+import publishers.PublisherDiscovery;
 
 public class PublisherDriver implements DriverInterface {
 

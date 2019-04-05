@@ -1,5 +1,7 @@
 package subscribers;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -21,7 +23,7 @@ public class SubscriberPoolManager {
 	private Map<AbstractSubscriber, Integer> subscribersMap = new HashMap<>();
 
 	private SubscriberPoolManager() {
-		try (Scanner scanner = new Scanner("States.sts")) {
+		try (Scanner scanner = new Scanner(new File("States.sts"))) {
 
 			for (int subscriberID = 0; scanner.hasNextLine(); subscriberID++) {
 				SubscriberType subscriberType = SubscriberType.values()[scanner.nextInt()];
@@ -30,6 +32,9 @@ public class SubscriberPoolManager {
 				subscribersMap.put(SubscriberFactory.createSubscriber(subscriberType, stateName), subscriberID);
 			}
 
+		} catch (FileNotFoundException e) {
+			System.err.println(e.getMessage());
+			System.exit(1);
 		}
 	}
 
