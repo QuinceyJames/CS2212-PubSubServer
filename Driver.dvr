@@ -1,6 +1,6 @@
 SUB 0 fo
 PUB 0 1 cheese|best food ever!
-BLOCK 1 fo
+BLOCK 0 fo
 PUB 0 1 bread|second best food ever!
-UNBLOCK 1 fo
+UNBLOCK 0 fo
 PUB 0 1 pep|third best food ever!

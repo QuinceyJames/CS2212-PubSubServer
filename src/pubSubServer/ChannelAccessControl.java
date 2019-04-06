@@ -67,7 +67,9 @@ public class ChannelAccessControl {
 		if ((blockedSubscribers = blackList.get(channelName)) == null)
 			return false;
 
-		System.out.println("Subscriber " + subscriber.toString() + " is un-blocked on Channel '" + channelName + "'.");
+		System.out.println("Subscriber " + 
+		subscriber.toString() + " is un-blocked on Channel '" + 
+				channelName + "'.");
 		return blockedSubscribers.remove(subscriber);
 	}
 

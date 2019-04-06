@@ -9,7 +9,6 @@ import subscribers.SubscriberDiscovery;
 public class UnblockerDriver implements DriverInterface {
 	public void execute(Scanner scanner) {
 		AbstractSubscriber subscriber = SubscriberDiscovery.getInstance().findSubscriber(scanner.nextInt());
-		// TODO: in case channel name has a space in it
 		SubscriptionManager.getInstance().unblock(subscriber, scanner.next());
 	}
 }
