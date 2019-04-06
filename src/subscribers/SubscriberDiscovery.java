@@ -27,8 +27,4 @@ public class SubscriberDiscovery {
 		return POOL_MANAGER.findSubscriber(subscriberID); // may not be able to use ID
 	}
 
-	public int findID(AbstractSubscriber subscriber) { // may not be able to use ID
-		return POOL_MANAGER.findID(subscriber); // may not be able to use ID
-	}
-
 }

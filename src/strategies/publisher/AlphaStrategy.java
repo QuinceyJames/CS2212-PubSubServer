@@ -16,6 +16,7 @@ public class AlphaStrategy extends AbstractStrategy {
 	}
 
 	public void doPublish(AbstractEvent event, AbstractPublisher publisher) {
+		super.doPublish(event, publisher);
 		List<AbstractChannel> channelList = ChannelDiscovery.getInstance().listChannels();
 		
 		ArrayList<String> outputList = new ArrayList<>();

@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Scanner;
 
 import states.subscriber.StateName;
@@ -20,7 +19,7 @@ import states.subscriber.StateName;
 public class SubscriberPoolManager {
 
 	private static SubscriberPoolManager INSTANCE = new SubscriberPoolManager();
-	private Map<AbstractSubscriber, Integer> subscribersMap = new HashMap<>();
+	private Map<Integer, AbstractSubscriber> subscribersMap = new HashMap<>();
 
 	private SubscriberPoolManager() {
 		try (Scanner scanner = new Scanner(new File("States.sts"))) {
@@ -29,7 +28,7 @@ public class SubscriberPoolManager {
 				SubscriberType subscriberType = SubscriberType.values()[scanner.nextInt()];
 				StateName stateName = StateName.values()[scanner.nextInt()];
 
-				subscribersMap.put(SubscriberFactory.createSubscriber(subscriberType, stateName, subscriberID), subscriberID);
+				subscribersMap.put(subscriberID, SubscriberFactory.createSubscriber(subscriberType, stateName, subscriberID));
 			}
 
 		} catch (FileNotFoundException e) {
@@ -49,14 +48,6 @@ public class SubscriberPoolManager {
 	 * @return the appropriate instance of an AbstractChannel subclass
 	 */
 	protected AbstractSubscriber findSubscriber(int subscriberID) {
-		for (Entry<AbstractSubscriber, Integer> entry : subscribersMap.entrySet())
-			if (entry.getValue().equals(subscriberID))
-				return entry.getKey();
-		
-		return null;
-	}
-
-	protected int findID(AbstractSubscriber subscriber) {
-		return subscribersMap.get(subscriber);
+		return subscribersMap.get(subscriberID);
 	}
 }

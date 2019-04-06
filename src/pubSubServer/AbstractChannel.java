@@ -17,8 +17,7 @@ import subscribers.AbstractSubscriber;
 // TODO modify comments to hint at creation of ChannelFactory
 public abstract class AbstractChannel {
 
-	private String channelTopic = null;
-	
+	private String channelTopic;
 	
 	public AbstractChannel(String channelTopic) {
 		this.channelTopic = channelTopic;
@@ -52,6 +51,6 @@ public abstract class AbstractChannel {
 	 */
 	public String getChannelTopic() {
 		return channelTopic;
-	};
+	}
 
 }
