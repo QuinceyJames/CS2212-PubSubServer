@@ -15,8 +15,7 @@ public abstract class AbstractPublisher implements IEntity, Comparable<AbstractP
 	protected AbstractStrategy publishingStrategy;
 	protected int publisherID;
 
-	// Package-private method
-	AbstractPublisher(StrategyName strategyName, int publisherID) {
+	protected AbstractPublisher(StrategyName strategyName, int publisherID) {
 		this.publishingStrategy = StrategyFactory.createStrategy(strategyName);
 		this.publisherID = publisherID;
 		System.out.println(String.format("%s has been created", this));
@@ -31,8 +30,10 @@ public abstract class AbstractPublisher implements IEntity, Comparable<AbstractP
 	public void setStrategy(AbstractStrategy publishingStrategy) {
 		if (publishingStrategy == null)
 			System.out.println("CANNOT BE NULL");
-		else
+		else {
 			this.publishingStrategy = publishingStrategy;
+			System.out.println(String.format("%s has %s", this, publishingStrategy));
+		}
 	}
 
 	/**
