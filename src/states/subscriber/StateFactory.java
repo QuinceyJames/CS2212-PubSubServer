@@ -15,7 +15,7 @@ public class StateFactory {
 	 * @param stateName a value from the {@link StateName} enumeration specifying the state to be created 
 	 * @return the newly created {@link IState} instance 
 	 */
-	public static IState createState(StateName stateName) {
+	public static AbstractState createState(StateName stateName) {
 		switch(stateName) {
 			case ALPHA_STATE : 
 				return new AlphaState();

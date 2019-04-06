@@ -7,14 +7,14 @@ import subscribers.AbstractSubscriber;
 import subscribers.SubscriberDiscovery;
 
 /**
- * A Package-Protected concrete implementation of {@link DriverStrategy} used to
+ * A Package-Protected concrete implementation of {@link DriverStrategyInterface} used to
  * block a {@link subscribers.AbstractSubscriber} from a
  * {@link pubSubServer.Channel}
  * 
  * @author qjames2, tzhu63, zzhan746, mgianco2, rblack43
  *
  */
-class BlockerDriver implements DriverStrategy {
+class BlockerDriver implements DriverStrategyInterface {
 
 	
 	/* (non-Javadoc)

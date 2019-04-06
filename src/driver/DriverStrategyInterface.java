@@ -8,10 +8,10 @@ import java.util.Scanner;
  * encapsulated in the concrete classes. This allows for easy incorporation of
  * new strategies. These classes should not be used outside of this package.
  * 
- * @author qjames2,
+ * @author qjames2, tzhu63, zzhan746, mgianco2, rblack43
  *
  */
-interface DriverStrategy {
+interface DriverStrategyInterface {
 
 	/**
 	 * Implementation of the logic used by the concrete classes should be contained
@@ -20,6 +20,6 @@ interface DriverStrategy {
 	 * @param scanner The scanner that contains all the parameters required to
 	 *                execute this strategy
 	 */
-	int executeDriverStrategy(Scanner scanner);
+	void executeDriverStrategy(Scanner scanner);
 
 }
