@@ -51,6 +51,7 @@ public abstract class AbstractSubscriber implements IEntity, Comparable<Abstract
 		
 	}
 
+	
 	@Override
 	public String toString() {
 		return String.format("%s with ID %d", getClass().getSimpleName(), this.subscriberID);
