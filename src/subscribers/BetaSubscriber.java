@@ -12,20 +12,19 @@ import states.subscriber.StateFactory;
 import states.subscriber.StateName;
 
 /**
- * @author kkontog, ktsiouni, mgrigori an example concrete subscriber
+ * @author kkontog, ktsiouni, mgrigori, rblack43
+ * second instance of a concrete subscriber
  */
 public class BetaSubscriber extends AbstractSubscriber {
 
-	protected BetaSubscriber(StateName stateName, int subscriberID) {
-		super(stateName, subscriberID);
-	}
-
-	/*
+	
+	/**
+	 *
 	 * (non-Javadoc)
 	 * 
-	 * @see subscribers.ISubscriber#setState(states.subscriber.StateName)
+	 * @see AbstractSubscriber#AbstractSubscriber(StateName, int)
 	 */
-	public void setState(StateName stateName) {
-		state = StateFactory.createState(stateName);
+	protected BetaSubscriber(StateName stateName, int subscriberID) {
+		super(stateName, subscriberID);
 	}
 }
