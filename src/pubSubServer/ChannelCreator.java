@@ -11,15 +11,16 @@ package pubSubServer;
 
 public class ChannelCreator {
 	
-	private ChannelPoolManager cpm = null;
-	private static ChannelCreator instance = null;
+	private static final ChannelPoolManager CHANNEL_POOL_MANAGER = ChannelPoolManager.getInstance();
+	private static ChannelCreator INSTANCE = null;
 	
 	private ChannelCreator() {}
 	
 	public static ChannelCreator getInstance() {
-		if (instance == null)
-			instance = new ChannelCreator();
-		return instance;
+		if (INSTANCE == null)
+			INSTANCE = new ChannelCreator();
+		
+		return INSTANCE;
 	}
 
 	
@@ -31,7 +32,7 @@ public class ChannelCreator {
 	 * @return the new channel (of any type that extends the {@link AbstractChannel} that has been created
 	 */
 	protected AbstractChannel addChannel(String channelName) {
-		return cpm.addChannel(channelName);
+		return CHANNEL_POOL_MANAGER.addChannel(channelName);
 	}
 
 	/**
@@ -39,7 +40,7 @@ public class ChannelCreator {
 	 * @param channelName name of the channel to be deleted
 	 */
 	protected void deleteChannel(String channelName) {
-		cpm.deleteChannel(channelName);
+		CHANNEL_POOL_MANAGER.deleteChannel(channelName);
 	}
 
 }
