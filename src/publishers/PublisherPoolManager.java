@@ -31,7 +31,7 @@ public class PublisherPoolManager {
 
 				publishersMap.put(PublisherFactory.createPublisher(publisherType, strategyName, publisherID), publisherID);
 			}
-
+			
 		} catch (FileNotFoundException e) {
 			System.err.println(e.getMessage());
 			System.exit(1);
