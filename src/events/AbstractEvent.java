@@ -30,7 +30,7 @@ public abstract class AbstractEvent {
 	
 	@Override
 	public String toString() {
-		return String.format("%s %l: %s",getClass().getSimpleName(), eventId, payload);
+		return String.format("%s %d: %s",getClass().getSimpleName(), eventId, payload);
 	} 
 
 	/**
