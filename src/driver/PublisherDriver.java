@@ -13,28 +13,23 @@ public class PublisherDriver implements DriverInterface {
 
 	@Override
 	public void execute(Scanner scanner) {
+		System.out.println("FALFHAD:LFJALDJFAL:FJALKFA:DF");
 		AbstractPublisher publisher = PublisherDiscovery.getInstance().findPublisher(scanner.nextInt());
-		if (scanner.hasNext())	{
+		if (scanner.hasNextInt()){
 			int eventType = scanner.nextInt();
 			EventType type = EventType.values()[eventType];
-			AbstractEvent newEvent = EventFactory.createEvent(type, publisher, scanner.next("|"), scanner.next("|"));
+			scanner.useDelimiter("|");
+			AbstractEvent newEvent = EventFactory.createEvent(type, publisher, scanner.next(), scanner.next());
 			publisher.publish(newEvent);
+			System.out.println(String.format("%s publishes %s @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@", publisher, newEvent));
 		}
 		
 		else {
 			publisher.publish();
+			System.out.println(String.format("%s publishes ******************************", publisher));
 		}
 	}
-		
-	
-	public static void main (String[] args) {
-		String test = "1 2 This is a header | This is a payload |";
-		StringTokenizer tokenizer = new StringTokenizer(test);
-		System.out.println("This is the publisher ID: " + Integer.parseInt(tokenizer.nextToken()));
-		System.out.println("This is the event type: " + Integer.parseInt(tokenizer.nextToken()));
-		System.out.println("This is the header: " + tokenizer.nextToken("|"));
-		System.out.println("This is the payload: " + tokenizer.nextToken("|"));
-	}
+
 
 
 	

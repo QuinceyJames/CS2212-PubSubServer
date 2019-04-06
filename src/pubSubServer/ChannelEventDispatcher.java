@@ -35,5 +35,6 @@ public class ChannelEventDispatcher {
 		for (AbstractChannel channel : listOfChannels) {
 			channel.publishEvent(event);
 		}
+		//System.out.println(String.format("%s publishes %s", event.))
 	}
 }
