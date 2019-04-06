@@ -51,10 +51,10 @@ public class SubscriptionManager {
 	}
 	
 	public boolean unblock(AbstractSubscriber subscriber, String channelName) {
-		return ChannelAccessControl.getInstance().unBlockSubscriber(subscriber, channelName);
+		return ChannelAccessControl.getInstance().unBlockSubscriber(subscriber, channelName); //proxy method for unblock
 	}
 	
 	public boolean block(AbstractSubscriber subscriber, String channelName) {
-		return ChannelAccessControl.getInstance().blockSubcriber(subscriber, channelName);
+		return ChannelAccessControl.getInstance().blockSubcriber(subscriber, channelName); //proxy method for block
 	}
 }

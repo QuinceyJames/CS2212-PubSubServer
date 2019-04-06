@@ -18,7 +18,7 @@ public class ChannelDiscovery {
 	
 	public static ChannelDiscovery getInstance() {
 		if (INSTANCE == null)
-			INSTANCE = new ChannelDiscovery();
+			INSTANCE = new ChannelDiscovery(); //create a new instance if null
 		return INSTANCE;
 	}
 	

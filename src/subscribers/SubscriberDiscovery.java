@@ -15,6 +15,9 @@ public class SubscriberDiscovery {
 	}
 
 	public static SubscriberDiscovery getInstance() {
+		if (INSTANCE == null)
+			INSTANCE = new SubscriberDiscovery();
+		
 		return INSTANCE;
 	}
 

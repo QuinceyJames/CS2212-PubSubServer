@@ -19,7 +19,7 @@ class Channel extends AbstractChannel {
 	private ChannelAccessControl accessControler = ChannelAccessControl.getInstance();
 
 	public Channel(String channelTopic) {
-		super(channelTopic);
+		super(channelTopic); //Call channel topic from parent Class
 	}
 
 	/*
@@ -38,7 +38,7 @@ class Channel extends AbstractChannel {
 	 * @see pubSubServer.AbstractChannel#subscribe(subscribers.ISubscriber)
 	 */
 	protected void subscribe(AbstractSubscriber subscriber) {
-		subscribers.add(subscriber);
+		subscribers.add(subscriber); //add subscriber
 	}
 
 	/*
@@ -47,7 +47,7 @@ class Channel extends AbstractChannel {
 	 * @see pubSubServer.AbstractChannel#unsubscribe(subscribers.ISubscriber)
 	 */
 	protected void unsubscribe(AbstractSubscriber subscriber) {
-		subscribers.remove(subscriber);
+		subscribers.remove(subscriber); //remove subscriber
 	}
 
 	/**
