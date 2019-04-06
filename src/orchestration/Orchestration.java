@@ -5,14 +5,14 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
-import driver.DriverFactory;
+import driver.DriverStrategySelector;
 
 public class Orchestration {
 
 	private Orchestration() {
 		try (Scanner scanner = new Scanner(new File("Driver.dvr"))) {
 			while (scanner.hasNextLine())
-				DriverFactory.createDriver(scanner.nextLine());
+				DriverStrategySelector.createDriver(scanner.nextLine());
 
 		} catch (FileNotFoundException e) {
 			System.err.println(e.getMessage());

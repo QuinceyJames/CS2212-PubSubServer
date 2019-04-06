@@ -6,10 +6,10 @@ import pubSubServer.SubscriptionManager;
 import subscribers.AbstractSubscriber;
 import subscribers.SubscriberDiscovery;
 
-public class SubscriberDriver implements DriverInterface {
+public class SubscriberDriver implements DriverStrategy {
 
 	@Override
-	public void execute(Scanner scanner) {
+	public void executeDriverStrategy(Scanner scanner) {
 		AbstractSubscriber subscriber = SubscriberDiscovery.getInstance().findSubscriber(scanner.nextInt());
 		SubscriptionManager.getInstance().subscribe(scanner.next(), subscriber);
 	}
