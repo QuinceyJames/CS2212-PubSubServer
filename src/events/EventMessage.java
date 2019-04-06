@@ -20,7 +20,7 @@ public class EventMessage {
 	
 	@Override
 	public String toString() {
-		return String.format("The header of the event is %s and the body is %s", header, body);
+		return String.format("[{%s},{%s}]", header, body);
 	} 
 
 	/**

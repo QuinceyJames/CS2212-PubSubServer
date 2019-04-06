@@ -20,7 +20,6 @@ public class PublisherDriver implements DriverInterface {
 			scanner.useDelimiter("\\|");
 			AbstractEvent newEvent = EventFactory.createEvent(type, publisher, scanner.next(".*"), scanner.next(".*"));
 			publisher.publish(newEvent);
-			System.out.println(String.format("%s publishes %s", publisher, newEvent));
 		}
 		
 		else {
