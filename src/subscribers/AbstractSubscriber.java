@@ -46,7 +46,7 @@ public abstract class AbstractSubscriber implements IEntity, Comparable<Abstract
 	 * @param channelName the name of the channel that sent the AbstractEvent to the ISubscriber
 	 */
 	public void alert(AbstractEvent event, String channelName) {
-		System.out.println("Subscriber " + this + " handling event ::" + event + ":: published on channel " + channelName);
+		System.out.println(String.format("%s recieves %s and handles it at %s", this, event, state));
 		state.handleEvent(event, channelName);
 	};
 	
