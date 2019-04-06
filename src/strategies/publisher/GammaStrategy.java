@@ -20,7 +20,7 @@ public class GammaStrategy extends AbstractStrategy {
 
 		ArrayList<String> outputList = new ArrayList<>();
 		for (AbstractChannel channel : channelList) {
-			if (channel.getChannelTopic().length() == 5)
+			if (channel.getChannelTopic().length() == 5) //add a channel if it is length 5
 				outputList.add(channel.getChannelTopic());
 		}
 

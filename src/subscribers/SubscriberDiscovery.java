@@ -1,19 +1,40 @@
 package subscribers;
 
 /**
- * @author kkontog, ktsiouni, mgrigori MUST IMPLEMENT the Singleton design
- *         pattern Allows for the discovery of available channels for
- *         subscription from {@link AbstractSubscriber} that want to subscribe
- *         to them
+ * Implements the Singleton design pattern. 
+ * 
+ * Allows for the discovery of existing {@link AbstractSubscriber} s.
+ * 
+ * @author rblack43
+ * 
  */
 public class SubscriberDiscovery {
 
+	
+	/**
+	 * Attribute holding reference to the {@link SubscriberPoolManager} to access list of current subscribers
+	 */
 	private static final SubscriberPoolManager POOL_MANAGER = SubscriberPoolManager.getInstance();
-	private static SubscriberDiscovery INSTANCE = new SubscriberDiscovery();
+	
+	
+	/**
+	 * Attribute holding reference to the single instance of this class
+	 */
+	private static SubscriberDiscovery INSTANCE = null;
 
-	private SubscriberDiscovery() {
-	}
+	/**
+	 * Private constructor as per the Singleton Design Pattern
+	 */
+	private SubscriberDiscovery() {}
 
+	
+	/**
+	 * Method controlling the constructor as per the Singleton Design Pattern that returns
+	 * the one instance of {@link SubscriberDiscovery} if it exists, and if it does not exist
+	 * , create it.
+	 * 
+	 * @return is the existing instance of {@link SubscriberDiscovery}
+	 */
 	public static SubscriberDiscovery getInstance() {
 		if (INSTANCE == null)
 			INSTANCE = new SubscriberDiscovery();
@@ -22,6 +43,8 @@ public class SubscriberDiscovery {
 	}
 
 	/**
+	 * Function to find and return an {@link AbstractSubscriber} given an {@link AbstractSubscriber#subscriberID ID}
+	 * 
 	 * @param subscriberID the ID number of the looked-up subscriber
 	 * @return a {@link AbstractSubscriber} type object corresponding the the ID
 	 *         provided as input

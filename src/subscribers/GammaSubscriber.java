@@ -12,21 +12,19 @@ import states.subscriber.StateFactory;
 import states.subscriber.StateName;
 
 /**
- * @author kkontog, ktsiouni, mgrigori
- * an example concrete subscriber
+ * @author kkontog, ktsiouni, mgrigori, rblack43
+ * fourth instance of a concrete subscriber
  */
 public class GammaSubscriber extends AbstractSubscriber  {
 
 
+	/**
+	 *
+	 * (non-Javadoc)
+	 * 
+	 * @see AbstractSubscriber#AbstractSubscriber(StateName, int)
+	 */
 	protected GammaSubscriber(StateName stateName, int subscriberID) {
 		super(stateName, subscriberID);
 	}
-	
-	/* (non-Javadoc)
-	 * @see subscribers.ISubscriber#setState(states.subscriber.StateName)
-	 */
-	public void setState(StateName stateName) {
-		state = StateFactory.createState(stateName);
-	}
-
 }

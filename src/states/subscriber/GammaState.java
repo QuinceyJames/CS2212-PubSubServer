@@ -5,7 +5,7 @@ import events.AbstractEvent;
 public class GammaState extends AbstractState {
 
 	protected GammaState() {
-		super();
+		super(); //Calls parent
 	}
 	
 	public void handleEvent(AbstractEvent event, String channelName) {

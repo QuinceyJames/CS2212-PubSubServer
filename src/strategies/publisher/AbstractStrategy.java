@@ -13,16 +13,16 @@ public abstract class AbstractStrategy {
 
 	public void doPublish(AbstractPublisher publisher) {
 		doPublish(EventFactory.createEvent(EventType.DEFAULT_EVENT, publisher, "Default Header", "Default Payload"),
-				publisher);
+				publisher); //Creates a default event for the publisher
 	}
 
 	public void doPublish(AbstractEvent event, AbstractPublisher publisher) {
-		System.out.println(String.format("%s publishes %s", publisher, event));
+		System.out.println(String.format("%s publishes %s", publisher, event)); //Prints publisher with event
 	}
 
 	@Override
 	public String toString() {
-		return getClass().getSimpleName();
+		return getClass().getSimpleName(); //toString method
 	}
 
 }
