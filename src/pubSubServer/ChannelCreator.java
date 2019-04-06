@@ -18,9 +18,9 @@ public class ChannelCreator {
 	
 	public static ChannelCreator getInstance() {
 		if (INSTANCE == null)
-			INSTANCE = new ChannelCreator();
+			INSTANCE = new ChannelCreator(); //create a new instance if null
 		
-		return INSTANCE;
+		return INSTANCE; 
 	}
 
 	

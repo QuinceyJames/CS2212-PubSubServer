@@ -25,7 +25,7 @@ public class ChannelAccessControl {
 
 	protected static ChannelAccessControl getInstance() {
 		if (INSTANCE == null)
-			INSTANCE = new ChannelAccessControl();
+			INSTANCE = new ChannelAccessControl(); //Create a new instance if null
 
 		return INSTANCE;
 	}
@@ -42,12 +42,12 @@ public class ChannelAccessControl {
 	protected boolean blockSubcriber(AbstractSubscriber subscriber, String channelName) {
 		if (subscriber == null) {
 			System.err.println("SUB is NULL");
-			return false;
+			return false; //Subscriber must exist to block
 		}
 		TreeSet<AbstractSubscriber> blockedSubscribers = blackList.getOrDefault(channelName,
 				new TreeSet<AbstractSubscriber>());
 		boolean result = blockedSubscribers.add(subscriber);
-		blackList.put(channelName, blockedSubscribers);
+		blackList.put(channelName, blockedSubscribers); //Put the subscriber on the blacklist and print
 		System.out.println(subscriber.toString() + " is blocked on Channel '" + channelName + "'.");
 
 		return result;
@@ -65,12 +65,12 @@ public class ChannelAccessControl {
 		TreeSet<AbstractSubscriber> blockedSubscribers;
 
 		if ((blockedSubscribers = blackList.get(channelName)) == null)
-			return false;
+			return false; //Check if blocked
 
 		System.out.println("Subscriber " + 
 		subscriber.toString() + " is un-blocked on Channel '" + 
 				channelName + "'.");
-		return blockedSubscribers.remove(subscriber);
+		return blockedSubscribers.remove(subscriber); //remove the block and print
 	}
 
 	/**

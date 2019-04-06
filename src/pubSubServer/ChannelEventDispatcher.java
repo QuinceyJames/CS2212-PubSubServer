@@ -21,7 +21,7 @@ public class ChannelEventDispatcher {
 
 	public static ChannelEventDispatcher getInstance() {
 		if (INSTANCE == null)
-			INSTANCE = new ChannelEventDispatcher();
+			INSTANCE = new ChannelEventDispatcher(); //create a new instance if null
 
 		return INSTANCE;
 	}
@@ -33,12 +33,12 @@ public class ChannelEventDispatcher {
 	 */
 	public void postEvent(AbstractEvent event, List<String> listOfChannels) {
 		for (String channelName : listOfChannels) {
-			AbstractChannel channel = CHANNEL_DISCOVERY.findChannel(channelName);
+			AbstractChannel channel = CHANNEL_DISCOVERY.findChannel(channelName); //find the channel
 
 			if (channel == null)
-				channel = CHANNEL_CREATOR.addChannel(channelName);
+				channel = CHANNEL_CREATOR.addChannel(channelName);  //if channel is null, create
 
-			channel.publishEvent(event);
+			channel.publishEvent(event); //publish the event to the channel
 		}
 
 		// System.out.println(String.format("%s publishes %s", event.))

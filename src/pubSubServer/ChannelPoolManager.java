@@ -25,7 +25,7 @@ public class ChannelPoolManager {
 		try (BufferedReader channelListReader = new BufferedReader(new FileReader("Channels.chl"))) {
 
 			while (channelListReader.ready())
-				addChannel(channelListReader.readLine());
+				addChannel(channelListReader.readLine()); //read from Channel file and add to list of channels
 
 		} catch (IOException e) {
 			System.out.println("Error with loading from file, creating one no_theme_channel");
