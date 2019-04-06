@@ -27,6 +27,11 @@ public abstract class AbstractEvent {
 		this.eventId = eventID;
 		this.payload = payload;
 	}
+	
+	@Override
+	public String toString() {
+		return String.format("%s %l: %s",getClass().getSimpleName(), eventId, payload);
+	} 
 
 	/**
 	 * 
@@ -46,5 +51,4 @@ public abstract class AbstractEvent {
 	protected EventMessage getPayload() {
 		return payload;
 	}
-
 }

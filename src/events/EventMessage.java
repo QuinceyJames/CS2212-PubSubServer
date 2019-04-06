@@ -17,6 +17,11 @@ public class EventMessage {
 		this.header = header;
 		this.body = body;
 	}
+	
+	@Override
+	public String toString() {
+		return String.format("The header of the event is %s and the body is %s", header, body);
+	} 
 
 	/**
 	 * @return the String containing the Event.header data
