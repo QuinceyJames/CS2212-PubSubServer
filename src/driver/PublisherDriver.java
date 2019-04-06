@@ -13,7 +13,6 @@ public class PublisherDriver implements DriverInterface {
 
 	@Override
 	public void execute(Scanner scanner) {
-		System.out.println("FALFHAD:LFJALDJFAL:FJALKFA:DF");
 		AbstractPublisher publisher = PublisherDiscovery.getInstance().findPublisher(scanner.nextInt());
 		if (scanner.hasNextInt()){
 			int eventType = scanner.nextInt();
