@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Scanner;
 
 import strategies.publisher.StrategyName;
@@ -20,7 +19,7 @@ import strategies.publisher.StrategyName;
 public class PublisherPoolManager {
 
 	private static PublisherPoolManager INSTANCE = null;
-	private Map<AbstractPublisher, Integer> publishersMap = new HashMap<>();
+	private Map<Integer, AbstractPublisher> publishersMap = new HashMap<>();
 
 	private PublisherPoolManager() {
 		try (Scanner scanner = new Scanner(new File("Strategies.str"))) {
@@ -29,7 +28,7 @@ public class PublisherPoolManager {
 				PublisherType publisherType = PublisherType.values()[scanner.nextInt()];
 				StrategyName strategyName = StrategyName.values()[scanner.nextInt()];
 
-				publishersMap.put(PublisherFactory.createPublisher(publisherType, strategyName, publisherID), publisherID);
+				publishersMap.put(publisherID, PublisherFactory.createPublisher(publisherType, strategyName, publisherID));
 			}
 
 		} catch (FileNotFoundException e) {
@@ -52,15 +51,8 @@ public class PublisherPoolManager {
 	 * @return the appropriate instance of an AbstractChannel subclass
 	 */
 	protected AbstractPublisher findPublisher(int publisherID) {
-		for (Entry<AbstractPublisher, Integer> entry : publishersMap.entrySet())
-			if (entry.getValue().equals(publisherID))
-				return entry.getKey();
-		
-		return null;
+		return publishersMap.get(publisherID);
 	}
 
-	protected int findID(AbstractPublisher publisher) {
-		return publishersMap.get(publisher);
-	}
 }
 

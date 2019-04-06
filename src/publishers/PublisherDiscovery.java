@@ -27,9 +27,4 @@ public class PublisherDiscovery {
 	public AbstractPublisher findPublisher(int publisherID) { // may not be able to use ID
 		return PublisherPoolManager.getInstance().findPublisher(publisherID); // may not be able to use ID
 	}
-
-	public int findID(AbstractPublisher publisher) { // may not be able to use ID
-		return PublisherPoolManager.getInstance().findID(publisher); // may not be able to use ID
-	}
-
 }

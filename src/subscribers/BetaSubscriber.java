@@ -28,16 +28,4 @@ public class BetaSubscriber extends AbstractSubscriber {
 	public void setState(StateName stateName) {
 		state = StateFactory.createState(stateName);
 	}
-
-	public void doPublish(AbstractEvent event, AbstractPublisher publisher) {
-		List<AbstractChannel> channelList = ChannelDiscovery.getInstance().listChannels();
-
-		ArrayList<String> outputList = new ArrayList<>();
-		for (AbstractChannel channel : channelList) {
-			if (channel.getChannelTopic().length() == 4)
-				outputList.add(channel.getChannelTopic());
-		}
-
-		ChannelEventDispatcher.getInstance().postEvent(event, outputList);
-	}
 }
