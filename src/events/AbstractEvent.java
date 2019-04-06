@@ -30,7 +30,7 @@ public abstract class AbstractEvent {
 	
 	@Override
 	public String toString() {
-		return String.format("%s with ID %d, MESSAGE=%s",getClass().getSimpleName(), eventId, payload);
+		return String.format("%s with ID=%d, MESSAGE=%s",getClass().getSimpleName(), eventId, payload);
 	} 
 
 	/**
@@ -45,7 +45,7 @@ public abstract class AbstractEvent {
 		return eventPublisher;
 	}
 
-	/**
+	/*
 	 * @return an object of the Class {@link EventMessage}
 	 */
 	protected EventMessage getPayload() {
