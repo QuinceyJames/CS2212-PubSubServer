@@ -48,7 +48,7 @@ public class ChannelAccessControl {
 				new TreeSet<AbstractSubscriber>());
 		boolean result = blockedSubscribers.add(subscriber);
 		blackList.put(channelName, blockedSubscribers);
-		System.out.println("Subscriber " + subscriber.toString() + " is blocked on channel " + channelName);
+		System.out.println(subscriber.toString() + " is blocked on Channel '" + channelName + "'.");
 
 		return result;
 	}
