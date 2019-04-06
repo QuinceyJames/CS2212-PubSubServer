@@ -2,25 +2,25 @@ package driver;
 
 import java.util.Scanner;
 
-public class DriverFactory {
+public class DriverStrategySelector {
 
 	public static void createDriver(String line) {
 		Scanner scanner = new Scanner(line);
 		switch (scanner.next().toUpperCase()) {
 		case "PUB":
-			new PublisherDriver().execute(scanner);
+			new PublisherDriver().executeDriverStrategy(scanner);
 			break;
 		case "SUB":
-			new SubscriberDriver().execute(scanner);
+			new SubscriberDriver().executeDriverStrategy(scanner);
 			break;
 		case "UNSUB":
-			new UnsubscribeDriver().execute(scanner);
+			new UnsubscribeDriver().executeDriverStrategy(scanner);
 			break;
 		case "BLOCK":
-			new BlockerDriver().execute(scanner);
+			new BlockerDriver().executeDriverStrategy(scanner);
 			break;
 		case "UNBLOCK":
-			new UnblockerDriver().execute(scanner);
+			new UnblockerDriver().executeDriverStrategy(scanner);
 			break;
 		default:
 			System.err.println("UNKNOWN COMMAND");
