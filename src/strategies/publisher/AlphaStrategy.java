@@ -12,19 +12,19 @@ import publishers.AbstractPublisher;
 public class AlphaStrategy extends AbstractStrategy {
 
 	protected AlphaStrategy() {
-		super();
+		super(); //Calls parent
 	}
 
 	public void doPublish(AbstractEvent event, AbstractPublisher publisher) {
 		super.doPublish(event, publisher);
-		List<AbstractChannel> channelList = ChannelDiscovery.getInstance().listChannels();
+		List<AbstractChannel> channelList = ChannelDiscovery.getInstance().listChannels(); //Get the list of channels
 		
 		ArrayList<String> outputList = new ArrayList<>();
 		for (AbstractChannel channel : channelList) {
-			if (channel.getChannelTopic().length() <= 3)
+			if (channel.getChannelTopic().length() <= 3) //add the channel topic if length is less than or equal to 3
 				outputList.add(channel.getChannelTopic());
 		}
 
-		ChannelEventDispatcher.getInstance().postEvent(event, outputList);
+		ChannelEventDispatcher.getInstance().postEvent(event, outputList); 
 	}
 }

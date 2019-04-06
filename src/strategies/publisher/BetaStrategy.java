@@ -20,7 +20,7 @@ public class BetaStrategy extends AbstractStrategy {
 
 		ArrayList<String> outputList = new ArrayList<>();
 		for (AbstractChannel channel : channelList) {
-			if (channel.getChannelTopic().length() == 4)
+			if (channel.getChannelTopic().length() == 4) //add if the length of topic is 4
 				outputList.add(channel.getChannelTopic());
 		}
 

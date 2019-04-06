@@ -20,7 +20,7 @@ public class DefaultStrategy extends AbstractStrategy {
 
 		ArrayList<String> outputList = new ArrayList<>();
 		for (AbstractChannel channel : channelList) {
-			outputList.add(channel.getChannelTopic());
+			outputList.add(channel.getChannelTopic()); //add the channel without parameters
 		}
 
 		ChannelEventDispatcher.getInstance().postEvent(event, outputList);
