@@ -17,10 +17,10 @@ public class PublisherDriver implements DriverInterface {
 		if (scanner.hasNextInt()){
 			int eventType = scanner.nextInt();
 			EventType type = EventType.values()[eventType];
-			scanner.useDelimiter("|");
-			AbstractEvent newEvent = EventFactory.createEvent(type, publisher, scanner.next(), scanner.next());
+			scanner.useDelimiter("\\|");
+			AbstractEvent newEvent = EventFactory.createEvent(type, publisher, scanner.next(".*"), scanner.next(".*"));
 			publisher.publish(newEvent);
-			System.out.println(String.format("%s publishes %s @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@", publisher, newEvent));
+			System.out.println(String.format("%s publishes %s", publisher, newEvent));
 		}
 		
 		else {
