@@ -8,8 +8,8 @@ import subscribers.SubscriberDiscovery;
 
 /**
  * A Package-Protected concrete implementation of {@link DriverStrategy} used to
- * block a {@link subscribers.AbstractSubscriber} from a
- * {@link pubSubServer.Channel}
+ * block a {@link subscribers.AbstractSubscriber Subscriber} from a
+ * {@link pubSubServer.Channel Channel}
  * 
  * @author qjames2, tzhu63, zzhan746, mgianco2, rblack43
  *

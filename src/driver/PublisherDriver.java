@@ -8,15 +8,21 @@ import events.EventType;
 import publishers.AbstractPublisher;
 import publishers.PublisherDiscovery;
 
-
 /**
- * A Package-Protected concrete implementation of {@link DriverStrategy}that can create an {@link events.AbstractEvent} and get a {@link publishers.AbstractPublisher} 
+ * A Package-Protected concrete implementation of {@link DriverStrategy} that
+ * can create an {@link events.AbstractEvent Event} and get a
+ * {@link publishers.AbstractPublisher Publisher}
  * 
  * @author qjames2, tzhu63, zzhan746, mgianco2, rblack43
  *
  */
 class PublisherDriver implements DriverStrategy {
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see driver.DriverStrategy#executeDriverStrategy(java.util.Scanner)
+	 */
 	@Override
 	public void executeDriverStrategy(Scanner scanner) {
 		AbstractPublisher publisher = PublisherDiscovery.getInstance().findPublisher(scanner.nextInt());
@@ -30,8 +36,8 @@ class PublisherDriver implements DriverStrategy {
 					scanner.next(".*").trim());
 
 			publisher.publish(newEvent);
-		} 
-		
+		}
+
 		// Otherwise publish
 		else {
 			publisher.publish();

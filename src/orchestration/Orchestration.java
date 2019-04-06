@@ -12,7 +12,7 @@ public class Orchestration {
 	private Orchestration() {
 		try (Scanner scanner = new Scanner(new File("Driver.dvr"))) {
 			while (scanner.hasNextLine())
-				DriverStrategySelector.createDriver(scanner.nextLine());
+				DriverStrategySelector.executeCommand(scanner.nextLine());
 
 		} catch (FileNotFoundException e) {
 			System.err.println(e.getMessage());
