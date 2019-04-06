@@ -18,7 +18,7 @@ public class PublisherDriver implements DriverInterface {
 			int eventType = scanner.nextInt();
 			EventType type = EventType.values()[eventType];
 			scanner.useDelimiter("\\|");
-			AbstractEvent newEvent = EventFactory.createEvent(type, publisher, scanner.next(".*"), scanner.next(".*"));
+			AbstractEvent newEvent = EventFactory.createEvent(type, publisher, scanner.next(".*").trim(), scanner.next(".*").trim());
 			publisher.publish(newEvent);
 		}
 		
