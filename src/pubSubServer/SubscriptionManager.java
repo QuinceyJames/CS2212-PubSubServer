@@ -30,10 +30,10 @@ public class SubscriptionManager {
 	 *                    wants to subscribe
 	 * @param subscriber  the reference to an ISubscriber object
 	 */
-	public void subscribe(String channelName, AbstractSubscriber subscriber) {
-		AbstractChannel channel = cpManager.findChannel(channelName);
+	public void subscribe(String channelTopic, AbstractSubscriber subscriber) {
+		AbstractChannel channel = cpManager.findChannel(channelTopic);
 		channel.subscribe(subscriber);
-		System.out.println(subscriber + " subscribes to Channel " + "'" + channelName + "'" + ".");
+		System.out.println(subscriber + " subscribes to Channel " + "'" + channelTopic + "'" + ".");
 	}
 
 	/**

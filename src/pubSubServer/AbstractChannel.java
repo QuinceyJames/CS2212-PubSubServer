@@ -17,7 +17,10 @@ import subscribers.AbstractSubscriber;
 // TODO modify comments to hint at creation of ChannelFactory
 public abstract class AbstractChannel {
 
+	private String channelTopic = null;
+	
 	public AbstractChannel(String channelTopic) {
+		this.channelTopic = channelTopic;
 		System.out.println(this + " '" + channelTopic + "' has been created.");
 	}
 	
@@ -47,7 +50,7 @@ public abstract class AbstractChannel {
 	 * @return the topic/name of the concrete implementation of Channel
 	 */
 	public String getChannelTopic() {
-		return "no topic";
+		return channelTopic;
 	};
 
 }
