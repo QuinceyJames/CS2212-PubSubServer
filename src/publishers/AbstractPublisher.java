@@ -54,6 +54,7 @@ public abstract class AbstractPublisher implements IEntity, Comparable<AbstractP
 		publishingStrategy.doPublish(event, this);
 	}
 
+	
 	@Override
 	public int compareTo(AbstractPublisher o) {
 		return o.publisherID - publisherID;

@@ -22,6 +22,7 @@ public abstract class AbstractStrategy {
 		ChannelEventDispatcher.getInstance().postEvent(event, ChannelDiscovery.getInstance().listChannels());
 	}
 
+	
 	@Override
 	public String toString() {
 		return getClass().getSimpleName();
