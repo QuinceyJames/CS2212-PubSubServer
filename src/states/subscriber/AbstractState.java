@@ -1,10 +1,10 @@
 package states.subscriber;
 
+import events.AbstractEvent;
 
-
-public abstract class AbstractState implements IState {
+public abstract class AbstractState {
 	
-	public AbstractState()  {
+	protected AbstractState()  {
 		// TODO: delete IState
 		// TODO: uses each state in the demo to show how each state implements it
 	}
@@ -13,5 +13,7 @@ public abstract class AbstractState implements IState {
 	public String toString() {
 		return getClass().getSimpleName();
 	}
+	
+	public abstract void handleEvent(AbstractEvent event, String channelName);
 }
 
