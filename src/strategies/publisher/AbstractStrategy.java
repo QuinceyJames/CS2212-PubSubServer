@@ -14,10 +14,11 @@ public abstract class AbstractStrategy {
 	}
 
 	public void doPublish(AbstractPublisher publisher) {
-		doPublish(EventFactory.createEvent(EventType.DEFAULT_EVENT, publisher, "Default Header", "Default Payload"));
+		doPublish(EventFactory.createEvent(EventType.DEFAULT_EVENT, publisher, "Default Header", "Default Payload"), publisher);
 	}
 
-	public void doPublish(AbstractEvent event) {
+	public void doPublish(AbstractEvent event, AbstractPublisher publisher) {
+		System.out.println(publisher + " publishes " + event + ".");
 		ChannelEventDispatcher.getInstance().postEvent(event, ChannelDiscovery.getInstance().listChannels());
 	}
 

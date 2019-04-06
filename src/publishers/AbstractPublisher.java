@@ -51,7 +51,7 @@ public abstract class AbstractPublisher implements IEntity, Comparable<AbstractP
 	}
 
 	public void publish(AbstractEvent event) {
-		publishingStrategy.doPublish(event);
+		publishingStrategy.doPublish(event, this);
 	}
 
 	@Override
