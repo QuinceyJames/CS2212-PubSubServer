@@ -19,7 +19,6 @@ public abstract class AbstractStrategy {
 
 	public void doPublish(AbstractEvent event, AbstractPublisher publisher) {
 		System.out.println(publisher + " publishes " + event + ".");
-		ChannelEventDispatcher.getInstance().postEvent(event, ChannelDiscovery.getInstance().listChannels());
 	}
 
 	@Override

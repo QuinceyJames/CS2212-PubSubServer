@@ -12,17 +12,18 @@ import publishers.AbstractPublisher;
  */
 public class ChannelEventDispatcher {
 
-	private ChannelPoolManager cpManager;
-
-	private static ChannelEventDispatcher instance = null;
+	private static final ChannelDiscovery CHANNEL_DISCOVERY = ChannelDiscovery.getInstance();
+	private static final ChannelCreator CHANNEL_CREATOR = ChannelCreator.getInstance();
+	private static ChannelEventDispatcher INSTANCE = null;
 
 	private ChannelEventDispatcher() {
 	}
 
 	public static ChannelEventDispatcher getInstance() {
-		if (instance == null)
-			instance = new ChannelEventDispatcher();
-		return instance;
+		if (INSTANCE == null)
+			INSTANCE = new ChannelEventDispatcher();
+
+		return INSTANCE;
 	}
 
 	/**
@@ -30,11 +31,16 @@ public class ChannelEventDispatcher {
 	 * @param listOfChannels list of channel names to which the event must be
 	 *                       published to
 	 */
-	public void postEvent(AbstractEvent event, List<AbstractChannel> listOfChannels) {
+	public void postEvent(AbstractEvent event, List<String> listOfChannels) {
+		for (String channelName : listOfChannels) {
+			AbstractChannel channel = CHANNEL_DISCOVERY.findChannel(channelName);
 
-		for (AbstractChannel channel : listOfChannels) {
+			if (channel == null)
+				channel = CHANNEL_CREATOR.addChannel(channelName);
+
 			channel.publishEvent(event);
 		}
-		//System.out.println(String.format("%s publishes %s", event.))
+
+		// System.out.println(String.format("%s publishes %s", event.))
 	}
 }

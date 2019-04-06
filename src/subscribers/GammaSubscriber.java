@@ -1,7 +1,13 @@
 package subscribers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import events.AbstractEvent;
-import pubSubServer.SubscriptionManager;
+import pubSubServer.AbstractChannel;
+import pubSubServer.ChannelDiscovery;
+import pubSubServer.ChannelEventDispatcher;
+import publishers.AbstractPublisher;
 import states.subscriber.StateFactory;
 import states.subscriber.StateName;
 
@@ -24,5 +30,15 @@ public class GammaSubscriber extends AbstractSubscriber  {
 	}
 	
 	
-	// TODO: make a toString()
+	public void doPublish(AbstractEvent event, AbstractPublisher publisher) {
+		List<AbstractChannel> channelList = ChannelDiscovery.getInstance().listChannels();
+		
+		ArrayList<String> outputList = new ArrayList<>();
+		for (AbstractChannel channel : channelList) {
+			if (channel.getChannelTopic().length() == 5)
+				outputList.add(channel.getChannelTopic());
+		}
+
+		ChannelEventDispatcher.getInstance().postEvent(event, outputList);
+	}
 }
