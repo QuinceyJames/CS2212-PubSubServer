@@ -24,7 +24,6 @@ public class PublisherDriver implements DriverInterface {
 		
 		else {
 			publisher.publish();
-			System.out.println(String.format("%s publishes ******************************", publisher));
 		}
 	}
 
