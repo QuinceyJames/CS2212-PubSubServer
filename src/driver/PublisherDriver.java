@@ -10,12 +10,12 @@ import publishers.PublisherDiscovery;
 
 
 /**
- * A Package-Protected concrete implementation of {@link DriverStrategyInterface}that can create an {@link events.AbstractEvent} and get a {@link publishers.AbstractPublisher} 
+ * A Package-Protected concrete implementation of {@link DriverStrategy}that can create an {@link events.AbstractEvent} and get a {@link publishers.AbstractPublisher} 
  * 
  * @author qjames2, tzhu63, zzhan746, mgianco2, rblack43
  *
  */
-class PublisherDriver implements DriverStrategyInterface {
+class PublisherDriver implements DriverStrategy {
 
 	@Override
 	public void executeDriverStrategy(Scanner scanner) {

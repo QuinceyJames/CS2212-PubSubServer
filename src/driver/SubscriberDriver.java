@@ -6,7 +6,7 @@ import pubSubServer.SubscriptionManager;
 import subscribers.AbstractSubscriber;
 import subscribers.SubscriberDiscovery;
 
-public class SubscriberDriver implements DriverStrategyInterface {
+public class SubscriberDriver implements DriverStrategy {
 
 	@Override
 	public void executeDriverStrategy(Scanner scanner) {
