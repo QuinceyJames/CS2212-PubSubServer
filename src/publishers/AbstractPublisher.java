@@ -25,7 +25,7 @@ public abstract class AbstractPublisher implements IEntity, Comparable<AbstractP
 	@Override
 	public String toString() {
 		return String.format("%s with ID %d", getClass().getSimpleName(), publisherID);
-	}
+	} 
 
 	public void setStrategy(AbstractStrategy publishingStrategy) {
 		if (publishingStrategy == null)
