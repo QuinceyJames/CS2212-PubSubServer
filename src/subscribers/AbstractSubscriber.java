@@ -23,13 +23,13 @@ public abstract class AbstractSubscriber implements IEntity, Comparable<Abstract
 		this.subscriberID = subscriberID;
 		this.state = StateFactory.createState(stateName);
 		//TODO add subscriber discovery class so that id can be used 
-		System.out.println(this + " " + SubscriberDiscovery.getInstance().findID(this) + " haaaas been created.");
-		System.out.println(this + " " + SubscriberDiscovery.getInstance().findID(this) + " has " + this.state + ".");
-	}
+		System.out.println(String.format("%s has been created", this));
+		System.out.println(String.format("%s has %s", this, state));
+		}
 	
 	@Override
 	public String toString() {
-		return String.format("%s with id %d", getClass().getSimpleName(), this.subscriberID);
+		return String.format("%s with ID %d", getClass().getSimpleName(), this.subscriberID);
 	}
 	
 	/**
