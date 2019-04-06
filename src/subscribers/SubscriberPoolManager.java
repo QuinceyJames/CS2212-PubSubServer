@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+import publishers.PublisherPoolManager;
 import states.subscriber.StateName;
 
 /**
@@ -38,6 +39,9 @@ public class SubscriberPoolManager {
 	}
 
 	protected static SubscriberPoolManager getInstance() {
+		if (INSTANCE == null)
+			INSTANCE = new SubscriberPoolManager();
+		
 		return INSTANCE;
 	}
 
