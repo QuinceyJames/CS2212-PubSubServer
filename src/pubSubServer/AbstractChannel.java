@@ -19,6 +19,7 @@ public abstract class AbstractChannel {
 
 	private String channelTopic = null;
 	
+	
 	public AbstractChannel(String channelTopic) {
 		this.channelTopic = channelTopic;
 		System.out.println(this + " '" + channelTopic + "' has been created.");
