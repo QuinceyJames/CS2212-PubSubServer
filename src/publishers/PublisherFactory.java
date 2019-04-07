@@ -13,10 +13,27 @@ import strategies.publisher.StrategyName;
 public class PublisherFactory {
 
 	/**
-	 * A private constructor for this class. Since all of the methods are static, no
-	 * instance of this class needs to be created
+	 * A reference to the Singleton instance of this class
+	 */
+	private static PublisherFactory INSTANCE = null;
+
+	/**
+	 * A private constructor used to help implement the "Singleton Design Pattern"
 	 */
 	private PublisherFactory() {
+	}
+
+	/**
+	 * Gets the Singleton instance of this class or creates it if it has not been
+	 * instantiated before
+	 * 
+	 * @return the Singleton instance of this class
+	 */
+	public static PublisherFactory getInstance() {
+		if (INSTANCE == null)
+			INSTANCE = new PublisherFactory(); // create a new instance if null
+
+		return INSTANCE;
 	}
 
 	/**
@@ -32,7 +49,7 @@ public class PublisherFactory {
 	 *                     {@link AbstractPublisher}.
 	 * @return the newly created {@link AbstractPublisher} instance
 	 */
-	public static AbstractPublisher createPublisher(PublisherType type, StrategyName strategyName, int publisherID) {
+	public AbstractPublisher createPublisher(PublisherType type, StrategyName strategyName, int publisherID) {
 
 		switch (type) {
 		case ALPHA_PUBLISHER:

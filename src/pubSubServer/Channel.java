@@ -14,8 +14,8 @@ import subscribers.AbstractSubscriber;
  * {@link subscribers.AbstractSubscriber Subscribers} that are subscribed to
  * this {@link Channel} when a new {@link events.AbstractEvent Event} is posted
  * 
- * @author kkontog, ktsiouni, mgrigori
- * 
+ * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2,
+ *         rblack43  
  */
 class Channel extends AbstractChannel {
 

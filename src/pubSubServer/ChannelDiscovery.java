@@ -5,18 +5,32 @@ import java.util.List;
 import subscribers.AbstractSubscriber;
 
 /**
- * @author kkontog, ktsiouni, mgrigori MUST IMPLEMENT the Singleton design
- *         pattern Allows for the discovery of available channels for
- *         subscription from {@link AbstractSubscriber} that want to subscribe
- *         to them
+ * MUST IMPLEMENT the Singleton design pattern Allows for the discovery of
+ * available channels for subscription from {@link AbstractSubscriber} that want
+ * to subscribe to them
+ * 
+ * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2,
+ *         rblack43
  */
 public class ChannelDiscovery {
 
+	/**
+	 * A reference to the Singleton instance of this class
+	 */
 	private static ChannelDiscovery INSTANCE = null;
 
+	/**
+	 * A private constructor used to help implement the "Singleton Design Pattern"
+	 */
 	private ChannelDiscovery() {
 	}
 
+	/**
+	 * Gets the Singleton instance of this class or creates it if it has not been
+	 * instantiated before
+	 * 
+	 * @return the Singleton instance of this class
+	 */
 	public static ChannelDiscovery getInstance() {
 		if (INSTANCE == null)
 			INSTANCE = new ChannelDiscovery(); // create a new instance if null

@@ -6,12 +6,17 @@ import events.EventType;
 import publishers.AbstractPublisher;
 
 /**
- * Base class for the implementation of the Strategy Design Pattern with regards
- * to Strategies
+ * Base class for the implementation of the "State Design Pattern" with regards
+ * to publisher strategies
  * 
  * @author qjames2, tzhu63, zzhan746, mgianco2, rblack43
  */
 public abstract class AbstractStrategy {
+
+	/**
+	 * A reference to the {@link events.EventFactory} singleton
+	 */
+	private static final EventFactory EVENT_FACTORY = EventFactory.getInstance();
 
 	/**
 	 * The protected constructor for a {@link AbstractStrategy}. This ensures that
@@ -28,7 +33,7 @@ public abstract class AbstractStrategy {
 	 *                  be published
 	 */
 	public void doPublish(AbstractPublisher publisher) {
-		doPublish(EventFactory.createEvent(EventType.DEFAULT_EVENT, publisher, "Default Header", "Default Payload"),
+		doPublish(EVENT_FACTORY.createEvent(EventType.DEFAULT_EVENT, publisher, "Default Header", "Default Payload"),
 				publisher); // Creates a default event for the publisher
 	}
 

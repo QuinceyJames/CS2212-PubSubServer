@@ -20,6 +20,14 @@ import states.subscriber.StateName;
  */
 public abstract class AbstractSubscriber implements IEntity {
 
+	/**
+	 * A reference to the {@link StateFactory} singleton
+	 */
+	private static final StateFactory STATE_FACTORY = StateFactory.getInstance();
+
+	/**
+	 * A reference to the {@link SubscriptionManager} singleton
+	 */
 	private static final SubscriptionManager SUBSCRIPTION_MANAGER = SubscriptionManager.getInstance();
 
 	/**
@@ -48,7 +56,7 @@ public abstract class AbstractSubscriber implements IEntity {
 	 */
 	protected AbstractSubscriber(StateName stateName, int subscriberID) {
 		this.subscriberID = subscriberID; // setting subscriberID
-		this.state = StateFactory.createState(stateName); // setting state
+		this.state = STATE_FACTORY.createState(stateName); // setting state
 
 		// printing required output as per document using toString in AbstractSubscriber
 		System.out.println(String.format("%s has been created", this));
@@ -62,7 +70,7 @@ public abstract class AbstractSubscriber implements IEntity {
 	 *                  want the new AbstractState of the AbstractSubscriber to be
 	 */
 	public void setState(StateName stateName) {
-		this.state = StateFactory.createState(stateName);
+		this.state = STATE_FACTORY.createState(stateName);
 
 		// printing required output as per document using defined toString methods in
 		// AbstractSubscriber and AbstractState

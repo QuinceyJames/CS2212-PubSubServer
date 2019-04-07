@@ -20,6 +20,8 @@ import states.subscriber.StateName;
  */
 public class SubscriberPoolManager {
 
+	private static final SubscriberFactory SUBSCRIBER_FACTORY = SubscriberFactory.getInstance();
+
 	/**
 	 * Attribute holding reference to the single instance of this class
 	 */
@@ -45,7 +47,7 @@ public class SubscriberPoolManager {
 				StateName name = StateName.values()[scanner.nextInt()];
 
 				// create new subscriber and add to list
-				subscribersMap.put(subscriberID, SubscriberFactory.createSubscriber(type, name, subscriberID));
+				subscribersMap.put(subscriberID, SUBSCRIBER_FACTORY.createSubscriber(type, name, subscriberID));
 			}
 
 		} catch (FileNotFoundException e) {

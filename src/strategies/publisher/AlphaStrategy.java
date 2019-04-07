@@ -17,6 +17,11 @@ import publishers.AbstractPublisher;
 public class AlphaStrategy extends AbstractStrategy {
 
 	/**
+	 * A reference to the {@link pubSubServer.ChannelDiscovery} singleton
+	 */
+	private static final ChannelDiscovery CHANNEL_DISCOVERY = ChannelDiscovery.getInstance();
+
+	/**
 	 * Protected constructor for {@link AlphaStrategy}. To create this object use
 	 * {@link StrategyFactory#createStrategy(StrategyName)}
 	 * 
@@ -34,7 +39,7 @@ public class AlphaStrategy extends AbstractStrategy {
 	 */
 	public void doPublish(AbstractEvent event, AbstractPublisher publisher) {
 		super.doPublish(event, publisher);
-		List<AbstractChannel> channelList = ChannelDiscovery.getInstance().listChannels(); // Get the list of channels
+		List<AbstractChannel> channelList = CHANNEL_DISCOVERY.listChannels(); // Get the list of channels
 
 		ArrayList<String> outputList = new ArrayList<>();
 		for (AbstractChannel channel : channelList) {

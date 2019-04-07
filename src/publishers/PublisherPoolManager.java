@@ -19,6 +19,11 @@ import strategies.publisher.StrategyName;
 public class PublisherPoolManager {
 
 	/**
+	 * A reference to the {@link PublisherFactory} singleton
+	 */
+	private static final PublisherFactory PUBLISHER_FACTORY = PublisherFactory.getInstance();
+
+	/**
 	 * Attribute holding reference to the single instance of this class
 	 */
 	private static PublisherPoolManager INSTANCE = null;
@@ -43,7 +48,7 @@ public class PublisherPoolManager {
 				StrategyName name = StrategyName.values()[scanner.nextInt()];
 
 				// create new publisher and add to list
-				publishersMap.put(publisherID, PublisherFactory.createPublisher(type, name, publisherID));
+				publishersMap.put(publisherID, PUBLISHER_FACTORY.createPublisher(type, name, publisherID));
 			}
 
 		} catch (FileNotFoundException e) {

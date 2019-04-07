@@ -18,6 +18,11 @@ import publishers.PublisherDiscovery;
  */
 class PublisherDriver implements DriverStrategy {
 
+	/**
+	 * A reference to the {@link events.EventFactory} singleton
+	 */
+	private static final EventFactory EVENT_FACTORY = EventFactory.getInstance();
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -32,7 +37,7 @@ class PublisherDriver implements DriverStrategy {
 			EventType type = EventType.values()[scanner.nextInt()];
 
 			scanner.useDelimiter("\\|");
-			AbstractEvent newEvent = EventFactory.createEvent(type, publisher, scanner.next(".*").trim(),
+			AbstractEvent newEvent = EVENT_FACTORY.createEvent(type, publisher, scanner.next(".*").trim(),
 					scanner.next(".*").trim());
 
 			publisher.publish(newEvent);

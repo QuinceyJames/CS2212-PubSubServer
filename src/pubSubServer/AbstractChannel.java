@@ -1,7 +1,6 @@
 package pubSubServer;
 
 import events.AbstractEvent;
-import publishers.PublisherFactory;
 import subscribers.AbstractSubscriber;
 
 /**
@@ -9,8 +8,8 @@ import subscribers.AbstractSubscriber;
  * way because channels can potentially have different properties that may
  * affect how the published events are treated.
  * 
- * @author kkontog, ktsiouni, mgrigori
- * 
+ * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2,
+ *         rblack43 
  */
 public abstract class AbstractChannel {
 

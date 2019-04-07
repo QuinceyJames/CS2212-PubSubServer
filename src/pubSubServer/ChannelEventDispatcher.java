@@ -9,8 +9,8 @@ import publishers.AbstractPublisher;
  * MUST IMPLEMENT the Singleton design pattern Class providing an interface for
  * {@link AbstractPublisher} objects to cover their publishing needs
  * 
- * @author kkontog, ktsiouni, mgrigori
- * 
+ * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2,
+ *         rblack43 
  */
 public class ChannelEventDispatcher {
 

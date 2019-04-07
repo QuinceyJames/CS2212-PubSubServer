@@ -20,6 +20,11 @@ import strategies.publisher.StrategyName;
 public abstract class AbstractPublisher implements IEntity {
 
 	/**
+	 * A reference to the {@link StrategyFactory} singleton
+	 */
+	private static final StrategyFactory STRATEGY_FACTORY = StrategyFactory.getInstance();
+
+	/**
 	 * Variable encapsulating the {@link strategies.publisher.AbstractStrategy
 	 * AbstractStrategy} associated with an {@link AbstractPublisher}
 	 */
@@ -45,7 +50,7 @@ public abstract class AbstractPublisher implements IEntity {
 	 *                     given {@link AbstractPublisher}.
 	 */
 	protected AbstractPublisher(StrategyName strategyName, int publisherID) {
-		this.publishingStrategy = StrategyFactory.createStrategy(strategyName); // setting strategy
+		this.publishingStrategy = STRATEGY_FACTORY.createStrategy(strategyName); // setting strategy
 		this.publisherID = publisherID; // setting ID
 
 		// printing required output as per document using defined toString method in

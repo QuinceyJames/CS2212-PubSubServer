@@ -12,10 +12,27 @@ import states.subscriber.StateName;
 public class SubscriberFactory {
 
 	/**
-	 * A private constructor for this class. Since all of the methods are static, no
-	 * instance of this class needs to be created
+	 * A reference to the Singleton instance of this class
+	 */
+	private static SubscriberFactory INSTANCE = null;
+
+	/**
+	 * A private constructor used to help implement the "Singleton Design Pattern"
 	 */
 	private SubscriberFactory() {
+	}
+
+	/**
+	 * Gets the Singleton instance of this class or creates it if it has not been
+	 * instantiated before
+	 * 
+	 * @return the Singleton instance of this class
+	 */
+	public static SubscriberFactory getInstance() {
+		if (INSTANCE == null)
+			INSTANCE = new SubscriberFactory(); // create a new instance if null
+
+		return INSTANCE;
 	}
 
 	/**
@@ -31,7 +48,7 @@ public class SubscriberFactory {
 	 *                     {@link AbstractSubscriber}.
 	 * @return the newly created {@link AbstractSubscriber} instance
 	 */
-	public static AbstractSubscriber createSubscriber(SubscriberType type, StateName name, int subscriberID) {
+	public AbstractSubscriber createSubscriber(SubscriberType type, StateName name, int subscriberID) {
 
 		switch (type) {
 		case ALPHA_SUBSCRIBER:

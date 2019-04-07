@@ -4,7 +4,8 @@ package pubSubServer;
  * MUST IMPLEMENT the Singleton design pattern this class is responsible for
  * creating and deleting channels it's also the only class that can do so
  * 
- * @author kkontog, ktsiouni, mgrigori
+ * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2,
+ *         rblack43 
  */
 public class ChannelCreator {
 
