@@ -5,7 +5,7 @@ package strategies.publisher;
  * contributes to the Strategy design pattern implements the
  * FactoryMethod design pattern
  * 
- * @author kkontog, ktsiouni, mgrigori, rblack43
+ * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2, rblack43
  */
 public class StrategyFactory {
 

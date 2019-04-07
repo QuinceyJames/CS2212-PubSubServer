@@ -9,12 +9,26 @@ import pubSubServer.ChannelDiscovery;
 import pubSubServer.ChannelEventDispatcher;
 import publishers.AbstractPublisher;
 
+/**
+ * third instance of a concrete strategy
+ * 
+ * @author qjames2, tzhu63, zzhan746, mgianco2, rblack43
+ */
 public class DefaultStrategy extends AbstractStrategy {
 
+	/**
+	 * (non-Javadoc)
+	 * 
+	 * @see AbstractStrategy#AbstractStrategy()
+	 */
 	protected DefaultStrategy() {
 		super();
 	}
 
+	/* (non-Javadoc)
+	 * 
+	 * @see strategies.publisher.AbstractStrategy#doPublish(events.AbstractEvent, publishers.AbstractPublisher)
+	 */
 	public void doPublish(AbstractEvent event, AbstractPublisher publisher) {
 		List<AbstractChannel> channelList = ChannelDiscovery.getInstance().listChannels();
 
