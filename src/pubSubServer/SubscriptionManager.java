@@ -74,7 +74,7 @@ public class SubscriptionManager {
 	public void unSubscribe(String channelName, AbstractSubscriber subscriber) {
 		AbstractChannel channel = CHANNEL_POOL_MANAGER.findChannel(channelName);
 		channel.unsubscribe(subscriber);
-		System.out.println(subscriber + " unsubscribes from " + channelName);
+		System.out.println(subscriber + " unsubscribes from Channel '" + channelName + "'.");
 	}
 
 	/**

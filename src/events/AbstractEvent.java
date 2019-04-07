@@ -55,7 +55,7 @@ public abstract class AbstractEvent {
 	 */
 	@Override
 	public String toString() {
-		return String.format("%s #%d, MESSAGE=%s", getClass().getSimpleName(), eventId, eventMessage);
+		return String.format("%s %d, MESSAGE=%s", getClass().getSimpleName(), eventId, eventMessage);
 	}
 
 	/**

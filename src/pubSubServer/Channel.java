@@ -52,6 +52,7 @@ class Channel extends AbstractChannel {
 	 * @see pubSubServer.AbstractChannel#publishEvent(events.AbstractEvent)
 	 */
 	protected void publishEvent(AbstractEvent event) {
+		System.out.println(String.format("Channel '%s' has %s.", this.getChannelTopic(), event));
 		events.add(event);
 		notifySubscribers(event);
 	}

@@ -59,7 +59,7 @@ public abstract class AbstractSubscriber implements IEntity, Comparable<Abstract
 		this.state = STATE_FACTORY.createState(stateName); // setting state
 
 		// printing required output as per document using toString in AbstractSubscriber
-		System.out.println(String.format("%s has been created", this));
+		System.out.println(String.format("%s has been created.", this));
 	}
 
 	/**
@@ -74,7 +74,7 @@ public abstract class AbstractSubscriber implements IEntity, Comparable<Abstract
 
 		// printing required output as per document using defined toString methods in
 		// AbstractSubscriber and AbstractState
-		System.out.println(String.format("%s has %s", this, state));
+		System.out.println(String.format("%s has %s.", this, state));
 	}
 
 	/**
@@ -86,7 +86,7 @@ public abstract class AbstractSubscriber implements IEntity, Comparable<Abstract
 	 *                    AbstractSubscriber
 	 */
 	public void alert(AbstractEvent event, String channelName) {
-		System.out.println(String.format("%s recieves %s and handles it at %s", this, event, state));
+		System.out.println(String.format("%s recieves %s and handles it at %s.", this, event, state));
 
 		// printing required output as per document using defined toString methods in
 		// AbstractSubscriber, AbstractEvent and AbstractState
@@ -121,7 +121,7 @@ public abstract class AbstractSubscriber implements IEntity, Comparable<Abstract
 	@Override
 	public String toString() {
 		// creates string in the form "AlphaSubscriber #1"
-		return String.format("%s #%d", getClass().getSimpleName(), subscriberID);
+		return String.format("%s %d", getClass().getSimpleName(), subscriberID);
 	}
 	
 	@Override

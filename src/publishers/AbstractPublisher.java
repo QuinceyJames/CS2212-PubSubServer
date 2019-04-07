@@ -55,13 +55,13 @@ public abstract class AbstractPublisher implements IEntity {
 
 		// printing required output as per document using defined toString method in
 		// AbstractPublisher
-		System.out.println(String.format("%s has been created", this));
+		System.out.println(String.format("%s has been created.", this));
 	}
 
 	@Override
 	public String toString() {
 		// creates string in the form "AlphaPublisher #1"
-		return String.format("%s #%d", getClass().getSimpleName(), publisherID);
+		return String.format("%s %d", getClass().getSimpleName(), publisherID);
 	}
 
 	/**
@@ -78,7 +78,7 @@ public abstract class AbstractPublisher implements IEntity {
 
 		// printing required output as per document using defined toString methods in
 		// AbstractPublisher and AbstractStrategy
-		System.out.println(String.format("%s has %s", this, publishingStrategy));
+		System.out.println(String.format("%s has %s.", this, publishingStrategy));
 	}
 
 	/**
