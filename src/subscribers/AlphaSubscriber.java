@@ -4,7 +4,7 @@ import states.subscriber.StateName;
 
 /**
  * first instance of a concrete subscriber
- * @author kkontog, ktsiouni, mgrigori, rblack43
+ * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2, rblack43
  */
 public class AlphaSubscriber extends AbstractSubscriber {
 	

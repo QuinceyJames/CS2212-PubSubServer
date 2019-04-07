@@ -5,7 +5,7 @@ package subscribers;
  * 
  * Allows for the discovery of existing {@link AbstractSubscriber} s.
  * 
- * @author rblack43
+ * @author qjames2, tzhu63, zzhan746, mgianco2, rblack43
  * 
  */
 public class SubscriberDiscovery {

@@ -11,7 +11,7 @@ import publishers.PublisherPoolManager;
 import states.subscriber.StateName;
 
 /**
- * @author kkontog, ktsiouni, mgrigori, rblack43
+ * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2, rblack43
  * 
  *         implements the Singleton Design Pattern
  * 

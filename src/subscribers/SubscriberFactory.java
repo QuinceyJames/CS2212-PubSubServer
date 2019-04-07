@@ -8,7 +8,7 @@ import states.subscriber.StateName;
  *  
  */
 /**
- * @author kkontog, ktsiouni, mgrigori
+ * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2, rblack43
  * creates new {@link AbstractSubscriber} objects
  * contributes to the State design pattern
  * implements the FactoryMethod design pattern   
