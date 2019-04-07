@@ -5,8 +5,10 @@ import publishers.AbstractPublisher;
 /**
  * A class that is used to generate a concrete {@link AbstractEvent Event}
  * 
- * @author kkontog, ktsiouni, mgrigori
+ * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2,
+ *         rblack43
  *
+ * 
  */
 public class EventFactory {
 

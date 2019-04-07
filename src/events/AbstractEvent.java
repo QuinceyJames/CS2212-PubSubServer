@@ -63,7 +63,7 @@ public abstract class AbstractEvent {
 	 * 
 	 * @return a long value representing the ID of this {@link AbstractEvent Event}
 	 */
-	protected long getEventType() {
+	protected long getEventID() {
 		return eventId;
 	}
 
@@ -83,7 +83,7 @@ public abstract class AbstractEvent {
 	 * 
 	 * @return an object of the Class {@link EventMessage}
 	 */
-	protected EventMessage getPayload() {
+	protected EventMessage getEventMessage() {
 		return eventMessage;
 	}
 }

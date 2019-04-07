@@ -8,7 +8,9 @@ package events;
  * for every new @link {@link AbstractEvent} subclass created, a new entry
  * should be added here
  *
- * @author kkontog, ktsiouni, mgrigori
+ * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2,
+ *         rblack43
+ * 
  * 
  */
 public enum EventType {
