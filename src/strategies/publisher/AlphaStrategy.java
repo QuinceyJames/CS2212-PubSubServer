@@ -34,10 +34,12 @@ public class AlphaStrategy extends AbstractStrategy {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see strategies.publisher.AbstractStrategy#doPublish(events.AbstractEvent,
+	 * @see
+	 * strategies.publisher.AbstractStrategy#doPublishStrategy(events.AbstractEvent,
 	 * publishers.AbstractPublisher)
 	 */
-	public void doPublish(AbstractEvent event, AbstractPublisher publisher) {
+	@Override
+	protected void doPublishStrategy(AbstractEvent event, AbstractPublisher publisher) {
 		super.doPublish(event, publisher);
 		List<AbstractChannel> channelList = CHANNEL_DISCOVERY.listChannels(); // Get the list of channels
 

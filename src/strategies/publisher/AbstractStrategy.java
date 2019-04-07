@@ -32,7 +32,7 @@ public abstract class AbstractStrategy {
 	 * @param publisher the {@link AbstractPublisher} that has requested an event to
 	 *                  be published
 	 */
-	public void doPublish(AbstractPublisher publisher) {
+	public final void doPublish(AbstractPublisher publisher) {
 		doPublish(EVENT_FACTORY.createEvent(EventType.DEFAULT_EVENT, publisher, "Default Header", "Default Payload"),
 				publisher); // Creates a default event for the publisher
 	}
@@ -45,9 +45,19 @@ public abstract class AbstractStrategy {
 	 *                  be published
 	 * @param event     the {@link AbstractEvent} to be published
 	 */
-	public void doPublish(AbstractEvent event, AbstractPublisher publisher) {
+	public final void doPublish(AbstractEvent event, AbstractPublisher publisher) {
 		System.out.println(String.format("%s publishes %s", publisher, event)); // Prints publisher with event
+		doPublishStrategy(event, publisher);
 	}
+
+	/**
+	 * The strategy logic should be defined in here for each of the concrete classes
+	 * 
+	 * @param event     the {@link AbstractPublisher} that has requested an event to
+	 *                  be published
+	 * @param publisher the {@link AbstractEvent} to be published
+	 */
+	protected abstract void doPublishStrategy(AbstractEvent event, AbstractPublisher publisher);
 
 	@Override
 	public String toString() {

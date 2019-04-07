@@ -29,10 +29,12 @@ public class BetaStrategy extends AbstractStrategy {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see strategies.publisher.AbstractStrategy#doPublish(events.AbstractEvent,
+	 * @see
+	 * strategies.publisher.AbstractStrategy#doPublishStrategy(events.AbstractEvent,
 	 * publishers.AbstractPublisher)
 	 */
-	public void doPublish(AbstractEvent event, AbstractPublisher publisher) {
+	@Override
+	protected void doPublishStrategy(AbstractEvent event, AbstractPublisher publisher) {
 		List<AbstractChannel> channelList = ChannelDiscovery.getInstance().listChannels();
 
 		ArrayList<String> outputList = new ArrayList<>();

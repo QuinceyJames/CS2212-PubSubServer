@@ -26,16 +26,20 @@ public class DefaultStrategy extends AbstractStrategy {
 		super();
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
 	 * 
-	 * @see strategies.publisher.AbstractStrategy#doPublish(events.AbstractEvent, publishers.AbstractPublisher)
+	 * @see
+	 * strategies.publisher.AbstractStrategy#doPublishStrategy(events.AbstractEvent,
+	 * publishers.AbstractPublisher)
 	 */
-	public void doPublish(AbstractEvent event, AbstractPublisher publisher) {
+	@Override
+	protected void doPublishStrategy(AbstractEvent event, AbstractPublisher publisher) {
 		List<AbstractChannel> channelList = ChannelDiscovery.getInstance().listChannels();
 
 		ArrayList<String> outputList = new ArrayList<>();
 		for (AbstractChannel channel : channelList) {
-			outputList.add(channel.getChannelTopic()); //add the channel without parameters
+			outputList.add(channel.getChannelTopic()); // add the channel without parameters
 		}
 
 		ChannelEventDispatcher.getInstance().postEvent(event, outputList);
