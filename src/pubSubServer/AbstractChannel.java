@@ -1,6 +1,7 @@
 package pubSubServer;
 
 import events.AbstractEvent;
+import publishers.PublisherFactory;
 import subscribers.AbstractSubscriber;
 
 /**
@@ -19,8 +20,9 @@ public abstract class AbstractChannel {
 	private final String channelTopic;
 
 	/**
-	 * The constructor for this class. It prints a message to indicate that a
-	 * {@link AbstractChannel Channel} has been created
+	 * The protected constructor for this class. It prints a message to indicate
+	 * that a {@link AbstractChannel Channel} has been created. This ensures that
+	 * only {@link ChannelCreator} can create channels
 	 * 
 	 * @param channelTopic the topic of this channel
 	 */
@@ -53,7 +55,9 @@ public abstract class AbstractChannel {
 		return channelTopic;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override

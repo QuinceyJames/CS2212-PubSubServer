@@ -3,13 +3,16 @@ package publishers;
 import strategies.publisher.StrategyName;
 
 /**
- * Package-Protected instance of a concrete {@link AbstractPublisher}
+ * An implementation of a concrete {@link AbstractPublisher}
  * 
  * @author qjames2, tzhu63, zzhan746, mgianco2, rblack43
  */
-class AlphaPublisher extends AbstractPublisher {
+public class AlphaPublisher extends AbstractPublisher {
 
 	/**
+	 * Protected constructor for {@link AlphaPublisher}. To create this object use
+	 * {@link PublisherFactory#createPublisher(PublisherType, StrategyName, int)}
+	 * 
 	 * @see AbstractPublisher#AbstractPublisher(StrategyName, int)
 	 */
 	protected AlphaPublisher(StrategyName strategyName, int publisherID) {

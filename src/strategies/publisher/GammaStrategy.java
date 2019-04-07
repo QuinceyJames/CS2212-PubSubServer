@@ -10,14 +10,15 @@ import pubSubServer.ChannelEventDispatcher;
 import publishers.AbstractPublisher;
 
 /**
- * fourth instance of a concrete strategy
+ * An implementation of a concrete {@link AbstractStrategy}
  * 
  * @author qjames2, tzhu63, zzhan746, mgianco2, rblack43
  */
 public class GammaStrategy extends AbstractStrategy {
 
 	/**
-	 * (non-Javadoc)
+	 * Protected constructor for {@link GammaStrategy}. To create this object use
+	 * {@link StrategyFactory#createStrategy(StrategyName)}
 	 * 
 	 * @see AbstractStrategy#AbstractStrategy()
 	 */
@@ -25,16 +26,18 @@ public class GammaStrategy extends AbstractStrategy {
 		super();
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
 	 * 
-	 * @see strategies.publisher.AbstractStrategy#doPublish(events.AbstractEvent, publishers.AbstractPublisher)
+	 * @see strategies.publisher.AbstractStrategy#doPublish(events.AbstractEvent,
+	 * publishers.AbstractPublisher)
 	 */
 	public void doPublish(AbstractEvent event, AbstractPublisher publisher) {
 		List<AbstractChannel> channelList = ChannelDiscovery.getInstance().listChannels();
 
 		ArrayList<String> outputList = new ArrayList<>();
 		for (AbstractChannel channel : channelList) {
-			if (channel.getChannelTopic().length() == 5) //add a channel if it is length 5
+			if (channel.getChannelTopic().length() == 5) // add a channel if it is length 5
 				outputList.add(channel.getChannelTopic());
 		}
 

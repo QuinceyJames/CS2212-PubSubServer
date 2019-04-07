@@ -26,7 +26,7 @@ public abstract class AbstractEvent {
 	private AbstractPublisher eventPublisher;
 
 	/**
-	 * The {@link Message} that this {@link AbstractEvent Event} refrences
+	 * The {@link Message} that this {@link AbstractEvent Event} references
 	 */
 	private EventMessage eventMessage;
 
