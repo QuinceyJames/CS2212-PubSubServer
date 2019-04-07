@@ -18,7 +18,7 @@ import subscribers.states.StateName;
  * @author qjames2, tzhu63, zzhan746, mgianco2, rblack43
  *
  */
-public abstract class AbstractSubscriber implements IEntity {
+public abstract class AbstractSubscriber implements IEntity { 
 
 	/**
 	 * A reference to the {@link StateFactory} singleton
