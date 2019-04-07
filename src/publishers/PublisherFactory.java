@@ -3,9 +3,11 @@ package publishers;
 import strategies.publisher.StrategyName;
 
 /**
- * @author kkontog, ktsiouni, mgrigori creates new {@link AbstractPublisher}
- *         objects contributes to the Strategy design pattern implements the
- *         FactoryMethod design pattern
+ * creates new {@link AbstractPublisher}
+ * objects contributes to the Strategy design pattern implements the
+ * FactoryMethod design pattern
+ * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2, rblack43
+ * 
  */
 public class PublisherFactory {
 

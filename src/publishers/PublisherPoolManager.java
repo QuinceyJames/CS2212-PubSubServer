@@ -12,12 +12,11 @@ import subscribers.SubscriberDiscovery;
 import subscribers.SubscriberPoolManager;
 
 /**
- * @author kkontog, ktsiouni, mgrigori
+ * implements the Singleton Design Pattern
+ * holds the collection of AbstractChannel type entities and provides
+ * the methods for manipulating these collections
  * 
- *         implements the Singleton Design Pattern
- * 
- *         holds the collection of AbstractChannel type entities and provides
- *         the methods for manipulating these collections
+ * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2, rblack43
  */
 public class PublisherPoolManager {
 	

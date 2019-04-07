@@ -5,7 +5,7 @@ import strategies.publisher.StrategyName;
 
 /**
  * first instance of a concrete pubscriber
- * @author rblack43
+ * @author qjames2, tzhu63, zzhan746, mgianco2, rblack43
  */
 public class AlphaPublisher extends AbstractPublisher {
 
