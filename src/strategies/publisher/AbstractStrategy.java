@@ -43,5 +43,4 @@ public abstract class AbstractStrategy {
 	public String toString() {
 		return getClass().getSimpleName(); //toString method
 	}
-
 }

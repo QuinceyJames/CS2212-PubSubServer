@@ -40,5 +40,4 @@ public class GammaStrategy extends AbstractStrategy {
 
 		ChannelEventDispatcher.getInstance().postEvent(event, outputList);
 	}
-	
 }

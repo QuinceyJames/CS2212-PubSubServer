@@ -43,4 +43,5 @@ public class AlphaStrategy extends AbstractStrategy {
 
 		ChannelEventDispatcher.getInstance().postEvent(event, outputList); 
 	}
+	
 }
