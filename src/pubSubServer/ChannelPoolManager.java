@@ -9,23 +9,33 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * implements the Singleton Design Pattern
+ * 
+ * holds the collection of AbstractChannel type entities and provides the
+ * methods for manipulating these collections
+ * 
  * @author kkontog, ktsiouni, mgrigori
- * 
- *         implements the Singleton Design Pattern
- * 
- *         holds the collection of AbstractChannel type entities and provides
- *         the methods for manipulating thes collections
  */
 public class ChannelPoolManager {
 
+	/**
+	 * A reference to the Singleton instance of this class
+	 */
 	private static ChannelPoolManager INSTANCE = null;
-	private Map<String, AbstractChannel> channelsMap = new HashMap<String, AbstractChannel>();
 
+	/**
+	 * A map of channel names to the object
+	 */
+	private final HashMap<String, AbstractChannel> channelsMap = new HashMap<String, AbstractChannel>();
+
+	/**
+	 * A private constructor used to help implement the "Singleton Design Pattern"
+	 */
 	private ChannelPoolManager() {
 		try (BufferedReader channelListReader = new BufferedReader(new FileReader("Channels.chl"))) {
 
 			while (channelListReader.ready())
-				addChannel(channelListReader.readLine()); //read from Channel file and add to list of channels
+				addChannel(channelListReader.readLine()); // read from Channel file and add to list of channels
 
 		} catch (IOException e) {
 			System.out.println("Error with loading from file, creating one no_theme_channel");
@@ -33,6 +43,12 @@ public class ChannelPoolManager {
 		}
 	}
 
+	/**
+	 * Gets the Singleton instance of this class or creates it if it has not been
+	 * instantiated before
+	 * 
+	 * @return the Singleton instance of this class
+	 */
 	protected static ChannelPoolManager getInstance() {
 		if (INSTANCE == null)
 			INSTANCE = new ChannelPoolManager();

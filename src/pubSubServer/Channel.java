@@ -9,17 +9,41 @@ import events.AbstractEvent;
 import subscribers.AbstractSubscriber;
 
 /**
+ * A Package-Protected concrete implementation of {@link AbstractChannel}. It
+ * helps to implement the "Observer Design Pattern" as it will notify all the
+ * {@link subscribers.AbstractSubscriber Subscribers} that are subscribed to
+ * this {@link Channel} when a new {@link events.AbstractEvent Event} is posted
+ * 
  * @author kkontog, ktsiouni, mgrigori
  * 
  */
 class Channel extends AbstractChannel {
 
-	private Set<AbstractSubscriber> subscribers = new HashSet<AbstractSubscriber>();
-	private Queue<AbstractEvent> events = new ArrayDeque<AbstractEvent>();
-	private ChannelAccessControl accessControler = ChannelAccessControl.getInstance();
+	/**
+	 * A set of {@link subscribers.AbstractSubscriber Subscribers} subscribed to
+	 * this channel
+	 */
+	private final Set<AbstractSubscriber> subscribers = new HashSet<AbstractSubscriber>();
 
-	public Channel(String channelTopic) {
-		super(channelTopic); //Call channel topic from parent Class
+	/**
+	 * A queue of {@link events.AbstractEvent Events} posted to this {@link Channel}
+	 */
+	private final Queue<AbstractEvent> events = new ArrayDeque<AbstractEvent>();
+
+	/**
+	 * A reference to {@link ChannelAccessControl}
+	 */
+	private final ChannelAccessControl accessControler = ChannelAccessControl.getInstance();
+
+	/**
+	 * The Protected constructor for this class. Use the {@link ChannelCreator} to
+	 * create new {@link Channel Channels} and {@link ChannelDiscovery} to find
+	 * pre-existing ones
+	 * 
+	 * @param channelTopic the topic of this channel
+	 */
+	protected Channel(String channelTopic) {
+		super(channelTopic);
 	}
 
 	/*
@@ -35,19 +59,19 @@ class Channel extends AbstractChannel {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see pubSubServer.AbstractChannel#subscribe(subscribers.ISubscriber)
+	 * @see pubSubServer.AbstractChannel#subscribe(subscribers.AbstractSubscriber)
 	 */
 	protected void subscribe(AbstractSubscriber subscriber) {
-		subscribers.add(subscriber); //add subscriber
+		subscribers.add(subscriber); // add subscriber
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see pubSubServer.AbstractChannel#unsubscribe(subscribers.ISubscriber)
+	 * @see pubSubServer.AbstractChannel#unsubscribe(subscribers.AbstractSubscriber)
 	 */
 	protected void unsubscribe(AbstractSubscriber subscriber) {
-		subscribers.remove(subscriber); //remove subscriber
+		subscribers.remove(subscriber); // remove subscriber
 	}
 
 	/**
