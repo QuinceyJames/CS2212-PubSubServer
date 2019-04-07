@@ -3,7 +3,7 @@ package driver;
 import java.util.Scanner;
 
 /**
- * A class that chooses which {@link DriverStrategy} should be executed
+ * A class that chooses which {@link IDriverStrategy} should be executed
  * 
  * @author qjames2, tzhu63, zzhan746, mgianco2, rblack43
  *
@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class DriverStrategySelector {
 
 	/**
-	 * Determines and executes the appropriate {@link DriverStrategy} based on the
+	 * Determines and executes the appropriate {@link IDriverStrategy} based on the
 	 * the first word of the command.
 	 * 
 	 * @param command The command to be executed where the first word is one of the
@@ -22,23 +22,23 @@ public class DriverStrategySelector {
 
 		switch (scanner.next().toUpperCase()) {
 		case "PUB":
-			new PublisherDriver().executeDriverStrategy(scanner);
+			new PublisherDriverStrategy().executeDriverStrategy(scanner);
 			break;
 
 		case "SUB":
-			new SubscriberDriver().executeDriverStrategy(scanner);
+			new SubscriberDriverStrategy().executeDriverStrategy(scanner);
 			break;
 
 		case "UNSUB":
-			new UnsubscribeDriver().executeDriverStrategy(scanner);
+			new UnsubscribeDriverStrategy().executeDriverStrategy(scanner);
 			break;
 
 		case "BLOCK":
-			new BlockerDriver().executeDriverStrategy(scanner);
+			new BlockerDriverStrategy().executeDriverStrategy(scanner);
 			break;
 
 		case "UNBLOCK":
-			new UnblockerDriver().executeDriverStrategy(scanner);
+			new UnblockerDriverStrategy().executeDriverStrategy(scanner);
 			break;
 
 		default:

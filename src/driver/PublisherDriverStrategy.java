@@ -9,14 +9,14 @@ import publishers.AbstractPublisher;
 import publishers.PublisherDiscovery;
 
 /**
- * A Package-Protected concrete implementation of {@link DriverStrategy} that
+ * A Package-Protected concrete implementation of {@link IDriverStrategy} that
  * can create an {@link events.AbstractEvent Event} and get a
  * {@link publishers.AbstractPublisher Publisher}
  * 
  * @author qjames2, tzhu63, zzhan746, mgianco2, rblack43
  *
  */
-class PublisherDriver implements DriverStrategy {
+class PublisherDriverStrategy implements IDriverStrategy {
 
 	/**
 	 * A reference to the {@link events.EventFactory} singleton
@@ -26,7 +26,7 @@ class PublisherDriver implements DriverStrategy {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see driver.DriverStrategy#executeDriverStrategy(java.util.Scanner)
+	 * @see driver.IDriverStrategy#executeDriverStrategy(java.util.Scanner)
 	 */
 	@Override
 	public void executeDriverStrategy(Scanner scanner) {

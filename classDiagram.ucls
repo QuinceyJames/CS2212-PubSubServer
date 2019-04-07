@@ -56,8 +56,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="11" language="java" name="driver.UnblockerDriver" project="CS2212" 
-    file="/CS2212/src/driver/UnblockerDriver.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="11" language="java" name="driver.UnblockerDriverStrategy" project="CS2212" 
+    file="/CS2212/src/driver/UnblockerDriverStrategy.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="97" y="-25"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -65,8 +65,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="12" language="java" name="driver.SubscriberDriver" project="CS2212" 
-    file="/CS2212/src/driver/SubscriberDriver.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="12" language="java" name="driver.SubscriberDriverStrategy" project="CS2212" 
+    file="/CS2212/src/driver/SubscriberDriverStrategy.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="324" y="-27"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -74,8 +74,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="13" language="java" name="driver.UnsubscribeDriver" project="CS2212" 
-    file="/CS2212/src/driver/UnsubscribeDriver.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="13" language="java" name="driver.UnsubscribeDriverStrategy" project="CS2212" 
+    file="/CS2212/src/driver/UnsubscribeDriverStrategy.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="554" y="-28"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -83,8 +83,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="14" language="java" name="driver.PublisherDriver" project="CS2212" 
-    file="/CS2212/src/driver/PublisherDriver.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="14" language="java" name="driver.PublisherDriverStrategy" project="CS2212" 
+    file="/CS2212/src/driver/PublisherDriverStrategy.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="784" y="-30"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -101,8 +101,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="16" language="java" name="driver.BlockerDriver" project="CS2212" 
-    file="/CS2212/src/driver/BlockerDriver.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="16" language="java" name="driver.BlockerDriverStrategy" project="CS2212" 
+    file="/CS2212/src/driver/BlockerDriverStrategy.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1014" y="-30"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      

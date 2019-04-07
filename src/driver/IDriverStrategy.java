@@ -11,7 +11,7 @@ import java.util.Scanner;
  * @author qjames2, tzhu63, zzhan746, mgianco2, rblack43
  *
  */
-interface DriverStrategy {
+interface IDriverStrategy {
 
 	/**
 	 * Implementation of the logic used by the concrete classes should be contained
