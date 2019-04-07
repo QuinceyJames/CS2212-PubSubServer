@@ -2,15 +2,9 @@ package publishers;
 
 import baseEntities.IEntity;
 import events.AbstractEvent;
-import states.subscriber.StateFactory;
-import states.subscriber.StateName;
 import strategies.publisher.AbstractStrategy;
 import strategies.publisher.StrategyFactory;
 import strategies.publisher.StrategyName;
-import subscribers.AbstractSubscriber;
-
-change Istrategy comment in straegies
-change id prints
 
 /**
  * 

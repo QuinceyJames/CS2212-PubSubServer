@@ -7,9 +7,7 @@ import publishers.AbstractPublisher;
 
 public abstract class AbstractStrategy {
 
-	public AbstractStrategy() {
-		// TODO: delete the IStrategy
-	}
+	public AbstractStrategy() {}
 
 	/**
 	 * @param publisher
