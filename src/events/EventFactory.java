@@ -1,6 +1,6 @@
 package events;
 
-import publishers.AbstractPublisher;
+import publishers.IPublisher;
 
 /**
  * A class that is used to generate a concrete {@link AbstractEvent Event}
@@ -10,12 +10,12 @@ import publishers.AbstractPublisher;
  *
  * 
  */
-public class EventFactory {
+public class EventFactory implements IEventFactory {
 
 	/**
 	 * A reference to the Singleton instance of this class
 	 */
-	private static EventFactory INSTANCE = null;
+	private static IEventFactory INSTANCE = null;
 
 	/**
 	 * A private constructor used to help implement the "Singleton Design Pattern"
@@ -29,27 +29,18 @@ public class EventFactory {
 	 * 
 	 * @return the Singleton instance of this class
 	 */
-	public static EventFactory getInstance() {
+	public static IEventFactory getInstance() {
 		if (INSTANCE == null)
 			INSTANCE = new EventFactory(); // create a new instance if null
 
 		return INSTANCE;
 	}
 
-	/**
-	 * This is an implementation of the Factory Method design pattern Creates an
-	 * instance of any of the subclasses derived from the top level class
-	 * {@link AbstractEvent} according to the {@link EventType} parameter
-	 * 
-	 * @param type      a member of the {@link EventType} enumeration
-	 * @param publisher a reference to the {@link AbstractPublisher Publisher} that
-	 *                  created this event
-	 * @param header    the header message
-	 * @param body      the body message
-	 * @return returns the concrete {@link AbstractEvent Event} created by this
-	 *         factory
+	/* (non-Javadoc)
+	 * @see events.IEventFactory#createEvent(events.EventType, publishers.IPublisher, java.lang.String, java.lang.String)
 	 */
-	public AbstractEvent createEvent(EventType type, AbstractPublisher publisher, String header, String body) {
+	@Override
+	public AbstractEvent createEvent(EventType type, IPublisher publisher, String header, String body) {
 
 		switch (type) {
 		case ALPHA_EVENT:

@@ -3,19 +3,19 @@ package publishers;
 import publishers.strategies.StrategyName;
 
 /**
- * creates new {@link AbstractPublisher} objects contributes to the Strategy
+ * creates new {@link IPublisher} objects contributes to the Strategy
  * design pattern implements the FactoryMethod design pattern
  * 
  * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2,
  *         rblack43
  * 
  */
-public class PublisherFactory {
+public class PublisherFactory implements IPublisherFactory {
 
 	/**
 	 * A reference to the Singleton instance of this class
 	 */
-	private static PublisherFactory INSTANCE = null;
+	private static IPublisherFactory INSTANCE = null;
 
 	/**
 	 * A private constructor used to help implement the "Singleton Design Pattern"
@@ -29,26 +29,17 @@ public class PublisherFactory {
 	 * 
 	 * @return the Singleton instance of this class
 	 */
-	public static PublisherFactory getInstance() {
+	public static IPublisherFactory getInstance() {
 		if (INSTANCE == null)
 			INSTANCE = new PublisherFactory(); // create a new instance if null
 
 		return INSTANCE;
 	}
 
-	/**
-	 * creates a new {@link AbstractPublisher} using an entry from the
-	 * {@link PublisherType} enumeration
-	 * 
-	 * @param type         a value from the {@link PublisherType} enumeration
-	 *                     specifying the type of Publisher to be created.
-	 * @param strategyName {@link publishers.strategies.StrategyName StrategyName} of
-	 *                     the {@link strategy} to be associated with
-	 *                     {@link AbstractPublisher}.
-	 * @param publisherID  {@link #publisherID} to be associated with the given
-	 *                     {@link AbstractPublisher}.
-	 * @return the newly created {@link AbstractPublisher} instance
+	/* (non-Javadoc)
+	 * @see publishers.IPublisherFactory#createPublisher(publishers.PublisherType, publishers.strategies.StrategyName, int)
 	 */
+	@Override
 	public AbstractPublisher createPublisher(PublisherType type, StrategyName strategyName, int publisherID) {
 
 		switch (type) {

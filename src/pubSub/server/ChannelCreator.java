@@ -1,4 +1,6 @@
-package pubSubServer;
+package pubSub.server;
+
+import pubSub.local.ChannelDiscoveryProxy;
 
 /**
  * MUST IMPLEMENT the Singleton design pattern this class is responsible for
@@ -40,7 +42,7 @@ public class ChannelCreator {
 
 	/**
 	 * creates a new Channel and adds it to the list of Channels so that it can be
-	 * discovered using the {@link ChannelDiscovery} methods
+	 * discovered using the {@link ChannelDiscoveryProxy} methods
 	 * 
 	 * @param channelName name of the Channel to be created
 	 * @return the new channel (of any type that extends the {@link AbstractChannel}

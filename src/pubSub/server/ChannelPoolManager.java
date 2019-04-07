@@ -1,4 +1,4 @@
-package pubSubServer;
+package pubSub.server;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -17,7 +17,7 @@ import java.util.Map;
  * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2,
  *         rblack43  
  */
-public class ChannelPoolManager {
+class ChannelPoolManager {
 
 	/**
 	 * A reference to the Singleton instance of this class
@@ -106,5 +106,6 @@ public class ChannelPoolManager {
 	protected Map<String, AbstractChannel> getChannelsMap() {
 		return channelsMap;
 	}
+
 
 }

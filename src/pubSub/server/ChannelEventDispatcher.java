@@ -1,4 +1,4 @@
-package pubSubServer;
+package pubSub.server;
 
 import java.util.List;
 
@@ -12,17 +12,7 @@ import publishers.AbstractPublisher;
  * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2,
  *         rblack43 
  */
-public class ChannelEventDispatcher {
-
-	/**
-	 * A reference to the {@link ChannelDiscovery} instance
-	 */
-	private static final ChannelDiscovery CHANNEL_DISCOVERY = ChannelDiscovery.getInstance();
-
-	/**
-	 * A reference to the {@link ChannelCreator} instance
-	 */
-	private static final ChannelCreator CHANNEL_CREATOR = ChannelCreator.getInstance();
+class ChannelEventDispatcher {
 
 	/**
 	 * A reference to the Singleton instance of this class
@@ -41,7 +31,7 @@ public class ChannelEventDispatcher {
 	 * 
 	 * @return the Singleton instance of this class
 	 */
-	public static ChannelEventDispatcher getInstance() {
+	protected static ChannelEventDispatcher getInstance() {
 		if (INSTANCE == null)
 			INSTANCE = new ChannelEventDispatcher(); // create a new instance if null
 
@@ -56,12 +46,12 @@ public class ChannelEventDispatcher {
 	 * @param listOfChannels list of channel names to which the event must be
 	 *                       published to
 	 */
-	public void postEvent(AbstractEvent event, List<String> listOfChannels) {
+	protected void postEvent(AbstractEvent event, List<String> listOfChannels) {
 		for (String channelName : listOfChannels) {
-			AbstractChannel channel = CHANNEL_DISCOVERY.findChannel(channelName); // find the channel
+			AbstractChannel channel = ChannelPoolManager.getInstance().findChannel(channelName); // find the channel
 
 			if (channel == null)
-				channel = CHANNEL_CREATOR.addChannel(channelName); // if channel is null, create
+				channel = ChannelPoolManager.getInstance().addChannel(channelName); // if channel is null, create
 
 			channel.publishEvent(event); // publish the event to the channel
 		}

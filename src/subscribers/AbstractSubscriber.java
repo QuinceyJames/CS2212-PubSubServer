@@ -1,9 +1,11 @@
 package subscribers;
 
-import baseEntities.IEntity;
-import events.AbstractEvent;
-import pubSubServer.SubscriptionManager;
-import subscribers.states.AbstractState;
+import baseEntities.AbstractEntity;
+import events.IEvent;
+import pubSub.local.ISubscriptionManagerProxy;
+import pubSub.local.SubscriptionManagerProxy;
+import subscribers.states.IState;
+import subscribers.states.IStateFactory;
 import subscribers.states.StateFactory;
 import subscribers.states.StateName;
 
@@ -18,29 +20,23 @@ import subscribers.states.StateName;
  * @author qjames2, tzhu63, zzhan746, mgianco2, rblack43
  *
  */
-public abstract class AbstractSubscriber implements IEntity, Comparable<AbstractSubscriber> { 
+public abstract class AbstractSubscriber extends AbstractEntity<Integer> implements Comparable<AbstractSubscriber>, ISubscriber {
 
 	/**
 	 * A reference to the {@link StateFactory} singleton
 	 */
-	private static final StateFactory STATE_FACTORY = StateFactory.getInstance();
+	private static final IStateFactory STATE_FACTORY = StateFactory.getInstance();
 
 	/**
-	 * A reference to the {@link SubscriptionManager} singleton
+	 * A reference to the {@link SubscriptionManagerProxy} singleton
 	 */
-	private static final SubscriptionManager SUBSCRIPTION_MANAGER = SubscriptionManager.getInstance();
+	private static final ISubscriptionManagerProxy SUBSCRIPTION_MANAGER = SubscriptionManagerProxy.getInstance();
 
 	/**
 	 * Variable encapsulating the {@link subscribers.states.AbstractState
 	 * AbstractState} associated with an {@link AbstractSubscriber}
 	 */
-	protected AbstractState state;
-
-	/**
-	 * Variable encapsulating the ID number associated with an
-	 * {@link AbstractSubscriber}
-	 */
-	protected Integer subscriberID;
+	protected IState state;
 
 	/**
 	 * Constructor for an {@link AbstractSubscriber} that sets the {@link #state}
@@ -55,7 +51,8 @@ public abstract class AbstractSubscriber implements IEntity, Comparable<Abstract
 	 *                     given {@link AbstractSubscriber}.
 	 */
 	protected AbstractSubscriber(StateName stateName, int subscriberID) {
-		this.subscriberID = subscriberID; // setting subscriberID
+		super(subscriberID);
+
 		this.state = STATE_FACTORY.createState(stateName); // setting state
 
 		// printing required output as per document using toString in AbstractSubscriber
@@ -77,15 +74,11 @@ public abstract class AbstractSubscriber implements IEntity, Comparable<Abstract
 		System.out.println(String.format("%s has %s.", this, state));
 	}
 
-	/**
-	 * Function called each time an event is published to one of the channels that
-	 * the {@link AbstractSubscriber} is subscribed to
-	 * 
-	 * @param event       the AbstractEvent that's received
-	 * @param channelName the name of the channel that sent the AbstractEvent to the
-	 *                    AbstractSubscriber
+	/* (non-Javadoc)
+	 * @see subscribers.ISubscriber#alert(events.AbstractEvent, java.lang.String)
 	 */
-	public void alert(AbstractEvent event, String channelName) {
+	@Override
+	public void alert(IEvent event, String channelName) {
 		System.out.println(String.format("%s recieves %s and handles it at %s.", this, event, state));
 
 		// printing required output as per document using defined toString methods in
@@ -93,22 +86,18 @@ public abstract class AbstractSubscriber implements IEntity, Comparable<Abstract
 		state.handleEvent(event, channelName);
 	}
 
-	/**
-	 * Function to subscribe an {@link AbstractSubscriber} to an
-	 * {@link pubSubServer.AbstractChannel Channel}
-	 * 
-	 * @param channelName name of type String used to specify channel
+	/* (non-Javadoc)
+	 * @see subscribers.ISubscriber#subscribe(java.lang.String)
 	 */
+	@Override
 	public void subscribe(String channelName) {
 		SUBSCRIPTION_MANAGER.subscribe(channelName, this);
 	}
 
-	/**
-	 * Function to unsubscribe an {@link AbstractSubscriber} to an
-	 * {@link pubSubServer.AbstractChannel Channel}
-	 * 
-	 * @param channelName name of type String used to specify channel
+	/* (non-Javadoc)
+	 * @see subscribers.ISubscriber#unsubscribe(java.lang.String)
 	 */
+	@Override
 	public void unsubscribe(String channelName) {
 		SUBSCRIPTION_MANAGER.unSubscribe(channelName, this);
 	}
@@ -121,11 +110,16 @@ public abstract class AbstractSubscriber implements IEntity, Comparable<Abstract
 	@Override
 	public String toString() {
 		// creates string in the form "AlphaSubscriber #1"
-		return String.format("%s %d", getClass().getSimpleName(), subscriberID);
+		return String.format("%s %d", getClass().getSimpleName(), getEntityID());
 	}
-	
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Comparable#compareTo(java.lang.Object)
+	 */
 	@Override
 	public int compareTo(AbstractSubscriber o) {
-		return subscriberID.compareTo(o.subscriberID);
+		return getEntityID().compareTo(o.getEntityID());
 	}
 }

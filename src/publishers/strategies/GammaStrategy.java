@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import events.AbstractEvent;
-import pubSubServer.AbstractChannel;
-import pubSubServer.ChannelDiscovery;
-import pubSubServer.ChannelEventDispatcher;
-import publishers.AbstractPublisher;
+import pubSub.local.ChannelDiscoveryProxy;
+import pubSub.server.AbstractChannel;
+import pubSub.server.PubSubServerFacade;
+import publishers.IPublisher;
 
 /**
  * An implementation of a concrete {@link AbstractStrategy}
@@ -29,13 +29,12 @@ public class GammaStrategy extends AbstractStrategy {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see
-	 * publishers.strategies.AbstractStrategy#doPublishStrategy(events.AbstractEvent,
-	 * publishers.AbstractPublisher)
+	 * @see publishers.strategies.AbstractStrategy#doPublishStrategy(events.
+	 * AbstractEvent, publishers.AbstractPublisher)
 	 */
 	@Override
-	protected void doPublishStrategy(AbstractEvent event, AbstractPublisher publisher) {
-		List<AbstractChannel> channelList = ChannelDiscovery.getInstance().listChannels();
+	protected void doPublishStrategy(AbstractEvent event, IPublisher publisher) {
+		List<AbstractChannel> channelList = ChannelDiscoveryProxy.getInstance().listChannels();
 
 		ArrayList<String> outputList = new ArrayList<>();
 		for (AbstractChannel channel : channelList) {
@@ -43,6 +42,6 @@ public class GammaStrategy extends AbstractStrategy {
 				outputList.add(channel.getChannelTopic());
 		}
 
-		ChannelEventDispatcher.getInstance().postEvent(event, outputList);
+		PubSubServerFacade.getInstance().postEvent(event, outputList);
 	}
 }

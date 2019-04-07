@@ -1,4 +1,4 @@
-package subscribers;
+package pubSub.server;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -6,6 +6,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+import subscribers.AbstractSubscriber;
+import subscribers.ISubscriberFactory;
+import subscribers.SubscriberFactory;
+import subscribers.SubscriberType;
 import subscribers.states.StateName;
 
 /**
@@ -18,9 +22,9 @@ import subscribers.states.StateName;
  * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2,
  *         rblack43
  */
-public class SubscriberPoolManager {
+class SubscriberPoolManager {
 
-	private static final SubscriberFactory SUBSCRIBER_FACTORY = SubscriberFactory.getInstance();
+	private static final ISubscriberFactory SUBSCRIBER_FACTORY = SubscriberFactory.getInstance();
 
 	/**
 	 * Attribute holding reference to the single instance of this class

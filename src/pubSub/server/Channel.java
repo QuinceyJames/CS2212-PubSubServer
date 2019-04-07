@@ -1,4 +1,4 @@
-package pubSubServer;
+package pubSub.server;
 
 import java.util.ArrayDeque;
 import java.util.HashSet;
@@ -6,7 +6,10 @@ import java.util.Queue;
 import java.util.Set;
 
 import events.AbstractEvent;
+import events.IEvent;
+import pubSub.local.ChannelDiscoveryProxy;
 import subscribers.AbstractSubscriber;
+import subscribers.ISubscriber;
 
 /**
  * A Package-Protected concrete implementation of {@link AbstractChannel}. It
@@ -17,7 +20,7 @@ import subscribers.AbstractSubscriber;
  * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2,
  *         rblack43  
  */
-class Channel extends AbstractChannel {
+public class Channel extends AbstractChannel {
 
 	/**
 	 * A set of {@link subscribers.AbstractSubscriber Subscribers} subscribed to
@@ -31,13 +34,8 @@ class Channel extends AbstractChannel {
 	private final Queue<AbstractEvent> events = new ArrayDeque<AbstractEvent>();
 
 	/**
-	 * A reference to {@link ChannelAccessControl}
-	 */
-	private final ChannelAccessControl accessControler = ChannelAccessControl.getInstance();
-
-	/**
-	 * The Protected constructor for this class. Use the {@link ChannelCreator} to
-	 * create new {@link Channel Channels} and {@link ChannelDiscovery} to find
+	 * The Protected constructor for this class. Use the {@link ChannelFactory} to
+	 * create new {@link Channel Channels} and {@link ChannelDiscoveryProxy} to find
 	 * pre-existing ones
 	 * 
 	 * @param channelTopic the topic of this channel
@@ -49,7 +47,7 @@ class Channel extends AbstractChannel {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see pubSubServer.AbstractChannel#publishEvent(events.AbstractEvent)
+	 * @see pubSub.server.AbstractChannel#publishEvent(events.AbstractEvent)
 	 */
 	protected void publishEvent(AbstractEvent event) {
 		System.out.println(String.format("Channel '%s' has %s.", this.getChannelTopic(), event));
@@ -60,7 +58,7 @@ class Channel extends AbstractChannel {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see pubSubServer.AbstractChannel#subscribe(subscribers.AbstractSubscriber)
+	 * @see pubSub.server.AbstractChannel#subscribe(subscribers.AbstractSubscriber)
 	 */
 	protected void subscribe(AbstractSubscriber subscriber) {
 		subscribers.add(subscriber); // add subscriber
@@ -69,9 +67,9 @@ class Channel extends AbstractChannel {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see pubSubServer.AbstractChannel#unsubscribe(subscribers.AbstractSubscriber)
+	 * @see pubSub.server.AbstractChannel#unsubscribe(subscribers.AbstractSubscriber)
 	 */
-	protected void unsubscribe(AbstractSubscriber subscriber) {
+	protected void unsubscribe(ISubscriber subscriber) {
 		subscribers.remove(subscriber); // remove subscriber
 	}
 
@@ -86,9 +84,9 @@ class Channel extends AbstractChannel {
 	 * 
 	 * @param event the event that's to be disseminated to the subscribers
 	 */
-	private void notifySubscribers(AbstractEvent event) {
-		for (AbstractSubscriber subscriber : subscribers) {
-			if (!accessControler.checkIfBlocked(subscriber, getChannelTopic()))
+	private void notifySubscribers(IEvent event) {
+		for (ISubscriber subscriber : subscribers) {
+			if (!ChannelAccessControl.getInstance().checkIfBlocked(subscriber, getChannelTopic()))
 				subscriber.alert(event, getChannelTopic());
 		}
 	}

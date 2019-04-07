@@ -9,12 +9,12 @@ import subscribers.states.StateName;
  * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2,
  *         rblack43
  */
-public class SubscriberFactory {
+public class SubscriberFactory implements ISubscriberFactory {
 
 	/**
 	 * A reference to the Singleton instance of this class
 	 */
-	private static SubscriberFactory INSTANCE = null;
+	private static ISubscriberFactory INSTANCE = null;
 
 	/**
 	 * A private constructor used to help implement the "Singleton Design Pattern"
@@ -28,26 +28,17 @@ public class SubscriberFactory {
 	 * 
 	 * @return the Singleton instance of this class
 	 */
-	public static SubscriberFactory getInstance() {
+	public static ISubscriberFactory getInstance() {
 		if (INSTANCE == null)
 			INSTANCE = new SubscriberFactory(); // create a new instance if null
 
 		return INSTANCE;
 	}
 
-	/**
-	 * creates a new {@link AbstractSubscriber} using an entry from the
-	 * {@link SubscriberType} enumeration
-	 * 
-	 * @param type         a value from the {@link SubscriberType} enumeration
-	 *                     specifying the type of Subscriber to be created.
-	 * @param name         {@link subscribers.states.StateName StateName} of the
-	 *                     {@link state} to be associated with
-	 *                     {@link AbstractSubscriber}.
-	 * @param subscriberID {@link #subscriberID} to be associated with the given
-	 *                     {@link AbstractSubscriber}.
-	 * @return the newly created {@link AbstractSubscriber} instance
+	/* (non-Javadoc)
+	 * @see subscribers.ISubscriberFactory#createSubscriber(subscribers.SubscriberType, subscribers.states.StateName, int)
 	 */
+	@Override
 	public AbstractSubscriber createSubscriber(SubscriberType type, StateName name, int subscriberID) {
 
 		switch (type) {
@@ -59,6 +50,7 @@ public class SubscriberFactory {
 
 		case GAMMA_SUBSCRIBER:
 			return new GammaSubscriber(name, subscriberID);
+		
 		default:
 			return new DefaultSubscriber(name, subscriberID);
 		}

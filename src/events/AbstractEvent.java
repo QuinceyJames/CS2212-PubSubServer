@@ -1,19 +1,19 @@
 package events;
 
-import publishers.AbstractPublisher;
+import publishers.IPublisher;
 
 /**
  * This class defines the behavior that is shared between all extending classes.
  * A {@link publishers.AbstractPublisher Publisher} will use a
  * {@link publishers.strategies.AbstractStrategy Strategy} to publish a concrete
- * {@link AbstractEvent Event} to a {@link pubSubServer.Channel Channel} which
+ * {@link AbstractEvent Event} to a {@link pubSub.pubSub.server.Channel Channel} which
  * would then notify all of the {@link subscribers.AbstractSubscriber
  * Subscribers} that are subscribed to that channel
  * 
  * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2,
  *         rblack43
  */
-public abstract class AbstractEvent {
+public abstract class AbstractEvent implements IEvent {
 	/**
 	 * A unique number used to identify this event
 	 */
@@ -23,7 +23,7 @@ public abstract class AbstractEvent {
 	 * A reference to the {@link publishers.AbstractPublisher Publisher} of this
 	 * {@link AbstractEvent Event}
 	 */
-	private AbstractPublisher eventPublisher;
+	private IPublisher eventPublisher;
 
 	/**
 	 * The {@link Message} that this {@link AbstractEvent Event} references
@@ -42,7 +42,7 @@ public abstract class AbstractEvent {
 	 * @param eventMessage   is a {@link EventMessage} which contains a title and a
 	 *                       message for the event.
 	 */
-	protected AbstractEvent(long eventID, AbstractPublisher eventPublisher, EventMessage eventMessage) {
+	protected AbstractEvent(long eventID, IPublisher eventPublisher, EventMessage eventMessage) {
 		this.eventPublisher = eventPublisher;
 		this.eventMessage = eventMessage;
 		this.eventId = eventID;
@@ -74,7 +74,7 @@ public abstract class AbstractEvent {
 	 * @return the {@link publishers.AbstractPublisher Publisher} that created this
 	 *         {@link AbstractEvent Event}
 	 */
-	protected AbstractPublisher getEventPublisher() {
+	protected IPublisher getEventPublisher() {
 		return eventPublisher;
 	}
 

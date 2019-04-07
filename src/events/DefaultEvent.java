@@ -1,6 +1,7 @@
 package events;
 
 import publishers.AbstractPublisher;
+import publishers.IPublisher;
 
 /**
  * A concrete implementation of {@link AbstractEvent}. This
@@ -17,7 +18,7 @@ public class DefaultEvent extends AbstractEvent {
 	 * 
 	 * @see AbstractEvent#AbstractEvent(long, AbstractPublisher, EventMessage)
 	 */
-	protected DefaultEvent(long eventID, AbstractPublisher eventPublisher, EventMessage eventMessage) {
+	protected DefaultEvent(long eventID, IPublisher eventPublisher, EventMessage eventMessage) {
 		super(eventID, eventPublisher, eventMessage);
 	}
 }

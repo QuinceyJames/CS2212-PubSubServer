@@ -1,10 +1,11 @@
 
-package pubSubServer;
+package pubSub.server;
 
 import java.util.HashMap;
 import java.util.TreeSet;
 
 import subscribers.AbstractSubscriber;
+import subscribers.ISubscriber;
 
 /**
  * A Package-Protected class that keeps track of which
@@ -14,7 +15,7 @@ import subscribers.AbstractSubscriber;
  * of specific subscribers for specific channels
  * 
  * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2,
- *         rblack43  
+ *         rblack43
  */
 class ChannelAccessControl {
 
@@ -82,7 +83,7 @@ class ChannelAccessControl {
 	 * @return true if the {@link AbstractSubscriber Subscriber} was previously
 	 *         blocked. Otherwise return false.
 	 */
-	protected boolean unBlockSubscriber(AbstractSubscriber subscriber, String channelName) {
+	protected boolean unBlockSubscriber(ISubscriber subscriber, String channelName) {
 		if (subscriber == null)
 			return false;
 
@@ -104,7 +105,7 @@ class ChannelAccessControl {
 	 * @param channelName a String value representing a valid channel name
 	 * @return true if blocked false otherwise
 	 */
-	protected boolean checkIfBlocked(AbstractSubscriber subscriber, String channelName) {
+	protected boolean checkIfBlocked(ISubscriber subscriber, String channelName) {
 		if (subscriber == null)
 			return false;
 

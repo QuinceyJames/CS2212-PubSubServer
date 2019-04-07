@@ -1,4 +1,4 @@
-package publishers;
+package pubSub.server;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -6,6 +6,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+import publishers.AbstractPublisher;
+import publishers.IPublisherFactory;
+import publishers.PublisherFactory;
+import publishers.PublisherType;
 import publishers.strategies.StrategyName;
 
 /**
@@ -16,12 +20,12 @@ import publishers.strategies.StrategyName;
  * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2,
  *         rblack43
  */
-public class PublisherPoolManager {
+class PublisherPoolManager {
 
 	/**
 	 * A reference to the {@link PublisherFactory} singleton
 	 */
-	private static final PublisherFactory PUBLISHER_FACTORY = PublisherFactory.getInstance();
+	private static final IPublisherFactory PUBLISHER_FACTORY = PublisherFactory.getInstance();
 
 	/**
 	 * Attribute holding reference to the single instance of this class

@@ -7,12 +7,12 @@ package subscribers.states;
  * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2,
  *         rblack43
  */
-public class StateFactory {
+public class StateFactory implements IStateFactory {
 
 	/**
 	 * A reference to the Singleton instance of this class
 	 */
-	private static StateFactory INSTANCE = null;
+	private static IStateFactory INSTANCE = null;
 
 	/**
 	 * A private constructor used to help implement the "Singleton Design Pattern"
@@ -26,21 +26,17 @@ public class StateFactory {
 	 * 
 	 * @return the Singleton instance of this class
 	 */
-	public static StateFactory getInstance() {
+	public static IStateFactory getInstance() {
 		if (INSTANCE == null)
 			INSTANCE = new StateFactory(); // create a new instance if null
 
 		return INSTANCE;
 	}
 
-	/**
-	 * creates a new {@link AbstractState} using an entry from the {@link StateName}
-	 * enumeration
-	 * 
-	 * @param stateName a value from the {@link StateName} enumeration specifying
-	 *                  the state to be created
-	 * @return the newly created {@link AbstractState} instance
+	/* (non-Javadoc)
+	 * @see subscribers.states.IStateFactory#createState(subscribers.states.StateName)
 	 */
+	@Override
 	public AbstractState createState(StateName stateName) {
 		switch (stateName) {
 		case ALPHA_STATE:

@@ -3,7 +3,9 @@ package publishers.strategies;
 import events.AbstractEvent;
 import events.EventFactory;
 import events.EventType;
+import events.IEventFactory;
 import publishers.AbstractPublisher;
+import publishers.IPublisher;
 
 /**
  * Base class for the implementation of the "State Design Pattern" with regards
@@ -11,12 +13,12 @@ import publishers.AbstractPublisher;
  * 
  * @author qjames2, tzhu63, zzhan746, mgianco2, rblack43
  */
-public abstract class AbstractStrategy {
+public abstract class AbstractStrategy implements IStrategy {
 
 	/**
 	 * A reference to the {@link events.EventFactory} singleton
 	 */
-	private static final EventFactory EVENT_FACTORY = EventFactory.getInstance();
+	private static final IEventFactory EVENT_FACTORY = EventFactory.getInstance();
 
 	/**
 	 * The protected constructor for a {@link AbstractStrategy}. This ensures that
@@ -25,27 +27,20 @@ public abstract class AbstractStrategy {
 	protected AbstractStrategy() {
 	}
 
-	/**
-	 * Method to create and publish an {@link AbstractEvent} for an
-	 * {@link AbstractPublisher}
-	 * 
-	 * @param publisher the {@link AbstractPublisher} that has requested an event to
-	 *                  be published
+	/* (non-Javadoc)
+	 * @see publishers.strategies.IStrategy#doPublish(publishers.IPublisher)
 	 */
-	public final void doPublish(AbstractPublisher publisher) {
+	@Override
+	public final void doPublish(IPublisher publisher) {
 		doPublish(EVENT_FACTORY.createEvent(EventType.DEFAULT_EVENT, publisher, "Default Header", "Default Payload"),
 				publisher); // Creates a default event for the publisher
 	}
 
-	/**
-	 * Method to publish an specified {@link AbstractEvent} for an
-	 * {@link AbstractPublisher}
-	 * 
-	 * @param publisher the {@link AbstractPublisher} that has requested an event to
-	 *                  be published
-	 * @param event     the {@link AbstractEvent} to be published
+	/* (non-Javadoc)
+	 * @see publishers.strategies.IStrategy#doPublish(events.AbstractEvent, publishers.IPublisher)
 	 */
-	public final void doPublish(AbstractEvent event, AbstractPublisher publisher) {
+	@Override
+	public final void doPublish(AbstractEvent event, IPublisher publisher) {
 		System.out.println(String.format("%s publishes %s", publisher, event)); // Prints publisher with event
 		doPublishStrategy(event, publisher);
 	}
@@ -57,7 +52,7 @@ public abstract class AbstractStrategy {
 	 *                  be published
 	 * @param publisher the {@link AbstractEvent} to be published
 	 */
-	protected abstract void doPublishStrategy(AbstractEvent event, AbstractPublisher publisher);
+	protected abstract void doPublishStrategy(AbstractEvent event, IPublisher publisher);
 
 	@Override
 	public String toString() {

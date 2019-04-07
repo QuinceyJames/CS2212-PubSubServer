@@ -1,15 +1,16 @@
-package driver;
+package orchestration.driver;
 
 import java.util.Scanner;
 
 import events.AbstractEvent;
 import events.EventFactory;
 import events.EventType;
-import publishers.AbstractPublisher;
-import publishers.PublisherDiscovery;
+import events.IEventFactory;
+import pubSub.local.PublisherDiscoveryProxy;
+import publishers.IPublisher;
 
 /**
- * A Package-Protected concrete implementation of {@link IDriverStrategy} that
+ * A Package-Protected concrete implementation of {@link DriverInterface} that
  * can create an {@link events.AbstractEvent Event} and get a
  * {@link publishers.AbstractPublisher Publisher}
  * 
@@ -21,16 +22,16 @@ class PublisherDriverStrategy implements IDriverStrategy {
 	/**
 	 * A reference to the {@link events.EventFactory} singleton
 	 */
-	private static final EventFactory EVENT_FACTORY = EventFactory.getInstance();
+	private static final IEventFactory EVENT_FACTORY = EventFactory.getInstance();
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see driver.IDriverStrategy#executeDriverStrategy(java.util.Scanner)
+	 * @see orchestration.driver.DriverInterface#executeDriverStrategy(java.util.Scanner)
 	 */
 	@Override
 	public void executeDriverStrategy(Scanner scanner) {
-		AbstractPublisher publisher = PublisherDiscovery.getInstance().findPublisher(scanner.nextInt());
+		IPublisher publisher = PublisherDiscoveryProxy.getInstance().findUsingID(scanner.nextInt());
 
 		// If the event details have been given, then create the event and publish
 		if (scanner.hasNextInt()) {

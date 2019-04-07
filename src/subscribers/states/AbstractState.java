@@ -1,6 +1,6 @@
 package subscribers.states;
 
-import events.AbstractEvent;
+import events.IEvent;
 
 /**
  * A class that can be used in a "State Design Pattern"
@@ -9,7 +9,7 @@ import events.AbstractEvent;
  *         rblack43
  *
  */
-public abstract class AbstractState {
+public abstract class AbstractState implements IState {
 
 	/**
 	 * The protected constructor for this class. This ensures that only
@@ -18,15 +18,11 @@ public abstract class AbstractState {
 	protected AbstractState() {
 	}
 
-	/**
-	 * The method to call when this object should execute it's implementation of how
-	 * it handles an event
-	 * 
-	 * @param event       the {@link events.AbstractEvent Event} to be handled
-	 * @param channelName the channel where the {@link events.AbstractEvent Event}
-	 *                    came from
+	/* (non-Javadoc)
+	 * @see subscribers.states.IState#handleEvent(events.AbstractEvent, java.lang.String)
 	 */
-	public abstract void handleEvent(AbstractEvent event, String channelName);
+	@Override
+	public abstract void handleEvent(IEvent event, String channelName);
 
 	/*
 	 * (non-Javadoc)

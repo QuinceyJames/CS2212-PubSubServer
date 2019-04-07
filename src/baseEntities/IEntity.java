@@ -1,12 +1,7 @@
 package baseEntities;
 
+public interface IEntity<T extends Comparable<?>> {
 
- 
- /**
-  * @author kkontog, ktsiouni, mgrigori
-  *  
-  * Base Interface for Publisher and Subscriber classes
-  */
-public interface IEntity {
+	T getEntityID();
 
 }

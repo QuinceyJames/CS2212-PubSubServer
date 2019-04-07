@@ -1,5 +1,5 @@
 package subscribers.states;
-import events.AbstractEvent;
+import events.IEvent;
 
 /**
  * An implementation of a concrete {@link AbstractState}
@@ -25,7 +25,7 @@ public class DefaultState extends AbstractState {
 	 * java.lang.String)
 	 */
 	@Override
-	public void handleEvent(AbstractEvent event, String channelName) {
+	public void handleEvent(IEvent event, String channelName) {
 		// This is where we would implement how the event is handled
 	}
 	

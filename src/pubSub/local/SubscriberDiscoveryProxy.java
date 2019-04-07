@@ -1,4 +1,7 @@
-package subscribers;
+package pubSub.local;
+
+import pubSub.server.PubSubServerFacade;
+import subscribers.AbstractSubscriber;
 
 /**
  * Implements the Singleton design pattern.
@@ -8,35 +11,29 @@ package subscribers;
  * @author qjames2, tzhu63, zzhan746, mgianco2, rblack43
  * 
  */
-public class SubscriberDiscovery {
-
-	/**
-	 * Attribute holding reference to the {@link SubscriberPoolManager} to access
-	 * list of current subscribers
-	 */
-	private static final SubscriberPoolManager POOL_MANAGER = SubscriberPoolManager.getInstance();
+public class SubscriberDiscoveryProxy implements IDiscoveryProxy<AbstractSubscriber, Integer> {
 
 	/**
 	 * Attribute holding reference to the single instance of this class
 	 */
-	private static SubscriberDiscovery INSTANCE = null;
+	private static SubscriberDiscoveryProxy INSTANCE = null;
 
 	/**
 	 * Private constructor as per the Singleton Design Pattern
 	 */
-	private SubscriberDiscovery() {
+	private SubscriberDiscoveryProxy() {
 	}
 
 	/**
 	 * Method controlling the constructor as per the Singleton Design Pattern that
-	 * returns the one instance of {@link SubscriberDiscovery} if it exists, and if
-	 * it does not exist , create it.
+	 * returns the one instance of {@link SubscriberDiscoveryProxy} if it exists,
+	 * and if it does not exist , create it.
 	 * 
-	 * @return is the existing instance of {@link SubscriberDiscovery}
+	 * @return is the existing instance of {@link SubscriberDiscoveryProxy}
 	 */
-	public static SubscriberDiscovery getInstance() {
+	public static SubscriberDiscoveryProxy getInstance() {
 		if (INSTANCE == null)
-			INSTANCE = new SubscriberDiscovery();
+			INSTANCE = new SubscriberDiscoveryProxy();
 
 		return INSTANCE;
 	}
@@ -49,8 +46,9 @@ public class SubscriberDiscovery {
 	 * @return a {@link AbstractSubscriber} type object corresponding the the ID
 	 *         provided as input
 	 */
-	public AbstractSubscriber findSubscriber(int subscriberID) {
-		return POOL_MANAGER.findSubscriber(subscriberID);
+	@Override
+	public AbstractSubscriber findUsingID(Integer subscriberID) {
+		return PubSubServerFacade.getInstance().findSubscriber(subscriberID);
 	}
 
 }

@@ -7,12 +7,12 @@ package publishers.strategies;
  * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2,
  *         rblack43
  */
-public class StrategyFactory {
+public class StrategyFactory implements IStrategyFactory {
 
 	/**
 	 * A reference to the Singleton instance of this class
 	 */
-	private static StrategyFactory INSTANCE = null;
+	private static IStrategyFactory INSTANCE = null;
 
 	/**
 	 * A private constructor used to help implement the "Singleton Design Pattern"
@@ -26,22 +26,18 @@ public class StrategyFactory {
 	 * 
 	 * @return the Singleton instance of this class
 	 */
-	public static StrategyFactory getInstance() {
+	public static IStrategyFactory getInstance() {
 		if (INSTANCE == null)
 			INSTANCE = new StrategyFactory(); // create a new instance if null
 
 		return INSTANCE;
 	}
 
-	/**
-	 * creates a new {@link AbstractStrategy} using an entry from the
-	 * {@link StrategyName} enumeration
-	 * 
-	 * @param strategyName a value from the {@link StrategyName} enumeration
-	 *                     specifying the strategy to be created
-	 * @return the newly created {@link AbstractStrategy} instance
+	/* (non-Javadoc)
+	 * @see publishers.strategies.IStrategyFactory#createStrategy(publishers.strategies.StrategyName)
 	 */
-	public AbstractStrategy createStrategy(StrategyName strategyName) {
+	@Override
+	public IStrategy createStrategy(StrategyName strategyName) {
 
 		switch (strategyName) {
 		case ALPHA_STRATEGY:

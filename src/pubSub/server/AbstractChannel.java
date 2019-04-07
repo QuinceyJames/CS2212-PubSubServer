@@ -1,7 +1,9 @@
-package pubSubServer;
+package pubSub.server;
 
+import baseEntities.AbstractEntity;
 import events.AbstractEvent;
 import subscribers.AbstractSubscriber;
+import subscribers.ISubscriber;
 
 /**
  * the abstract base class for the channel functionality only implemented this
@@ -9,9 +11,9 @@ import subscribers.AbstractSubscriber;
  * affect how the published events are treated.
  * 
  * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2,
- *         rblack43 
+ *         rblack43
  */
-public abstract class AbstractChannel {
+public abstract class AbstractChannel extends AbstractEntity<String> {
 
 	/**
 	 * The topic of this channel
@@ -21,11 +23,12 @@ public abstract class AbstractChannel {
 	/**
 	 * The protected constructor for this class. It prints a message to indicate
 	 * that a {@link AbstractChannel Channel} has been created. This ensures that
-	 * only {@link ChannelCreator} can create channels
+	 * only {@link ChannelFactory} can create channels
 	 * 
 	 * @param channelTopic the topic of this channel
 	 */
 	protected AbstractChannel(String channelTopic) {
+		super(channelTopic);
 		this.channelTopic = channelTopic;
 		System.out.println(String.format("%s '%s' has been created.", this, channelTopic));
 	}
@@ -45,7 +48,7 @@ public abstract class AbstractChannel {
 	 * @param subscriber the handle of the subscriber that wants to unsubscribe from
 	 *                   the channel
 	 */
-	protected abstract void unsubscribe(AbstractSubscriber subscriber);
+	protected abstract void unsubscribe(ISubscriber subscriber);
 
 	/**
 	 * @return the topic/name of the concrete implementation of Channel

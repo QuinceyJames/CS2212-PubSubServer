@@ -1,7 +1,9 @@
-package pubSubServer;
+package pubSub.local;
 
 import java.util.List;
 
+import pubSub.server.AbstractChannel;
+import pubSub.server.PubSubServerFacade;
 import subscribers.AbstractSubscriber;
 
 /**
@@ -12,17 +14,17 @@ import subscribers.AbstractSubscriber;
  * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2,
  *         rblack43
  */
-public class ChannelDiscovery {
+public class ChannelDiscoveryProxy implements IDiscoveryProxy<AbstractChannel, String> {
 
 	/**
 	 * A reference to the Singleton instance of this class
 	 */
-	private static ChannelDiscovery INSTANCE = null;
+	private static ChannelDiscoveryProxy INSTANCE = null;
 
 	/**
 	 * A private constructor used to help implement the "Singleton Design Pattern"
 	 */
-	private ChannelDiscovery() {
+	private ChannelDiscoveryProxy() {
 	}
 
 	/**
@@ -31,9 +33,9 @@ public class ChannelDiscovery {
 	 * 
 	 * @return the Singleton instance of this class
 	 */
-	public static ChannelDiscovery getInstance() {
+	public static ChannelDiscoveryProxy getInstance() {
 		if (INSTANCE == null)
-			INSTANCE = new ChannelDiscovery(); // create a new instance if null
+			INSTANCE = new ChannelDiscoveryProxy(); // create a new instance if null
 
 		return INSTANCE;
 	}
@@ -44,7 +46,7 @@ public class ChannelDiscovery {
 	 *         available channels currently in the PubSubServer
 	 */
 	public List<AbstractChannel> listChannels() {
-		return ChannelPoolManager.getInstance().listChannels();
+		return PubSubServerFacade.getInstance().listChannels();
 	}
 
 	/**
@@ -52,8 +54,8 @@ public class ChannelDiscovery {
 	 * @return a {@link AbstractChannel} type object corresponding the the
 	 *         channelName provided as input
 	 */
-	public AbstractChannel findChannel(String channelName) {
-		return ChannelPoolManager.getInstance().getChannelsMap().get(channelName);
+	public AbstractChannel findUsingID(String channelName) {
+		return PubSubServerFacade.getInstance().findChannel(channelName);
 	}
 
 }
