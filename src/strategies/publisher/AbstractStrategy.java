@@ -6,6 +6,7 @@ import events.EventType;
 import publishers.AbstractPublisher;
 import subscribers.AbstractSubscriber;
 
+
 /**
  * Base class for the implementation of the Strategy Design Pattern with regards to Strategies
  * 

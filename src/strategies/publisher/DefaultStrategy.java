@@ -39,4 +39,5 @@ public class DefaultStrategy extends AbstractStrategy {
 
 		ChannelEventDispatcher.getInstance().postEvent(event, outputList);
 	}
+	
 }

@@ -40,4 +40,5 @@ public class BetaStrategy extends AbstractStrategy {
 
 		ChannelEventDispatcher.getInstance().postEvent(event, outputList);
 	}
+	
 }

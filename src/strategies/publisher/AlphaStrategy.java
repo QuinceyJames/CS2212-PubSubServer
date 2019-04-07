@@ -27,7 +27,6 @@ public class AlphaStrategy extends AbstractStrategy {
 		super(); //Calls parent
 	}
 
-	
 	/* (non-Javadoc)
 	 * 
 	 * @see strategies.publisher.AbstractStrategy#doPublish(events.AbstractEvent, publishers.AbstractPublisher)

@@ -29,5 +29,4 @@ public class StrategyFactory {
 			return new DefaultStrategy();
 		}
 	}
-
 }
