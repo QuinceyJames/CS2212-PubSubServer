@@ -18,7 +18,7 @@ import subscribers.states.StateName;
  * @author qjames2, tzhu63, zzhan746, mgianco2, rblack43
  *
  */
-public abstract class AbstractSubscriber implements IEntity { 
+public abstract class AbstractSubscriber implements IEntity, Comparable<AbstractSubscriber> { 
 
 	/**
 	 * A reference to the {@link StateFactory} singleton
@@ -40,7 +40,7 @@ public abstract class AbstractSubscriber implements IEntity {
 	 * Variable encapsulating the ID number associated with an
 	 * {@link AbstractSubscriber}
 	 */
-	protected int subscriberID;
+	protected Integer subscriberID;
 
 	/**
 	 * Constructor for an {@link AbstractSubscriber} that sets the {@link #state}
@@ -122,5 +122,10 @@ public abstract class AbstractSubscriber implements IEntity {
 	public String toString() {
 		// creates string in the form "AlphaSubscriber #1"
 		return String.format("%s #%d", getClass().getSimpleName(), subscriberID);
+	}
+	
+	@Override
+	public int compareTo(AbstractSubscriber o) {
+		return subscriberID.compareTo(o.subscriberID);
 	}
 }
