@@ -27,7 +27,7 @@ public abstract class AbstractChannel {
 	 */
 	protected AbstractChannel(String channelTopic) {
 		this.channelTopic = channelTopic;
-		System.out.println(String.format("%s '%s' has been created", this, channelTopic));
+		System.out.println(String.format("%s '%s' has been created.", this, channelTopic));
 	}
 
 	/**
