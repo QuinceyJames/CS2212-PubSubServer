@@ -12,8 +12,8 @@ import states.subscriber.StateFactory;
 import states.subscriber.StateName;
 
 /**
- * @author kkontog, ktsiouni, mgrigori, rblack43
  * second instance of a concrete subscriber
+ * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2, rblack43
  */
 public class BetaSubscriber extends AbstractSubscriber {
 

@@ -5,7 +5,7 @@ package subscribers;
  * 
  * Allows for the discovery of existing {@link AbstractSubscriber} s.
  * 
- * @author rblack43
+ * @author qjames2, tzhu63, zzhan746, mgianco2, rblack43
  * 
  */
 public class SubscriberDiscovery {
@@ -49,8 +49,8 @@ public class SubscriberDiscovery {
 	 * @return a {@link AbstractSubscriber} type object corresponding the the ID
 	 *         provided as input
 	 */
-	public AbstractSubscriber findSubscriber(int subscriberID) { // may not be able to use ID
-		return POOL_MANAGER.findSubscriber(subscriberID); // may not be able to use ID
+	public AbstractSubscriber findSubscriber(int subscriberID) { 
+		return POOL_MANAGER.findSubscriber(subscriberID); 
 	}
 
 }

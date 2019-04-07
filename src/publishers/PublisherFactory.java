@@ -3,24 +3,20 @@ package publishers;
 import strategies.publisher.StrategyName;
 
 /**
- * @author kkontog, ktsiouni, mgrigori creates new {@link AbstractPublisher}
- *         objects contributes to the Strategy design pattern implements the
- *         FactoryMethod design pattern
+ * creates new {@link AbstractPublisher}
+ * objects contributes to the Strategy design pattern implements the
+ * FactoryMethod design pattern
+ * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2, rblack43
+ * 
  */
 public class PublisherFactory {
 
 	/**
-	 * This is an implementation of the Factory Method design pattern Creates an
-	 * instance of any of the classes implementing the top level Interface
-	 * IPublisher
-	 * 
-	 * note we have multiple entries that return instances of the same
-	 * ConcretePublisher class
-	 * 
-	 * @param publisherType an entry from the {@link PublisherType} enumeration
-	 * @param strategyName  an entry from the {@link StrategyName} enumeration
-	 * @return an instance of the specified IPublisher implementation with the
-	 *         specified strategyName attached to it
+	 * creates a new {@link AbstractPublisher} using an entry from the {@link PublisherType} enumeration
+	 * @param publisherType a value from the {@link PublisherType} enumeration specifying the type of Publisher to be created.
+	 * @param strategyName {@link strategies.publisher.StrategyName StrategyName} of the {@link strategy} to be associated with {@link AbstractPublisher}.
+	 * @param publisherID {@link #publisherID} to be associated with the given {@link AbstractPublisher}.
+	 * @return the newly created {@link AbstractPublisher} instance 
 	 */
 	public static AbstractPublisher createPublisher(PublisherType publisherType, StrategyName strategyName, int publisherID) {
 		switch (publisherType) {

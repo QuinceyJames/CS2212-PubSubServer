@@ -1,19 +1,21 @@
 package strategies.publisher;
 
 /**
- * @author kkontog, ktsiouni, mgrigori creates new {@link IStrategy } objects
- *         contributes to the Strategy design pattern implements the
- *         FactoryMethod design pattern
+ * creates new {@link AbstractStrategy } objects
+ * contributes to the Strategy design pattern implements the
+ * FactoryMethod design pattern
+ * 
+ * @author kkontog, ktsiouni, mgrigori, rblack43
  */
 public class StrategyFactory {
 
 	/**
-	 * creates a new {@link IStrategy} using an entry from the {@link StrategyName}
+	 * creates a new {@link AbstractStrategy} using an entry from the {@link StrategyName}
 	 * enumeration
 	 * 
 	 * @param strategyName a value from the {@link StrategyName} enumeration
 	 *                     specifying the strategy to be created
-	 * @return the newly created {@link IStrategy} instance
+	 * @return the newly created {@link AbstractStrategy} instance
 	 */
 	public static AbstractStrategy createStrategy(StrategyName strategyName) {
 		switch (strategyName) {

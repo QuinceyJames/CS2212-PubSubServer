@@ -15,7 +15,7 @@ import states.subscriber.StateName;
  * various states that can define unique logic. These classes should not be used
  * outside of this package.
  * 
- * @author rblack43
+ * @author qjames2, tzhu63, zzhan746, mgianco2, rblack43
  *
  */
 public abstract class AbstractSubscriber implements IEntity, Comparable<AbstractSubscriber> {
@@ -46,7 +46,6 @@ public abstract class AbstractSubscriber implements IEntity, Comparable<Abstract
 		this.subscriberID = subscriberID; //setting subscriberID
 		this.state = StateFactory.createState(stateName); //setting state
 		System.out.println(String.format("%s has been created", this)); //printing required output as per document using defined toString method in AbstractSubscriber
-		System.out.println(String.format("%s has %s", this, state)); //printing required output as per document using defined toString methods in AbstractSubscriber and AbstractState
 	}
 
 	
@@ -63,6 +62,7 @@ public abstract class AbstractSubscriber implements IEntity, Comparable<Abstract
 	 */
 	public void setState(StateName stateName) {
 		this.state = StateFactory.createState(stateName);
+		System.out.println(String.format("%s has %s", this, state)); //printing required output as per document using defined toString methods in AbstractSubscriber and AbstractState
 	}
 
 	/**

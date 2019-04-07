@@ -1,30 +1,57 @@
 package publishers;
 
-import subscribers.AbstractSubscriber;
 
 /**
- * @author kkontog, ktsiouni, mgrigori MUST IMPLEMENT the Singleton design
- *         pattern Allows for the discovery of available channels for
- *         subscription from {@link AbstractSubscriber} that want to subscribe
- *         to them
+ * Implements the Singleton design pattern. 
+ * 
+ * Allows for the discovery of existing {@link AbstractPublisher} s.
+ * 
+ * @author qjames2, tzhu63, zzhan746, mgianco2, rblack43
+ * 
  */
 public class PublisherDiscovery {
 
-	private static PublisherDiscovery INSTANCE = new PublisherDiscovery();
+	
+	/**
+	 * Attribute holding reference to the {@link PublisherPoolManager} to access list of current publishers
+	 */
+	private static final PublisherPoolManager POOL_MANAGER = PublisherPoolManager.getInstance();
+	
+	
+	/**
+	 * Attribute holding reference to the single instance of this class
+	 */
+	private static PublisherDiscovery INSTANCE = null;
 
-	private PublisherDiscovery() {
-	}
+	
+	/**
+	 * Private constructor as per the Singleton Design Pattern
+	 */
+	private PublisherDiscovery() {}
 
+	
+	/**
+	 * Method controlling the constructor as per the Singleton Design Pattern that returns
+	 * the one instance of {@link PublisherDiscovery} if it exists, and if it does not exist
+	 * , create it.
+	 * 
+	 * @return is the existing instance of {@link PublisherDiscovery}
+	 */
 	public static PublisherDiscovery getInstance() {
+		if (INSTANCE == null)
+			INSTANCE = new PublisherDiscovery();
+		
 		return INSTANCE;
 	}
 
 	/**
-	 * @param subscriberID the ID number of the looked-up subscriber
-	 * @return a {@link AbstractSubscriber} type object corresponding the the ID
+	 * Function to find and return an {@link AbstractPublisher} given an {@link AbstractPublisher#publisherID ID}
+	 * 
+	 * @param publisherID the ID number of the looked-up publisher
+	 * @return a {@link AbstractPublisher} type object corresponding the the ID
 	 *         provided as input
 	 */
-	public AbstractPublisher findPublisher(int publisherID) { // may not be able to use ID
-		return PublisherPoolManager.getInstance().findPublisher(publisherID); // may not be able to use ID
+	public AbstractPublisher findPublisher(int publisherID) { 
+		return POOL_MANAGER.findPublisher(publisherID); 
 	}
 }
