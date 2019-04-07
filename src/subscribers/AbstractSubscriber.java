@@ -18,11 +18,13 @@ import states.subscriber.StateName;
  * @author qjames2, tzhu63, zzhan746, mgianco2, rblack43
  *
  */
-public abstract class AbstractSubscriber implements IEntity, Comparable<AbstractSubscriber> {
+public abstract class AbstractSubscriber implements IEntity {
+
+	private static final SubscriptionManager SUBSCRIPTION_MANAGER = SubscriptionManager.getInstance();
 
 	/**
-	 * Variable encapsulating the {@link states.subscriber.AbstractState AbstractState} associated
-	 * with an {@link AbstractSubscriber}
+	 * Variable encapsulating the {@link states.subscriber.AbstractState
+	 * AbstractState} associated with an {@link AbstractSubscriber}
 	 */
 	protected AbstractState state;
 
@@ -38,67 +40,79 @@ public abstract class AbstractSubscriber implements IEntity, Comparable<Abstract
 	 * 
 	 * All concrete subscriber instances utilize this method.
 	 * 
-	 * @param stateName is the {@link states.subscriber.StateName StateName} of the {@link state}
-	 * to be associated with the given {@link AbstractSubscriber}.
-	 * @param subscriberID is the {@link #subscriberID} to be associated with the given {@link AbstractSubscriber}.
+	 * @param stateName    is the {@link states.subscriber.StateName StateName} of
+	 *                     the {@link state} to be associated with the given
+	 *                     {@link AbstractSubscriber}.
+	 * @param subscriberID is the {@link #subscriberID} to be associated with the
+	 *                     given {@link AbstractSubscriber}.
 	 */
 	protected AbstractSubscriber(StateName stateName, int subscriberID) {
-		this.subscriberID = subscriberID; //setting subscriberID
-		this.state = StateFactory.createState(stateName); //setting state
-		System.out.println(String.format("%s has been created", this)); //printing required output as per document using defined toString method in AbstractSubscriber
-	}
+		this.subscriberID = subscriberID; // setting subscriberID
+		this.state = StateFactory.createState(stateName); // setting state
 
-	
-	@Override
-	public String toString() {
-		return String.format("%s #%d", getClass().getSimpleName(), this.subscriberID); //creates string in the form "AlphaSubscriber #1"
+		// printing required output as per document using toString in AbstractSubscriber
+		System.out.println(String.format("%s has been created", this));
 	}
 
 	/**
-	 * Sets the {@link states.subscriber.AbstractState AbstractState} for this {@link AbstractSubscriber} implementation using the {@link StateFactory}
+	 * Sets the {@link states.subscriber.AbstractState AbstractState} for this
+	 * {@link AbstractSubscriber} implementation using the {@link StateFactory}
 	 * 
 	 * @param stateName the entry from the {@link StateName} enumeration that we
 	 *                  want the new AbstractState of the AbstractSubscriber to be
 	 */
 	public void setState(StateName stateName) {
 		this.state = StateFactory.createState(stateName);
-		System.out.println(String.format("%s has %s", this, state)); //printing required output as per document using defined toString methods in AbstractSubscriber and AbstractState
+
+		// printing required output as per document using defined toString methods in
+		// AbstractSubscriber and AbstractState
+		System.out.println(String.format("%s has %s", this, state));
 	}
 
 	/**
-	 * Function called each time an event is published to one of the channels
-	 * that the {@link AbstractSubscriber} is subscribed to
+	 * Function called each time an event is published to one of the channels that
+	 * the {@link AbstractSubscriber} is subscribed to
 	 * 
 	 * @param event       the AbstractEvent that's received
 	 * @param channelName the name of the channel that sent the AbstractEvent to the
 	 *                    AbstractSubscriber
 	 */
 	public void alert(AbstractEvent event, String channelName) {
-		System.out.println(String.format("%s recieves %s and handles it at %s", this, event, state)); //printing required output as per document using defined toString methods in AbstractSubscriber, AbstractEvent and AbstractState
+		System.out.println(String.format("%s recieves %s and handles it at %s", this, event, state));
+
+		// printing required output as per document using defined toString methods in
+		// AbstractSubscriber, AbstractEvent and AbstractState
 		state.handleEvent(event, channelName);
-	};
+	}
 
 	/**
-	 * Function to subscribe an {@link AbstractSubscriber} to an {@link pubSubServer.AbstractChannel Channel}
+	 * Function to subscribe an {@link AbstractSubscriber} to an
+	 * {@link pubSubServer.AbstractChannel Channel}
 	 * 
 	 * @param channelName name of type String used to specify channel
 	 */
 	public void subscribe(String channelName) {
-		SubscriptionManager.getInstance().subscribe(channelName, this);
-	};
+		SUBSCRIPTION_MANAGER.subscribe(channelName, this);
+	}
 
 	/**
-	 * Function to unsubscribe an {@link AbstractSubscriber} to an {@link pubSubServer.AbstractChannel Channel}
+	 * Function to unsubscribe an {@link AbstractSubscriber} to an
+	 * {@link pubSubServer.AbstractChannel Channel}
 	 * 
 	 * @param channelName name of type String used to specify channel
 	 */
 	public void unsubscribe(String channelName) {
-		SubscriptionManager.getInstance().unSubscribe(channelName, this);
+		SUBSCRIPTION_MANAGER.unSubscribe(channelName, this);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
-	public int compareTo(AbstractSubscriber o) { //Since a map was used to store Subscribers, this method is implemented to help store in order
-		return o.subscriberID - subscriberID; //ordered by subscriberID, from least to greatest 
+	public String toString() {
+		// creates string in the form "AlphaSubscriber #1"
+		return String.format("%s #%d", getClass().getSimpleName(), subscriberID);
 	}
-
 }
