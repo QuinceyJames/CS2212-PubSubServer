@@ -7,9 +7,6 @@ import java.util.Map;
 import java.util.Scanner;
 
 import strategies.publisher.StrategyName;
-import subscribers.AbstractSubscriber;
-import subscribers.SubscriberDiscovery;
-import subscribers.SubscriberPoolManager;
 
 /**
  * implements the Singleton Design Pattern holds the collection of
