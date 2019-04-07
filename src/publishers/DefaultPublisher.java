@@ -3,14 +3,15 @@ package publishers;
 import strategies.publisher.StrategyName;
 
 /**
- * Package-Protected instance of a concrete {@link AbstractPublisher}
+ * An implementation of a concrete {@link AbstractPublisher}
  * 
  * @author qjames2, tzhu63, zzhan746, mgianco2, rblack43
  */
-class DefaultPublisher extends AbstractPublisher {
+public class DefaultPublisher extends AbstractPublisher {
 
 	/**
-	 * (non-Javadoc)
+	 * Protected constructor for {@link DefaultPublisher}. To create this object use
+	 * {@link PublisherFactory#createPublisher(PublisherType, StrategyName, int)}
 	 * 
 	 * @see AbstractPublisher#AbstractPublisher(StrategyName, int)
 	 */

@@ -10,14 +10,15 @@ import pubSubServer.ChannelEventDispatcher;
 import publishers.AbstractPublisher;
 
 /**
- * third instance of a concrete strategy
+ * An implementation of a concrete {@link AbstractStrategy}
  * 
  * @author qjames2, tzhu63, zzhan746, mgianco2, rblack43
  */
 public class DefaultStrategy extends AbstractStrategy {
 
 	/**
-	 * (non-Javadoc)
+	 * Protected constructor for {@link DefaultStrategy}. To create this object use
+	 * {@link StrategyFactory#createStrategy(StrategyName)}
 	 * 
 	 * @see AbstractStrategy#AbstractStrategy()
 	 */

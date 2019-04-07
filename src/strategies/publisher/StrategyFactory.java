@@ -8,6 +8,13 @@ package strategies.publisher;
  * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2, rblack43
  */
 public class StrategyFactory {
+	
+	/**
+	 * A private constructor for this class. Since all of the methods are static, no
+	 * instance of this class needs to be created
+	 */
+	private StrategyFactory() {
+	}
 
 	/**
 	 * creates a new {@link AbstractStrategy} using an entry from the {@link StrategyName}

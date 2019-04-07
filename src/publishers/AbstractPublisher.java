@@ -32,8 +32,9 @@ public abstract class AbstractPublisher implements IEntity {
 	protected int publisherID;
 
 	/**
-	 * Package-Protected Constructor for an {@link AbstractPublisher} that sets the
-	 * {@link #publishingStrategy} and {@link #publisherID} for said Publisher.
+	 * Protected Constructor for an {@link AbstractPublisher} that sets the
+	 * {@link #publishingStrategy} and {@link #publisherID} for said Publisher. This
+	 * ensures that only {@link PublisherFactory} can create publishers
 	 * 
 	 * All concrete publisher instances utilize this method.
 	 * 
