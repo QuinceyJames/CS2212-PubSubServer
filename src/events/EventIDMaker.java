@@ -1,11 +1,13 @@
 package events;
 
 /**
- * A Package-Protected class that can be used to produce a unique eventID for every
- * {@link AbstractEvent Event} that is created
+ * A Package-Protected class that can be used to produce a unique eventID for
+ * every {@link AbstractEvent Event} that is created
  * 
- * @author kkontog, ktsiouni, mgrigori
+ * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2,
+ *         rblack43
  *
+ * 
  */
 class EventIDMaker {
 

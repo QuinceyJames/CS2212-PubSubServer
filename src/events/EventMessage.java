@@ -4,8 +4,10 @@ package events;
  * A Package-Protected class used to store a message with a header and a body.
  * Used in {@link AbstractEvent}
  * 
- * @author kkontog, ktsiouni, mgrigori
+ * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2,
+ *         rblack43
  *
+ * 
  */
 class EventMessage {
 
