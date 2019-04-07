@@ -3,9 +3,9 @@ package subscribers;
 import baseEntities.IEntity;
 import events.AbstractEvent;
 import pubSubServer.SubscriptionManager;
-import states.subscriber.AbstractState;
-import states.subscriber.StateFactory;
-import states.subscriber.StateName;
+import subscribers.states.AbstractState;
+import subscribers.states.StateFactory;
+import subscribers.states.StateName;
 
 /**
  * 
@@ -31,7 +31,7 @@ public abstract class AbstractSubscriber implements IEntity {
 	private static final SubscriptionManager SUBSCRIPTION_MANAGER = SubscriptionManager.getInstance();
 
 	/**
-	 * Variable encapsulating the {@link states.subscriber.AbstractState
+	 * Variable encapsulating the {@link subscribers.states.AbstractState
 	 * AbstractState} associated with an {@link AbstractSubscriber}
 	 */
 	protected AbstractState state;
@@ -48,7 +48,7 @@ public abstract class AbstractSubscriber implements IEntity {
 	 * 
 	 * All concrete subscriber instances utilize this method.
 	 * 
-	 * @param stateName    is the {@link states.subscriber.StateName StateName} of
+	 * @param stateName    is the {@link subscribers.states.StateName StateName} of
 	 *                     the {@link state} to be associated with the given
 	 *                     {@link AbstractSubscriber}.
 	 * @param subscriberID is the {@link #subscriberID} to be associated with the
@@ -63,7 +63,7 @@ public abstract class AbstractSubscriber implements IEntity {
 	}
 
 	/**
-	 * Sets the {@link states.subscriber.AbstractState AbstractState} for this
+	 * Sets the {@link subscribers.states.AbstractState AbstractState} for this
 	 * {@link AbstractSubscriber} implementation using the {@link StateFactory}
 	 * 
 	 * @param stateName the entry from the {@link StateName} enumeration that we

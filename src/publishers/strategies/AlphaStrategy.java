@@ -1,4 +1,4 @@
-package strategies.publisher;
+package publishers.strategies;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +35,7 @@ public class AlphaStrategy extends AbstractStrategy {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * strategies.publisher.AbstractStrategy#doPublishStrategy(events.AbstractEvent,
+	 * publishers.strategies.AbstractStrategy#doPublishStrategy(events.AbstractEvent,
 	 * publishers.AbstractPublisher)
 	 */
 	@Override

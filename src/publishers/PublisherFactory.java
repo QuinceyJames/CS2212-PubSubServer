@@ -1,6 +1,6 @@
 package publishers;
 
-import strategies.publisher.StrategyName;
+import publishers.strategies.StrategyName;
 
 /**
  * creates new {@link AbstractPublisher} objects contributes to the Strategy
@@ -42,7 +42,7 @@ public class PublisherFactory {
 	 * 
 	 * @param type         a value from the {@link PublisherType} enumeration
 	 *                     specifying the type of Publisher to be created.
-	 * @param strategyName {@link strategies.publisher.StrategyName StrategyName} of
+	 * @param strategyName {@link publishers.strategies.StrategyName StrategyName} of
 	 *                     the {@link strategy} to be associated with
 	 *                     {@link AbstractPublisher}.
 	 * @param publisherID  {@link #publisherID} to be associated with the given

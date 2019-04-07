@@ -22,7 +22,7 @@
     <position height="-1" width="-1" x="387" y="-116"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
-  <package id="5" language="java" name="strategies.publisher" project="CS2212" file="/CS2212/src/strategies/publisher" 
+  <package id="5" language="java" name="publishers.strategies" project="CS2212" file="/CS2212/src/publishers/strategies" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="524" y="-117"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
@@ -37,7 +37,7 @@
     <position height="-1" width="-1" x="776" y="-116"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
-  <package id="8" language="java" name="states.subscriber" project="CS2212" file="/CS2212/src/states/subscriber" 
+  <package id="8" language="java" name="subscribers.states" project="CS2212" file="/CS2212/src/subscribers/states" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="906" y="-116"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
@@ -362,8 +362,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="45" language="java" name="states.subscriber.BetaState" project="CS2212" 
-    file="/CS2212/src/states/subscriber/BetaState.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="45" language="java" name="subscribers.states.BetaState" project="CS2212" 
+    file="/CS2212/src/subscribers/states/BetaState.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="850" y="1002"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -371,8 +371,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="46" language="java" name="states.subscriber.GammaState" project="CS2212" 
-    file="/CS2212/src/states/subscriber/GammaState.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="46" language="java" name="subscribers.states.GammaState" project="CS2212" 
+    file="/CS2212/src/subscribers/states/GammaState.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1104" y="1002"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -380,8 +380,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="47" language="java" name="states.subscriber.StateFactory" project="CS2212" 
-    file="/CS2212/src/states/subscriber/StateFactory.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="47" language="java" name="subscribers.states.StateFactory" project="CS2212" 
+    file="/CS2212/src/subscribers/states/StateFactory.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="995" y="823"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -389,8 +389,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="48" language="java" name="states.subscriber.DefaultState" project="CS2212" 
-    file="/CS2212/src/states/subscriber/DefaultState.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="48" language="java" name="subscribers.states.DefaultState" project="CS2212" 
+    file="/CS2212/src/subscribers/states/DefaultState.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1395" y="694"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -398,8 +398,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <enumeration id="49" language="java" name="states.subscriber.StateName" project="CS2212" 
-    file="/CS2212/src/states/subscriber/StateName.java" binary="false" corner="BOTTOM_RIGHT">    
+  <enumeration id="49" language="java" name="subscribers.states.StateName" project="CS2212" 
+    file="/CS2212/src/subscribers/states/StateName.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1339" y="492"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -407,8 +407,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <class id="50" language="java" name="states.subscriber.AlphaState" project="CS2212" 
-    file="/CS2212/src/states/subscriber/AlphaState.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="50" language="java" name="subscribers.states.AlphaState" project="CS2212" 
+    file="/CS2212/src/subscribers/states/AlphaState.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1351" y="1004"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -416,8 +416,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="51" language="java" name="states.subscriber.AbstractState" project="CS2212" 
-    file="/CS2212/src/states/subscriber/AbstractState.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="51" language="java" name="subscribers.states.AbstractState" project="CS2212" 
+    file="/CS2212/src/subscribers/states/AbstractState.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1268" y="828"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -425,8 +425,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="52" language="java" name="strategies.publisher.AbstractStrategy" project="CS2212" 
-    file="/CS2212/src/strategies/publisher/AbstractStrategy.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="52" language="java" name="publishers.strategies.AbstractStrategy" project="CS2212" 
+    file="/CS2212/src/publishers/strategies/AbstractStrategy.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1912" y="895"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -434,8 +434,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="53" language="java" name="strategies.publisher.GammaStrategy" project="CS2212" 
-    file="/CS2212/src/strategies/publisher/GammaStrategy.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="53" language="java" name="publishers.strategies.GammaStrategy" project="CS2212" 
+    file="/CS2212/src/publishers/strategies/GammaStrategy.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1621" y="1001"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -443,8 +443,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="54" language="java" name="strategies.publisher.StrategyFactory" project="CS2212" 
-    file="/CS2212/src/strategies/publisher/StrategyFactory.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="54" language="java" name="publishers.strategies.StrategyFactory" project="CS2212" 
+    file="/CS2212/src/publishers/strategies/StrategyFactory.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1619" y="806"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -452,8 +452,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="55" language="java" name="strategies.publisher.BetaStrategy" project="CS2212" 
-    file="/CS2212/src/strategies/publisher/BetaStrategy.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="55" language="java" name="publishers.strategies.BetaStrategy" project="CS2212" 
+    file="/CS2212/src/publishers/strategies/BetaStrategy.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2303" y="845"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -461,8 +461,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="56" language="java" name="strategies.publisher.AlphaStrategy" project="CS2212" 
-    file="/CS2212/src/strategies/publisher/AlphaStrategy.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="56" language="java" name="publishers.strategies.AlphaStrategy" project="CS2212" 
+    file="/CS2212/src/publishers/strategies/AlphaStrategy.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2204" y="741"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -470,8 +470,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="57" language="java" name="strategies.publisher.DefaultStrategy" project="CS2212" 
-    file="/CS2212/src/strategies/publisher/DefaultStrategy.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="57" language="java" name="publishers.strategies.DefaultStrategy" project="CS2212" 
+    file="/CS2212/src/publishers/strategies/DefaultStrategy.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2229" y="954"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -479,8 +479,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <enumeration id="58" language="java" name="strategies.publisher.StrategyName" project="CS2212" 
-    file="/CS2212/src/strategies/publisher/StrategyName.java" binary="false" corner="BOTTOM_RIGHT">    
+  <enumeration id="58" language="java" name="publishers.strategies.StrategyName" project="CS2212" 
+    file="/CS2212/src/publishers/strategies/StrategyName.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1906" y="741"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      

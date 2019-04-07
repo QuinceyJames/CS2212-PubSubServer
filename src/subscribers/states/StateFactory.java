@@ -1,4 +1,4 @@
-package states.subscriber;
+package subscribers.states;
 
 /**
  * creates new States contributes to the State design pattern implements the

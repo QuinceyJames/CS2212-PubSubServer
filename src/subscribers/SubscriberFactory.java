@@ -1,6 +1,6 @@
 package subscribers;
 
-import states.subscriber.StateName;
+import subscribers.states.StateName;
 
 /**
  * creates new {@link AbstractSubscriber} objects contributes to the State
@@ -41,7 +41,7 @@ public class SubscriberFactory {
 	 * 
 	 * @param type         a value from the {@link SubscriberType} enumeration
 	 *                     specifying the type of Subscriber to be created.
-	 * @param name         {@link states.subscriber.StateName StateName} of the
+	 * @param name         {@link subscribers.states.StateName StateName} of the
 	 *                     {@link state} to be associated with
 	 *                     {@link AbstractSubscriber}.
 	 * @param subscriberID {@link #subscriberID} to be associated with the given

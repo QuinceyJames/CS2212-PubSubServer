@@ -1,4 +1,4 @@
-package strategies.publisher;
+package publishers.strategies;
 
 /**
  * creates new {@link AbstractStrategy } objects contributes to the Strategy

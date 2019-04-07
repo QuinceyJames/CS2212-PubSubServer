@@ -1,4 +1,4 @@
-package states.subscriber;
+package subscribers.states;
 
 /**
  * an enumeration of all the available IState names that can be created using

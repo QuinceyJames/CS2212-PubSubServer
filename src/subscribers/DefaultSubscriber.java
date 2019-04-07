@@ -1,6 +1,6 @@
 package subscribers;
 
-import states.subscriber.StateName;
+import subscribers.states.StateName;
 
 /**
  * An implementation of a concrete {@link AbstractSubscriber}

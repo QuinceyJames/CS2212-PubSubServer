@@ -1,4 +1,4 @@
-package strategies.publisher;
+package publishers.strategies;
 
 import events.AbstractEvent;
 import events.EventFactory;

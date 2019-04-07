@@ -2,9 +2,9 @@ package publishers;
 
 import baseEntities.IEntity;
 import events.AbstractEvent;
-import strategies.publisher.AbstractStrategy;
-import strategies.publisher.StrategyFactory;
-import strategies.publisher.StrategyName;
+import publishers.strategies.AbstractStrategy;
+import publishers.strategies.StrategyFactory;
+import publishers.strategies.StrategyName;
 
 /**
  * 
@@ -25,7 +25,7 @@ public abstract class AbstractPublisher implements IEntity {
 	private static final StrategyFactory STRATEGY_FACTORY = StrategyFactory.getInstance();
 
 	/**
-	 * Variable encapsulating the {@link strategies.publisher.AbstractStrategy
+	 * Variable encapsulating the {@link publishers.strategies.AbstractStrategy
 	 * AbstractStrategy} associated with an {@link AbstractPublisher}
 	 */
 	protected AbstractStrategy publishingStrategy;
@@ -43,7 +43,7 @@ public abstract class AbstractPublisher implements IEntity {
 	 * 
 	 * All concrete publisher instances utilize this method.
 	 * 
-	 * @param strategyName is the {@link strategies.publisher.StrategyName
+	 * @param strategyName is the {@link publishers.strategies.StrategyName
 	 *                     StrategyName} of the {@link publishingStrategy} to be
 	 *                     associated with the given {@link AbstractPublisher}.
 	 * @param publisherID  is the {@link #publisherID} to be associated with the
@@ -65,7 +65,7 @@ public abstract class AbstractPublisher implements IEntity {
 	}
 
 	/**
-	 * Sets the {@link strategies.publisher.AbstractStrategy AbstractStrategy} for
+	 * Sets the {@link publishers.strategies.AbstractStrategy AbstractStrategy} for
 	 * this {@link AbstractPublisher} implementation using the
 	 * {@link StrategyFactory}
 	 * 

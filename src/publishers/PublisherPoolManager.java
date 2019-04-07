@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-import strategies.publisher.StrategyName;
+import publishers.strategies.StrategyName;
 
 /**
  * implements the Singleton Design Pattern holds the collection of

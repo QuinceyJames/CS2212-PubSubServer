@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-import states.subscriber.StateName;
+import subscribers.states.StateName;
 
 /**
  * 

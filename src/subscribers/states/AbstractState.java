@@ -1,4 +1,4 @@
-package states.subscriber;
+package subscribers.states;
 
 import events.AbstractEvent;
 

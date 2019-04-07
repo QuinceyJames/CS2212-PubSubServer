@@ -1,4 +1,4 @@
-package strategies.publisher;
+package publishers.strategies;
 
 /**
  * an enumeration of all the available

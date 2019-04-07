@@ -1,6 +1,6 @@
 package publishers;
 
-import strategies.publisher.StrategyName;
+import publishers.strategies.StrategyName;
 
 /**
  * An implementation of a concrete {@link AbstractPublisher}

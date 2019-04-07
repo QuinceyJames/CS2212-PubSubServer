@@ -1,4 +1,4 @@
-package states.subscriber;
+package subscribers.states;
 import events.AbstractEvent;
 
 /**
@@ -21,7 +21,7 @@ public class DefaultState extends AbstractState {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see states.subscriber.AbstractState#handleEvent(events.AbstractEvent,
+	 * @see subscribers.states.AbstractState#handleEvent(events.AbstractEvent,
 	 * java.lang.String)
 	 */
 	@Override
