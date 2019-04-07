@@ -3,8 +3,8 @@ package subscribers;
 import states.subscriber.StateName;
 
 /**
- * @author kkontog, ktsiouni, mgrigori, rblack43
  * first instance of a concrete subscriber
+ * @author kkontog, ktsiouni, mgrigori, rblack43
  */
 public class AlphaSubscriber extends AbstractSubscriber {
 	

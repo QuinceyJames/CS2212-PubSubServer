@@ -11,11 +11,18 @@ public abstract class AbstractStrategy {
 		// TODO: delete the IStrategy
 	}
 
+	/**
+	 * @param publisher
+	 */
 	public void doPublish(AbstractPublisher publisher) {
 		doPublish(EventFactory.createEvent(EventType.DEFAULT_EVENT, publisher, "Default Header", "Default Payload"),
 				publisher); //Creates a default event for the publisher
 	}
 
+	/**
+	 * @param event
+	 * @param publisher
+	 */
 	public void doPublish(AbstractEvent event, AbstractPublisher publisher) {
 		System.out.println(String.format("%s publishes %s", publisher, event)); //Prints publisher with event
 	}

@@ -2,7 +2,7 @@ package subscribers;
 
 
 /**
- * @author kkontog, ktsiouni, mgrigori
+ * @author kkontog, ktsiouni, mgrigori, rblack43
  * 	an enumeration of all the available
  *  Subscriber types that can be created using the
  *  {@link SubscriberFactory#createSubscriber(SubscriberType, states.subscriber.StateName)} note that normally, for

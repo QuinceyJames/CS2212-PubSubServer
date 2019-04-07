@@ -17,7 +17,9 @@ public class SubscriberFactory {
 	
 	/**
 	 * creates a new {@link AbstractSubscriber} using an entry from the {@link SubscriberType} enumeration
-	 * @param subscriberType a value from the {@link SubscriberType} enumeration specifying the type of Subscriber to be created 
+	 * @param subscriberType a value from the {@link SubscriberType} enumeration specifying the type of Subscriber to be created.
+	 * @param stateName {@link states.subscriber.StateName StateName} of the {@link state} to be associated with {@link AbstractSubscriber}.
+	 * @param subscriberID {@link #subscriberID} to be associated with the given {@link AbstractSubscriber}.
 	 * @return the newly created {@link AbstractSubscriber} instance 
 	 */
 	public static AbstractSubscriber createSubscriber(SubscriberType subscriberType, StateName stateName, int subscriberID) {

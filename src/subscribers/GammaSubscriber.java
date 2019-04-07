@@ -12,8 +12,8 @@ import states.subscriber.StateFactory;
 import states.subscriber.StateName;
 
 /**
- * @author kkontog, ktsiouni, mgrigori, rblack43
  * fourth instance of a concrete subscriber
+ * @author kkontog, ktsiouni, mgrigori, rblack43
  */
 public class GammaSubscriber extends AbstractSubscriber  {
 

@@ -6,11 +6,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+import publishers.AbstractPublisher;
 import publishers.PublisherPoolManager;
 import states.subscriber.StateName;
 
 /**
- * @author kkontog, ktsiouni, mgrigori
+ * @author kkontog, ktsiouni, mgrigori, rblack43
  * 
  *         implements the Singleton Design Pattern
  * 
@@ -24,13 +25,11 @@ public class SubscriberPoolManager {
 	 */
 	private static SubscriberPoolManager INSTANCE = new SubscriberPoolManager();
 	
-	
 	/**
 	 * Map used as a list to hold existing {@link AbstractSubscriber}s and their respective {@link AbstractSubscriber#subscriberID ID}s 
 	 */
 	private Map<Integer, AbstractSubscriber> subscribersMap = new HashMap<>();
 
-	
 	/**
 	 * Creates {@link #subscribersMap} based on input file, associating {@link AbstractSubscriber}s with {@link AbstractSubscriber#state state}s
 	 */
@@ -55,7 +54,7 @@ public class SubscriberPoolManager {
 	 * the one instance of {@link SubscriberPoolManager} if it exists, and if it does not exist
 	 * , create it.
 	 * 
-	 * @return is the existing instance of {@link SubscriberDiscovery}
+	 * @return is the existing instance of {@link SubscriberPoolManager}
 	 */
 	protected static SubscriberPoolManager getInstance() {
 		if (INSTANCE == null)
@@ -65,10 +64,10 @@ public class SubscriberPoolManager {
 	}
 
 	/**
-	 * returns {@link SubscriberDiscovery} using a name as lookup information
+	 * returns {@link AbstractSubscriber} using ID as lookup information
 	 * 
-	 * @param channelName the name of the AbstractChannel to be returned
-	 * @return the appropriate instance of an AbstractChannel subclass
+	 * @param subscriberID the {@link AbstractSubscriber#subscriberID ID} of the AbstractSubscriber to be returned
+	 * @return the appropriate instance of an AbstractSubscriber subclass
 	 */
 	protected AbstractSubscriber findSubscriber(int subscriberID) {
 		return subscribersMap.get(subscriberID);

@@ -49,8 +49,8 @@ public class SubscriberDiscovery {
 	 * @return a {@link AbstractSubscriber} type object corresponding the the ID
 	 *         provided as input
 	 */
-	public AbstractSubscriber findSubscriber(int subscriberID) { // may not be able to use ID
-		return POOL_MANAGER.findSubscriber(subscriberID); // may not be able to use ID
+	public AbstractSubscriber findSubscriber(int subscriberID) { 
+		return POOL_MANAGER.findSubscriber(subscriberID); 
 	}
 
 }
