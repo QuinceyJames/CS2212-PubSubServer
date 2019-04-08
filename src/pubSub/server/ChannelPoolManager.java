@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -27,7 +27,7 @@ class ChannelPoolManager {
 	/**
 	 * A map of channel names to the object
 	 */
-	private final HashMap<String, AbstractChannel> channelsMap = new HashMap<String, AbstractChannel>();
+	private final Map<String, AbstractChannel> channelsMap = new LinkedHashMap<String, AbstractChannel>();
 
 	/**
 	 * A private constructor used to help implement the "Singleton Design Pattern"
