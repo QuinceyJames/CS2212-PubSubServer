@@ -17,7 +17,7 @@ import java.util.Map;
  * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2,
  *         rblack43
  */
-class ChannelPoolManager {
+public class ChannelPoolManager {
 
 	/**
 	 * A reference to the Singleton instance of this class

@@ -16,7 +16,7 @@ import subscribers.ISubscriber;
  * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2,
  *         rblack43
  */
-class ChannelAccessControl {
+public class ChannelAccessControl {
 
 	/**
 	 * A reference to the Singleton instance of this class

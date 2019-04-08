@@ -21,7 +21,7 @@ import publishers.strategies.StrategyName;
  * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2,
  *         rblack43
  */
-class PublisherPoolManager {
+public class PublisherPoolManager {
 
 	/**
 	 * A reference to the {@link PublisherFactory} singleton

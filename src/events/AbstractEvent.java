@@ -6,7 +6,7 @@ import publishers.IPublisher;
  * This class defines the behavior that is shared between all extending classes.
  * A {@link publishers.AbstractPublisher Publisher} will use a
  * {@link publishers.strategies.AbstractStrategy Strategy} to publish a concrete
- * {@link AbstractEvent Event} to a {@link pubSub.pubSub.server.Channel Channel} which
+ * {@link AbstractEvent Event} to a {@link pubSub.server.Channel Channel} which
  * would then notify all of the {@link subscribers.AbstractSubscriber
  * Subscribers} that are subscribed to that channel
  * 

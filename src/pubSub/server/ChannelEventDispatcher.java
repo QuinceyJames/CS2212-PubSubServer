@@ -12,7 +12,7 @@ import publishers.IPublisher;
  * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2,
  *         rblack43
  */
-class ChannelEventDispatcher {
+public class ChannelEventDispatcher {
 
 	/**
 	 * A reference to the Singleton instance of this class

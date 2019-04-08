@@ -3,7 +3,7 @@ package orchestration.driver;
 import java.util.Scanner;
 
 /**
- * A class that chooses which {@link DriverInterface} should be executed
+ * A class that chooses which {@link IDriverStrategy} should be executed
  * 
  * @author qjames2, tzhu63, zzhan746, mgianco2, rblack43
  *
@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class DriverStrategySelector implements IDriverStrategySelector {
 
 	/**
-	 * Determines and executes the appropriate {@link DriverInterface} based on the
+	 * Determines and executes the appropriate {@link IDriverStrategy} based on the
 	 * the first word of the command.
 	 * 
 	 * @param command The command to be executed where the first word is one of the

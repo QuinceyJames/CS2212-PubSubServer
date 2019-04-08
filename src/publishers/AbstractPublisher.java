@@ -61,12 +61,10 @@ public abstract class AbstractPublisher extends AbstractEntity<Integer> implemen
 	}
 
 	/**
-	 * Sets the {@link IStrategy AbstractStrategy} for this
-	 * {@link AbstractPublisher} implementation using the {@link StrategyFactory}
+	 * Sets the {@link IStrategy Strategy} for this
+	 * {@link AbstractPublisher} }
 	 * 
-	 * @param strategyName the entry from the {@link StrategyName} enumeration that
-	 *                     we want the new AbstractStrategy of the AbstractPublisher
-	 *                     to be
+	 * @param publishingStrategy the {@link IStrategy} to link
 	 */
 	public void setStrategy(IStrategy publishingStrategy) {
 		this.publishingStrategy = publishingStrategy;

@@ -3,7 +3,7 @@ package publishers;
 /**
  * an enumeration of all the available Publisher types that can be created using
  * the
- * {@link PublisherFactory#createPublisher(PublisherType, publishers.strategies.StrategyName)}
+ * {@link PublisherFactory#createPublisher(PublisherType, publishers.strategies.StrategyName, int)}
  * note that normally, for each new implementation of the
  * {@link AbstractPublisher}, a new entry must be added here
  * 

@@ -23,7 +23,7 @@ import subscribers.states.StateName;
  * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2,
  *         rblack43
  */
-class SubscriberPoolManager {
+public class SubscriberPoolManager {
 
 	private static final ISubscriberFactory SUBSCRIBER_FACTORY = SubscriberFactory.getInstance();
 
