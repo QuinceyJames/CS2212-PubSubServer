@@ -12,7 +12,7 @@ import publishers.IPublisher;
 public class DefaultEvent extends AbstractEvent {
 
 	/**
-	 * Constructor for {@link DefaultEvent}. To create this object use
+	 * Protected constructor for {@link DefaultEvent}. To create this object use
 	 * {@link EventFactory#createEvent(EventType, IPublisher, String, String)}
 	 * 
 	 * @see AbstractEvent#AbstractEvent(long, IPublisher, EventMessage)

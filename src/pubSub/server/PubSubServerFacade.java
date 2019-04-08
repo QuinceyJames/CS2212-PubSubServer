@@ -39,8 +39,9 @@ public class PubSubServerFacade implements IPubSubServerFacade {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see pubSub.server.IPubSubServerFacade#blockSubcriber(subscribers.
-	 * AbstractSubscriber, java.lang.String)
+	 * @see
+	 * pubSub.server.IPubSubServerFacade#blockSubcriber(subscribers.ISubscriber,
+	 * java.lang.String)
 	 */
 	@Override
 	public boolean blockSubcriber(ISubscriber subscriber, String channelName) {
@@ -50,8 +51,9 @@ public class PubSubServerFacade implements IPubSubServerFacade {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see pubSub.server.IPubSubServerFacade#unBlockSubscriber(subscribers.
-	 * AbstractSubscriber, java.lang.String)
+	 * @see
+	 * pubSub.server.IPubSubServerFacade#unBlockSubscriber(subscribers.ISubscriber,
+	 * java.lang.String)
 	 */
 	@Override
 	public boolean unBlockSubscriber(ISubscriber subscriber, String channelName) {
@@ -61,8 +63,9 @@ public class PubSubServerFacade implements IPubSubServerFacade {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see pubSub.server.IPubSubServerFacade#checkIfBlocked(subscribers.
-	 * AbstractSubscriber, java.lang.String)
+	 * @see
+	 * pubSub.server.IPubSubServerFacade#checkIfBlocked(subscribers.ISubscriber,
+	 * java.lang.String)
 	 */
 	@Override
 	public boolean checkIfBlocked(ISubscriber subscriber, String channelName) {
@@ -72,7 +75,7 @@ public class PubSubServerFacade implements IPubSubServerFacade {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see pubSub.server.IPubSubServerFacade#postEvent(events.AbstractEvent,
+	 * @see pubSub.server.IPubSubServerFacade#postEvent(events.IEvent,
 	 * java.util.List)
 	 */
 	@Override
@@ -123,8 +126,7 @@ public class PubSubServerFacade implements IPubSubServerFacade {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see
-	 * pubSub.server.IPubSubServerFacade#subscribe(subscribers.AbstractSubscriber,
+	 * @see pubSub.server.IPubSubServerFacade#subscribe(subscribers.ISubscriber,
 	 * java.lang.String)
 	 */
 	@Override
@@ -135,8 +137,7 @@ public class PubSubServerFacade implements IPubSubServerFacade {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see
-	 * pubSub.server.IPubSubServerFacade#unsubscribe(subscribers.AbstractSubscriber,
+	 * @see pubSub.server.IPubSubServerFacade#unsubscribe(subscribers.ISubscriber,
 	 * java.lang.String)
 	 */
 	@Override

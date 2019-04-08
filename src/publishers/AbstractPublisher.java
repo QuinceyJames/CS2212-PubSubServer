@@ -61,8 +61,7 @@ public abstract class AbstractPublisher extends AbstractEntity<Integer> implemen
 	}
 
 	/**
-	 * Sets the {@link IStrategy Strategy} for this
-	 * {@link AbstractPublisher} }
+	 * Sets the {@link IStrategy Strategy} for this {@link AbstractPublisher} }
 	 * 
 	 * @param publishingStrategy the {@link IStrategy} to link
 	 */
@@ -87,7 +86,7 @@ public abstract class AbstractPublisher extends AbstractEntity<Integer> implemen
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see publishers.IPublisher#publish(IEvent)
+	 * @see publishers.IPublisher#publish(events.IEvent)
 	 */
 	@Override
 	public void publish(IEvent event) {

@@ -9,8 +9,7 @@ import subscribers.ISubscriber;
 
 /**
  * A Package-Protected concrete implementation of {@link DriverInterface} that
- * unblocks a {@link ISubscriber Subscriber} from a
- * {@link IChannel Channel}
+ * unblocks a {@link ISubscriber Subscriber} from a {@link IChannel Channel}
  * 
  * @author qjames2, tzhu63, zzhan746, mgianco2, rblack43
  *
@@ -20,7 +19,8 @@ class UnblockerDriverStrategy implements IDriverStrategy {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see orchestration.driver.DriverInterface#executeDriverStrategy(java.util.Scanner)
+	 * @see
+	 * orchestration.driver.IDriverStrategy#executeDriverStrategy(java.util.Scanner)
 	 */
 	@Override
 	public void executeDriverStrategy(Scanner scanner) {

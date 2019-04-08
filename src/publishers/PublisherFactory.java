@@ -3,8 +3,8 @@ package publishers;
 import publishers.strategies.StrategyName;
 
 /**
- * creates new {@link IPublisher} objects contributes to the Strategy
- * design pattern implements the FactoryMethod design pattern
+ * creates new {@link IPublisher} objects contributes to the Strategy design
+ * pattern implements the FactoryMethod design pattern
  * 
  * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2,
  *         rblack43
@@ -36,8 +36,11 @@ public class PublisherFactory implements IPublisherFactory {
 		return INSTANCE;
 	}
 
-	/* (non-Javadoc)
-	 * @see publishers.IPublisherFactory#createPublisher(publishers.PublisherType, publishers.strategies.StrategyName, int)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see publishers.IPublisherFactory#createPublisher(publishers.PublisherType,
+	 * publishers.strategies.StrategyName, int)
 	 */
 	@Override
 	public AbstractPublisher createPublisher(PublisherType type, StrategyName strategyName, int publisherID) {
