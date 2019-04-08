@@ -20,7 +20,8 @@ import subscribers.states.StateName;
  * @author qjames2, tzhu63, zzhan746, mgianco2, rblack43
  *
  */
-public abstract class AbstractSubscriber extends AbstractEntity<Integer> implements Comparable<AbstractSubscriber>, ISubscriber {
+public abstract class AbstractSubscriber extends AbstractEntity<Integer>
+		implements Comparable<AbstractSubscriber>, ISubscriber {
 
 	/**
 	 * A reference to the {@link StateFactory} singleton
@@ -74,7 +75,9 @@ public abstract class AbstractSubscriber extends AbstractEntity<Integer> impleme
 		System.out.println(String.format("%s has %s.", this, state));
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see subscribers.ISubscriber#alert(events.AbstractEvent, java.lang.String)
 	 */
 	@Override
@@ -86,7 +89,9 @@ public abstract class AbstractSubscriber extends AbstractEntity<Integer> impleme
 		state.handleEvent(event, channelName);
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see subscribers.ISubscriber#subscribe(java.lang.String)
 	 */
 	@Override
@@ -94,7 +99,9 @@ public abstract class AbstractSubscriber extends AbstractEntity<Integer> impleme
 		SUBSCRIPTION_MANAGER.subscribe(channelName, this);
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see subscribers.ISubscriber#unsubscribe(java.lang.String)
 	 */
 	@Override

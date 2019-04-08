@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 import publishers.AbstractPublisher;
+import publishers.IPublisher;
 import publishers.IPublisherFactory;
 import publishers.PublisherFactory;
 import publishers.PublisherType;
@@ -33,14 +34,14 @@ class PublisherPoolManager {
 	private static PublisherPoolManager INSTANCE = null;
 
 	/**
-	 * Map used as a list to hold existing {@link AbstractPublisher Publishers} and
-	 * their respective {@link AbstractPublisher#publisherID IDs}
+	 * Map used as a list to hold existing {@link IPublisher Publishers} and their
+	 * respective {@link AbstractPublisher#publisherID IDs}
 	 */
-	private Map<Integer, AbstractPublisher> publishersMap = new HashMap<>();
+	private Map<Integer, IPublisher> publishersMap = new HashMap<>();
 
 	/**
 	 * Creates {@link #publishersMap} based on input file, associating
-	 * {@link AbstractPublisher Publishers} with
+	 * {@link IPublisher Publishers} with
 	 * {@link AbstractPublisher#publishingStrategy publishingStrategys}
 	 */
 	private PublisherPoolManager() {
@@ -76,13 +77,13 @@ class PublisherPoolManager {
 	}
 
 	/**
-	 * returns {@link AbstractPublisher} using ID as lookup information
+	 * returns {@link IPublisher} using ID as lookup information
 	 * 
 	 * @param publisherID the {@link AbstractPublisher#publisherID ID} of the
 	 *                    AbstractPublisher to be returned
 	 * @return the appropriate instance of an AbstractPublisher subclass
 	 */
-	protected AbstractPublisher findPublisher(int publisherID) {
+	protected IPublisher findPublisher(int publisherID) {
 		return publishersMap.get(publisherID);
 	}
 

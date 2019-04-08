@@ -1,8 +1,7 @@
 package pubSub.server;
 
 import baseEntities.AbstractEntity;
-import events.AbstractEvent;
-import subscribers.AbstractSubscriber;
+import events.IEvent;
 import subscribers.ISubscriber;
 
 /**
@@ -13,7 +12,7 @@ import subscribers.ISubscriber;
  * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2,
  *         rblack43
  */
-public abstract class AbstractChannel extends AbstractEntity<String> {
+public abstract class AbstractChannel extends AbstractEntity<String> implements IChannel {
 
 	/**
 	 * The topic of this channel
@@ -36,13 +35,13 @@ public abstract class AbstractChannel extends AbstractEntity<String> {
 	/**
 	 * @param event the event that's to be published
 	 */
-	protected abstract void publishEvent(AbstractEvent event);
+	protected abstract void publishEvent(IEvent event);
 
 	/**
 	 * @param subscriber the handle of subscriber that wants to subscribe to the
 	 *                   channel
 	 */
-	protected abstract void subscribe(AbstractSubscriber subscriber);
+	protected abstract void subscribe(ISubscriber subscriber);
 
 	/**
 	 * @param subscriber the handle of the subscriber that wants to unsubscribe from
@@ -50,9 +49,12 @@ public abstract class AbstractChannel extends AbstractEntity<String> {
 	 */
 	protected abstract void unsubscribe(ISubscriber subscriber);
 
-	/**
-	 * @return the topic/name of the concrete implementation of Channel
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see pubSub.server.IChannel#getChannelTopic()
 	 */
+	@Override
 	public String getChannelTopic() {
 		return channelTopic;
 	}

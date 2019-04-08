@@ -15,7 +15,7 @@ import java.util.Map;
  * methods for manipulating these collections
  * 
  * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2,
- *         rblack43  
+ *         rblack43
  */
 class ChannelPoolManager {
 
@@ -82,9 +82,9 @@ class ChannelPoolManager {
 	/**
 	 * can be used to list all the Channels available in the PubSubServer
 	 * 
-	 * @return a list of type {@link AbstractChannel}
+	 * @return a list of type {@link IChannel}
 	 */
-	protected List<AbstractChannel> listChannels() {
+	protected List<IChannel> listChannels() {
 		return new ArrayList<>(channelsMap.values());
 	}
 
@@ -106,6 +106,5 @@ class ChannelPoolManager {
 	protected Map<String, AbstractChannel> getChannelsMap() {
 		return channelsMap;
 	}
-
 
 }

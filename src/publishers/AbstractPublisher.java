@@ -1,7 +1,7 @@
 package publishers;
 
 import baseEntities.AbstractEntity;
-import events.AbstractEvent;
+import events.IEvent;
 import publishers.strategies.IStrategy;
 import publishers.strategies.IStrategyFactory;
 import publishers.strategies.StrategyFactory;
@@ -26,11 +26,11 @@ public abstract class AbstractPublisher extends AbstractEntity<Integer> implemen
 	private static final IStrategyFactory STRATEGY_FACTORY = StrategyFactory.getInstance();
 
 	/**
-	 * Variable encapsulating the {@link publishers.strategies.AbstractStrategy
-	 * AbstractStrategy} associated with an {@link AbstractPublisher}
+	 * Variable encapsulating the {@link IStrategy AbstractStrategy} associated with
+	 * an {@link AbstractPublisher}
 	 */
 	protected IStrategy publishingStrategy;
-	
+
 	/**
 	 * Protected Constructor for an {@link AbstractPublisher} that sets the
 	 * {@link #publishingStrategy} and {@link #publisherID} for said Publisher. This
@@ -39,14 +39,14 @@ public abstract class AbstractPublisher extends AbstractEntity<Integer> implemen
 	 * All concrete publisher instances utilize this method.
 	 * 
 	 * @param strategyName is the {@link publishers.strategies.StrategyName
-	 *                     StrategyName} of the {@link publishingStrategy} to be
-	 *                     associated with the given {@link AbstractPublisher}.
+	 *                     StrategyName} of the publishingStrategy to be associated
+	 *                     with the given {@link AbstractPublisher}.
 	 * @param publisherID  is the {@link #publisherID} to be associated with the
 	 *                     given {@link AbstractPublisher}.
 	 */
 	protected AbstractPublisher(StrategyName strategyName, int publisherID) {
 		super(publisherID);
-		
+
 		this.publishingStrategy = STRATEGY_FACTORY.createStrategy(strategyName); // setting strategy
 
 		// printing required output as per document using defined toString method in
@@ -61,9 +61,8 @@ public abstract class AbstractPublisher extends AbstractEntity<Integer> implemen
 	}
 
 	/**
-	 * Sets the {@link publishers.strategies.AbstractStrategy AbstractStrategy} for
-	 * this {@link AbstractPublisher} implementation using the
-	 * {@link StrategyFactory}
+	 * Sets the {@link IStrategy AbstractStrategy} for this
+	 * {@link AbstractPublisher} implementation using the {@link StrategyFactory}
 	 * 
 	 * @param strategyName the entry from the {@link StrategyName} enumeration that
 	 *                     we want the new AbstractStrategy of the AbstractPublisher
@@ -77,7 +76,9 @@ public abstract class AbstractPublisher extends AbstractEntity<Integer> implemen
 		System.out.println(String.format("%s has %s.", this, publishingStrategy));
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see publishers.IPublisher#publish()
 	 */
 	@Override
@@ -85,11 +86,13 @@ public abstract class AbstractPublisher extends AbstractEntity<Integer> implemen
 		publishingStrategy.doPublish(this);
 	}
 
-	/* (non-Javadoc)
-	 * @see publishers.IPublisher#publish(events.AbstractEvent)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see publishers.IPublisher#publish(IEvent)
 	 */
 	@Override
-	public void publish(AbstractEvent event) {
+	public void publish(IEvent event) {
 		publishingStrategy.doPublish(event, this);
 	}
 }

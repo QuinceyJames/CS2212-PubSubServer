@@ -20,7 +20,7 @@ public abstract class AbstractEvent implements IEvent {
 	private long eventId;
 
 	/**
-	 * A reference to the {@link publishers.AbstractPublisher Publisher} of this
+	 * A reference to the {@link publishers.IPublisher Publisher} of this
 	 * {@link AbstractEvent Event}
 	 */
 	private IPublisher eventPublisher;
@@ -37,7 +37,7 @@ public abstract class AbstractEvent implements IEvent {
 	 * @param eventID        must be a number of type long generated from the
 	 *                       {@link EventIDMaker#getNewEventID()} method
 	 * @param eventPublisher must be a number designating the
-	 *                       {@link publishers.AbstractPublisher Publisher} issuing
+	 *                       {@link publishers.IPublisher Publisher} issuing
 	 *                       the event
 	 * @param eventMessage   is a {@link EventMessage} which contains a title and a
 	 *                       message for the event.
@@ -68,10 +68,10 @@ public abstract class AbstractEvent implements IEvent {
 	}
 
 	/**
-	 * Gets the {@link publishers.AbstractPublisher Publisher} that created this
+	 * Gets the {@link publishers.IPublisher Publisher} that created this
 	 * {@link AbstractEvent Event}
 	 * 
-	 * @return the {@link publishers.AbstractPublisher Publisher} that created this
+	 * @return the {@link publishers.IPublisher Publisher} that created this
 	 *         {@link AbstractEvent Event}
 	 */
 	protected IPublisher getEventPublisher() {

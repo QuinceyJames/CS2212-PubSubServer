@@ -4,12 +4,11 @@ package pubSub.server;
 import java.util.HashMap;
 import java.util.TreeSet;
 
-import subscribers.AbstractSubscriber;
 import subscribers.ISubscriber;
 
 /**
  * A Package-Protected class that keeps track of which
- * {@link subscribers.AbstractSubscriber Subscribers} are blocked from a
+ * {@link subscribers.ISubscriber Subscribers} are blocked from a
  * {@link Channel}. It MUST implement the Singleton design pattern Class that
  * acts as an access control module that allows for the blocking and unblocking
  * of specific subscribers for specific channels
@@ -25,10 +24,10 @@ class ChannelAccessControl {
 	private static ChannelAccessControl INSTANCE = null;
 
 	/**
-	 * A map of Channels to a set of {@link subscribers.AbstractSubscriber
+	 * A map of Channels to a set of {@link subscribers.ISubscriber
 	 * Subscribers} that are blocked
 	 */
-	private final HashMap<String, TreeSet<AbstractSubscriber>> blackList = new HashMap<>();
+	private final HashMap<String, TreeSet<ISubscriber>> blackList = new HashMap<>();
 
 	/**
 	 * A private constructor used to help implement the "Singleton Design Pattern"
@@ -53,17 +52,17 @@ class ChannelAccessControl {
 	 * Blocks the provided subscriber from accessing the designated channel
 	 * 
 	 * @param subscriber  an instance of any implementation of
-	 *                    {@link AbstractSubscriber}
+	 *                    {@link ISubscriber}
 	 * @param channelName a String value representing a valid channel name
-	 * @return true if the {@link AbstractSubscriber Subscriber} was not previously
+	 * @return true if the {@link ISubscriber Subscriber} was not previously
 	 *         blocked on this channel. Otherwise it returns false.
 	 */
-	protected boolean blockSubcriber(AbstractSubscriber subscriber, String channelName) {
+	protected boolean blockSubcriber(ISubscriber subscriber, String channelName) {
 		if (subscriber == null)
 			return false;
 
-		TreeSet<AbstractSubscriber> blockedSubscribers;
-		blockedSubscribers = blackList.getOrDefault(channelName, new TreeSet<AbstractSubscriber>());
+		TreeSet<ISubscriber> blockedSubscribers;
+		blockedSubscribers = blackList.getOrDefault(channelName, new TreeSet<ISubscriber>());
 
 		boolean result = blockedSubscribers.add(subscriber); // Checks if the subscriber was already blocked
 		blackList.put(channelName, blockedSubscribers); // Adds blocked subscriber in map in case it was newly created
@@ -78,16 +77,16 @@ class ChannelAccessControl {
 	 * unblocks the provided subscriber from accessing the designated channel
 	 * 
 	 * @param subscriber  an instance of any implementation of
-	 *                    {@link AbstractSubscriber}
+	 *                    {@link ISubscriber}
 	 * @param channelName a String value representing a valid channel name
-	 * @return true if the {@link AbstractSubscriber Subscriber} was previously
+	 * @return true if the {@link ISubscriber Subscriber} was previously
 	 *         blocked. Otherwise return false.
 	 */
 	protected boolean unBlockSubscriber(ISubscriber subscriber, String channelName) {
 		if (subscriber == null)
 			return false;
 
-		TreeSet<AbstractSubscriber> blockedSubscribers = blackList.get(channelName);
+		TreeSet<ISubscriber> blockedSubscribers = blackList.get(channelName);
 		if (blockedSubscribers == null)
 			return false;
 
@@ -101,7 +100,7 @@ class ChannelAccessControl {
 	 * channel
 	 * 
 	 * @param subscriber  an instance of any implementation of
-	 *                    {@link AbstractSubscriber}
+	 *                    {@link ISubscriber}
 	 * @param channelName a String value representing a valid channel name
 	 * @return true if blocked false otherwise
 	 */
@@ -109,7 +108,7 @@ class ChannelAccessControl {
 		if (subscriber == null)
 			return false;
 
-		TreeSet<AbstractSubscriber> blockedSubscribers = blackList.get(channelName);
+		TreeSet<ISubscriber> blockedSubscribers = blackList.get(channelName);
 		if (blockedSubscribers == null)
 			return false;
 

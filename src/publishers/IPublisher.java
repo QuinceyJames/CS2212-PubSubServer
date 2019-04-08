@@ -1,8 +1,9 @@
 package publishers;
 
-import events.AbstractEvent;
+import baseEntities.IEntity;
+import events.IEvent;
 
-public interface IPublisher {
+public interface IPublisher extends IEntity<Integer> {
 
 	/**
 	 * Method to publish a default event via the {@link #publishingStrategy} that is
@@ -16,6 +17,6 @@ public interface IPublisher {
 	 *
 	 * @param event event specified to be published
 	 */
-	void publish(AbstractEvent event);
+	void publish(IEvent event);
 
 }

@@ -2,9 +2,8 @@ package pubSub.server;
 
 import java.util.List;
 
-import events.AbstractEvent;
-import publishers.AbstractPublisher;
-import subscribers.AbstractSubscriber;
+import events.IEvent;
+import publishers.IPublisher;
 import subscribers.ISubscriber;
 
 public class PubSubServerFacade implements IPubSubServerFacade {
@@ -37,84 +36,112 @@ public class PubSubServerFacade implements IPubSubServerFacade {
 		return INSTANCE;
 	}
 
-	/* (non-Javadoc)
-	 * @see pubSub.server.IPubSubServerFacade#blockSubcriber(subscribers.AbstractSubscriber, java.lang.String)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see pubSub.server.IPubSubServerFacade#blockSubcriber(subscribers.
+	 * AbstractSubscriber, java.lang.String)
 	 */
 	@Override
-	public boolean blockSubcriber(AbstractSubscriber subscriber, String channelName) {
+	public boolean blockSubcriber(ISubscriber subscriber, String channelName) {
 		return CHANNEL_ACCESS_CONTROL.blockSubcriber(subscriber, channelName);
 	}
 
-	/* (non-Javadoc)
-	 * @see pubSub.server.IPubSubServerFacade#unBlockSubscriber(subscribers.AbstractSubscriber, java.lang.String)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see pubSub.server.IPubSubServerFacade#unBlockSubscriber(subscribers.
+	 * AbstractSubscriber, java.lang.String)
 	 */
 	@Override
 	public boolean unBlockSubscriber(ISubscriber subscriber, String channelName) {
 		return CHANNEL_ACCESS_CONTROL.unBlockSubscriber(subscriber, channelName);
 	}
 
-	/* (non-Javadoc)
-	 * @see pubSub.server.IPubSubServerFacade#checkIfBlocked(subscribers.AbstractSubscriber, java.lang.String)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see pubSub.server.IPubSubServerFacade#checkIfBlocked(subscribers.
+	 * AbstractSubscriber, java.lang.String)
 	 */
 	@Override
 	public boolean checkIfBlocked(ISubscriber subscriber, String channelName) {
 		return CHANNEL_ACCESS_CONTROL.checkIfBlocked(subscriber, channelName);
 	}
 
-	/* (non-Javadoc)
-	 * @see pubSub.server.IPubSubServerFacade#postEvent(events.AbstractEvent, java.util.List)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see pubSub.server.IPubSubServerFacade#postEvent(events.AbstractEvent,
+	 * java.util.List)
 	 */
 	@Override
-	public void postEvent(AbstractEvent event, List<String> listOfChannels) {
+	public void postEvent(IEvent event, List<String> listOfChannels) {
 		CHANNEL_EVENT_DISPATCHER.postEvent(event, listOfChannels);
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see pubSub.server.IPubSubServerFacade#listChannels()
 	 */
 	@Override
-	public List<AbstractChannel> listChannels() {
+	public List<IChannel> listChannels() {
 		return CHANNEL_POOL_MANAGER.listChannels();
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see pubSub.server.IPubSubServerFacade#findChannel(java.lang.String)
 	 */
 	@Override
-	public AbstractChannel findChannel(String channelTopic) {
+	public IChannel findChannel(String channelTopic) {
 		return CHANNEL_POOL_MANAGER.findChannel(channelTopic);
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see pubSub.server.IPubSubServerFacade#findPublisher(int)
 	 */
 	@Override
-	public AbstractPublisher findPublisher(int publisherID) {
+	public IPublisher findPublisher(int publisherID) {
 		return PUBLISHER_POOL_MANAGER.findPublisher(publisherID);
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see pubSub.server.IPubSubServerFacade#findSubscriber(int)
 	 */
 	@Override
-	public AbstractSubscriber findSubscriber(int subscriberID) {
+	public ISubscriber findSubscriber(int subscriberID) {
 		return SUBSCRIBER_POOL_MANAGER.findSubscriber(subscriberID);
 	}
 
-	/* (non-Javadoc)
-	 * @see pubSub.server.IPubSubServerFacade#subscribe(subscribers.AbstractSubscriber, java.lang.String)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * pubSub.server.IPubSubServerFacade#subscribe(subscribers.AbstractSubscriber,
+	 * java.lang.String)
 	 */
 	@Override
-	public void subscribe(AbstractSubscriber subscriber, String channelTopic) {
-		findChannel(channelTopic).subscribe(subscriber);
+	public void subscribe(ISubscriber subscriber, String channelTopic) {
+		CHANNEL_POOL_MANAGER.findChannel(channelTopic).subscribe(subscriber);
 	}
 
-	/* (non-Javadoc)
-	 * @see pubSub.server.IPubSubServerFacade#unsubscribe(subscribers.AbstractSubscriber, java.lang.String)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * pubSub.server.IPubSubServerFacade#unsubscribe(subscribers.AbstractSubscriber,
+	 * java.lang.String)
 	 */
 	@Override
 	public void unsubscribe(ISubscriber subscriber, String channelTopic) {
-		findChannel(channelTopic).unsubscribe(subscriber);
+		CHANNEL_POOL_MANAGER.findChannel(channelTopic).unsubscribe(subscriber);
 	}
 
 }

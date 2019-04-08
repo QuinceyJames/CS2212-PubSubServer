@@ -4,12 +4,13 @@ import java.util.Scanner;
 
 import pubSub.local.SubscriberDiscoveryProxy;
 import pubSub.local.SubscriptionManagerProxy;
+import pubSub.server.IChannel;
 import subscribers.ISubscriber;
 
 /**
  * A Package-Protected concrete implementation of {@link DriverInterface} that
- * unblocks a {@link subscribers.AbstractSubscriber Subscriber} from a
- * {@link pubSub.pubSub.server.Channel Channel}
+ * unblocks a {@link ISubscriber Subscriber} from a
+ * {@link IChannel Channel}
  * 
  * @author qjames2, tzhu63, zzhan746, mgianco2, rblack43
  *

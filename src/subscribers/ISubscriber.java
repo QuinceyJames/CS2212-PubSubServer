@@ -1,8 +1,9 @@
 package subscribers;
 
+import baseEntities.IEntity;
 import events.IEvent;
 
-public interface ISubscriber {
+public interface ISubscriber extends IEntity<Integer> {
 
 	/**
 	 * Function called each time an event is published to one of the channels that

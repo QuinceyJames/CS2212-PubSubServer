@@ -1,17 +1,18 @@
 package pubSub.local;
 
+import pubSub.server.IChannel;
 import pubSub.server.PubSubServerFacade;
-import publishers.AbstractPublisher;
+import publishers.IPublisher;
 
 /**
  * Implements the Singleton design pattern.
  * 
- * Allows for the discovery of existing {@link AbstractPublisher}.
+ * Allows for the discovery of existing {@link IChannel}.
  * 
  * @author qjames2, tzhu63, zzhan746, mgianco2, rblack43
  * 
  */
-public class PublisherDiscoveryProxy implements IDiscoveryProxy<AbstractPublisher, Integer> {
+public class PublisherDiscoveryProxy implements IDiscoveryProxy<IPublisher, Integer> {
 
 	/**
 	 * Attribute holding reference to the single instance of this class
@@ -43,7 +44,7 @@ public class PublisherDiscoveryProxy implements IDiscoveryProxy<AbstractPublishe
 	 * 
 	 * @see baseEntities.IDiscoveryProxy#findUsingID(int)
 	 */
-	public AbstractPublisher findUsingID(Integer publisherID) {
+	public IPublisher findUsingID(Integer publisherID) {
 		return PubSubServerFacade.getInstance().findPublisher(publisherID);
 	}
 }

@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 import subscribers.AbstractSubscriber;
+import subscribers.ISubscriber;
 import subscribers.ISubscriberFactory;
 import subscribers.SubscriberFactory;
 import subscribers.SubscriberType;
@@ -35,7 +36,7 @@ class SubscriberPoolManager {
 	 * Map used as a list to hold existing {@link AbstractSubscriber Subscribers}
 	 * and their respective {@link AbstractSubscriber#subscriberID IDs}
 	 */
-	private Map<Integer, AbstractSubscriber> subscribersMap = new HashMap<>();
+	private Map<Integer, ISubscriber> subscribersMap = new HashMap<>();
 
 	/**
 	 * Creates {@link #subscribersMap} based on input file, associating
@@ -81,7 +82,7 @@ class SubscriberPoolManager {
 	 *                     AbstractSubscriber to be returned
 	 * @return the appropriate instance of an AbstractSubscriber subclass
 	 */
-	protected AbstractSubscriber findSubscriber(int subscriberID) {
+	protected ISubscriber findSubscriber(int subscriberID) {
 		return subscribersMap.get(subscriberID);
 	}
 }

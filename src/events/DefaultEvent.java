@@ -1,6 +1,5 @@
 package events;
 
-import publishers.AbstractPublisher;
 import publishers.IPublisher;
 
 /**
@@ -14,9 +13,9 @@ public class DefaultEvent extends AbstractEvent {
 
 	/**
 	 * Constructor for {@link DefaultEvent}. To create this object use
-	 * {@link EventFactory#createEvent(EventType, AbstractPublisher, String, String)}
+	 * {@link EventFactory#createEvent(EventType, IPublisher, String, String)}
 	 * 
-	 * @see AbstractEvent#AbstractEvent(long, AbstractPublisher, EventMessage)
+	 * @see AbstractEvent#AbstractEvent(long, IPublisher, EventMessage)
 	 */
 	protected DefaultEvent(long eventID, IPublisher eventPublisher, EventMessage eventMessage) {
 		super(eventID, eventPublisher, eventMessage);

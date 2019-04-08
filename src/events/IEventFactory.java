@@ -1,6 +1,5 @@
 package events;
 
-import publishers.AbstractPublisher;
 import publishers.IPublisher;
 
 public interface IEventFactory {
@@ -11,7 +10,7 @@ public interface IEventFactory {
 	 * {@link AbstractEvent} according to the {@link EventType} parameter
 	 * 
 	 * @param type      a member of the {@link EventType} enumeration
-	 * @param publisher a reference to the {@link AbstractPublisher Publisher} that
+	 * @param publisher a reference to the {@link IPublisher Publisher} that
 	 *                  created this event
 	 * @param header    the header message
 	 * @param body      the body message

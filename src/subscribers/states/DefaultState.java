@@ -1,4 +1,5 @@
 package subscribers.states;
+
 import events.IEvent;
 
 /**
@@ -10,13 +11,12 @@ import events.IEvent;
 public class DefaultState extends AbstractState {
 
 	/**
-	 * Protected constructor for {@link AlphaSubscriber}. To create this object use
+	 * Protected constructor for {@link DefaultState}. To create this object use
 	 * {@link StateFactory#createState(StateName)}
 	 */
 	protected DefaultState() {
-		super(); //Calls parent
+		super(); // Calls parent
 	}
-	
 
 	/*
 	 * (non-Javadoc)
@@ -28,6 +28,5 @@ public class DefaultState extends AbstractState {
 	public void handleEvent(IEvent event, String channelName) {
 		// This is where we would implement how the event is handled
 	}
-	
-	
+
 }

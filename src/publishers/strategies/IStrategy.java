@@ -1,28 +1,25 @@
 package publishers.strategies;
 
-import events.AbstractEvent;
-import publishers.AbstractPublisher;
+import events.IEvent;
 import publishers.IPublisher;
 
 public interface IStrategy {
 
 	/**
-	 * Method to create and publish an {@link AbstractEvent} for an
-	 * {@link AbstractPublisher}
+	 * Method to create and publish an {@link IEvent} for an {@link IPublisher}
 	 * 
-	 * @param publisher the {@link AbstractPublisher} that has requested an event to
-	 *                  be published
+	 * @param publisher the {@link IPublisher} that has requested an event to be
+	 *                  published
 	 */
 	void doPublish(IPublisher publisher);
 
 	/**
-	 * Method to publish an specified {@link AbstractEvent} for an
-	 * {@link AbstractPublisher}
+	 * Method to publish an specified {@link IEvent} for an {@link IPublisher}
 	 * 
-	 * @param publisher the {@link AbstractPublisher} that has requested an event to
-	 *                  be published
-	 * @param event     the {@link AbstractEvent} to be published
+	 * @param publisher the {@link IPublisher} that has requested an event to be
+	 *                  published
+	 * @param event     the {@link IEvent} to be published
 	 */
-	void doPublish(AbstractEvent event, IPublisher publisher);
+	void doPublish(IEvent event, IPublisher publisher);
 
 }

@@ -3,10 +3,8 @@ package publishers.strategies;
 import java.util.ArrayList;
 import java.util.List;
 
-import events.AbstractEvent;
-import pubSub.local.ChannelDiscoveryProxy;
-import pubSub.server.AbstractChannel;
-import pubSub.server.PubSubServerFacade;
+import events.IEvent;
+import pubSub.server.IChannel;
 import publishers.IPublisher;
 
 /**
@@ -33,14 +31,14 @@ public class DefaultStrategy extends AbstractStrategy {
 	 * AbstractEvent, publishers.AbstractPublisher)
 	 */
 	@Override
-	protected void doPublishStrategy(AbstractEvent event, IPublisher publisher) {
-		List<AbstractChannel> channelList = ChannelDiscoveryProxy.getInstance().listChannels();
+	protected void doPublishStrategy(IEvent event, IPublisher publisher) {
+		List<IChannel> channelList = CHANNEL_DISCOVERY.listChannels();
 
 		ArrayList<String> outputList = new ArrayList<>();
-		for (AbstractChannel channel : channelList) {
+		for (IChannel channel : channelList) {
 			outputList.add(channel.getChannelTopic()); // add the channel without parameters
 		}
 
-		PubSubServerFacade.getInstance().postEvent(event, outputList);
+		PUB_SUB_SERVER_FACADE.postEvent(event, outputList);
 	}
 }

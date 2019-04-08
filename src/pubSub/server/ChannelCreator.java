@@ -7,7 +7,7 @@ import pubSub.local.ChannelDiscoveryProxy;
  * creating and deleting channels it's also the only class that can do so
  * 
  * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2,
- *         rblack43 
+ *         rblack43
  */
 public class ChannelCreator {
 
@@ -45,10 +45,10 @@ public class ChannelCreator {
 	 * discovered using the {@link ChannelDiscoveryProxy} methods
 	 * 
 	 * @param channelName name of the Channel to be created
-	 * @return the new channel (of any type that extends the {@link AbstractChannel}
-	 *         that has been created
+	 * @return the new channel (of any type that extends the {@link IChannel} that
+	 *         has been created
 	 */
-	protected AbstractChannel addChannel(String channelName) {
+	protected IChannel addChannel(String channelName) {
 		return CHANNEL_POOL_MANAGER.addChannel(channelName);
 	}
 

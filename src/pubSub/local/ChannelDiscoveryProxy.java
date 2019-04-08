@@ -3,19 +3,22 @@ package pubSub.local;
 import java.util.List;
 
 import pubSub.server.AbstractChannel;
+import pubSub.server.IChannel;
+import pubSub.server.IPubSubServerFacade;
 import pubSub.server.PubSubServerFacade;
-import subscribers.AbstractSubscriber;
+import subscribers.ISubscriber;
 
 /**
  * MUST IMPLEMENT the Singleton design pattern Allows for the discovery of
- * available channels for subscription from {@link AbstractSubscriber} that want
- * to subscribe to them
+ * available channels for subscription from {@link ISubscriber} that want to
+ * subscribe to them
  * 
  * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2,
  *         rblack43
  */
-public class ChannelDiscoveryProxy implements IDiscoveryProxy<AbstractChannel, String> {
+public class ChannelDiscoveryProxy implements IDiscoveryProxy<IChannel, String> {
 
+	private static final IPubSubServerFacade PUB_SUB_SERVER_FACADE = PubSubServerFacade.getInstance();
 	/**
 	 * A reference to the Singleton instance of this class
 	 */
@@ -45,17 +48,17 @@ public class ChannelDiscoveryProxy implements IDiscoveryProxy<AbstractChannel, S
 	 * @return a list of {@link AbstractChannel} type elements containing all
 	 *         available channels currently in the PubSubServer
 	 */
-	public List<AbstractChannel> listChannels() {
-		return PubSubServerFacade.getInstance().listChannels();
+	public List<IChannel> listChannels() {
+		return PUB_SUB_SERVER_FACADE.listChannels();
 	}
 
 	/**
 	 * @param channelName the topic/name of the looked-up channel
-	 * @return a {@link AbstractChannel} type object corresponding the the
-	 *         channelName provided as input
+	 * @return a {@link IChannel} type object corresponding the the channelName
+	 *         provided as input
 	 */
-	public AbstractChannel findUsingID(String channelName) {
-		return PubSubServerFacade.getInstance().findChannel(channelName);
+	public IChannel findUsingID(String channelName) {
+		return PUB_SUB_SERVER_FACADE.findChannel(channelName);
 	}
 
 }

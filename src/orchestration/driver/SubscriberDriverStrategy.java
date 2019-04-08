@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import pubSub.local.SubscriberDiscoveryProxy;
 import pubSub.local.SubscriptionManagerProxy;
-import subscribers.AbstractSubscriber;
+import subscribers.ISubscriber;
 
 /**
  * A Package-Protected concrete implementation of {@link DriverInterface} that
@@ -23,7 +23,7 @@ class SubscriberDriverStrategy implements IDriverStrategy {
 	 */
 	@Override
 	public void executeDriverStrategy(Scanner scanner) {
-		AbstractSubscriber subscriber = SubscriberDiscoveryProxy.getInstance().findUsingID(scanner.nextInt());
+		ISubscriber subscriber = SubscriberDiscoveryProxy.getInstance().findUsingID(scanner.nextInt());
 		SubscriptionManagerProxy.getInstance().subscribe(scanner.next(), subscriber);
 	}
 }

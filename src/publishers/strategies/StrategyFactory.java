@@ -12,7 +12,7 @@ public class StrategyFactory implements IStrategyFactory {
 	/**
 	 * A reference to the Singleton instance of this class
 	 */
-	private static IStrategyFactory INSTANCE = null;
+	private static StrategyFactory INSTANCE = null;
 
 	/**
 	 * A private constructor used to help implement the "Singleton Design Pattern"
@@ -26,18 +26,22 @@ public class StrategyFactory implements IStrategyFactory {
 	 * 
 	 * @return the Singleton instance of this class
 	 */
-	public static IStrategyFactory getInstance() {
+	public static StrategyFactory getInstance() {
 		if (INSTANCE == null)
 			INSTANCE = new StrategyFactory(); // create a new instance if null
 
 		return INSTANCE;
 	}
 
-	/* (non-Javadoc)
-	 * @see publishers.strategies.IStrategyFactory#createStrategy(publishers.strategies.StrategyName)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * publishers.strategies.IStrategyFactory#createStrategy(publishers.strategies.
+	 * StrategyName)
 	 */
 	@Override
-	public IStrategy createStrategy(StrategyName strategyName) {
+	public AbstractStrategy createStrategy(StrategyName strategyName) {
 
 		switch (strategyName) {
 		case ALPHA_STRATEGY:

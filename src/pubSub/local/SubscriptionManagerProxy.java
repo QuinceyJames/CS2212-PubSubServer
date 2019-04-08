@@ -2,7 +2,6 @@ package pubSub.local;
 
 import pubSub.server.IPubSubServerFacade;
 import pubSub.server.PubSubServerFacade;
-import subscribers.AbstractSubscriber;
 import subscribers.ISubscriber;
 
 /**
@@ -39,17 +38,23 @@ public class SubscriptionManagerProxy implements ISubscriptionManagerProxy {
 		return INSTANCE;
 	}
 
-	/* (non-Javadoc)
-	 * @see pubSub.local.ISubscriptionManagerProxy#subscribe(java.lang.String, subscribers.AbstractSubscriber)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see pubSub.local.ISubscriptionManagerProxy#subscribe(java.lang.String,
+	 * subscribers.AbstractSubscriber)
 	 */
 	@Override
-	public void subscribe(String channelTopic, AbstractSubscriber subscriber) {
+	public void subscribe(String channelTopic, ISubscriber subscriber) {
 		PUB_SUB_SERVER_FACADE.subscribe(subscriber, channelTopic);
 		System.out.println(subscriber + " subscribes to Channel " + "'" + channelTopic + "'" + ".");
 	}
 
-	/* (non-Javadoc)
-	 * @see pubSub.local.ISubscriptionManagerProxy#unSubscribe(java.lang.String, subscribers.AbstractSubscriber)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see pubSub.local.ISubscriptionManagerProxy#unSubscribe(java.lang.String,
+	 * subscribers.AbstractSubscriber)
 	 */
 	@Override
 	public void unSubscribe(String channelName, ISubscriber subscriber) {
@@ -57,24 +62,34 @@ public class SubscriptionManagerProxy implements ISubscriptionManagerProxy {
 		System.out.println(subscriber + " unsubscribes from Channel '" + channelName + "'.");
 	}
 
-	/* (non-Javadoc)
-	 * @see pubSub.local.ISubscriptionManagerProxy#unblock(subscribers.AbstractSubscriber, java.lang.String)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see pubSub.local.ISubscriptionManagerProxy#unblock(subscribers.
+	 * AbstractSubscriber, java.lang.String)
 	 */
 	@Override
 	public boolean unblock(ISubscriber subscriber, String channelName) {
 		return PUB_SUB_SERVER_FACADE.unBlockSubscriber(subscriber, channelName); // proxy method for unblocking
 	}
 
-	/* (non-Javadoc)
-	 * @see pubSub.local.ISubscriptionManagerProxy#block(subscribers.AbstractSubscriber, java.lang.String)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * pubSub.local.ISubscriptionManagerProxy#block(subscribers.AbstractSubscriber,
+	 * java.lang.String)
 	 */
 	@Override
-	public boolean block(AbstractSubscriber subscriber, String channelName) {
+	public boolean block(ISubscriber subscriber, String channelName) {
 		return PUB_SUB_SERVER_FACADE.blockSubcriber(subscriber, channelName); // proxy method for blocking
 	}
 
-	/* (non-Javadoc)
-	 * @see pubSub.local.ISubscriptionManagerProxy#checkIfBlocked(subscribers.AbstractSubscriber, java.lang.String)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see pubSub.local.ISubscriptionManagerProxy#checkIfBlocked(subscribers.
+	 * AbstractSubscriber, java.lang.String)
 	 */
 	@Override
 	public boolean checkIfBlocked(ISubscriber subscriber, String channelName) {

@@ -5,17 +5,15 @@ import java.util.HashSet;
 import java.util.Queue;
 import java.util.Set;
 
-import events.AbstractEvent;
 import events.IEvent;
 import pubSub.local.ChannelDiscoveryProxy;
-import subscribers.AbstractSubscriber;
 import subscribers.ISubscriber;
 
 /**
  * A Package-Protected concrete implementation of {@link AbstractChannel}. It
  * helps to implement the "Observer Design Pattern" as it will notify all the
- * {@link subscribers.AbstractSubscriber Subscribers} that are subscribed to
- * this {@link Channel} when a new {@link events.AbstractEvent Event} is posted
+ * {@link subscribers.ISubscriber Subscribers} that are subscribed to
+ * this {@link Channel} when a new {@link events.IEvent Event} is posted
  * 
  * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2,
  *         rblack43  
@@ -23,15 +21,15 @@ import subscribers.ISubscriber;
 public class Channel extends AbstractChannel {
 
 	/**
-	 * A set of {@link subscribers.AbstractSubscriber Subscribers} subscribed to
+	 * A set of {@link subscribers.ISubscriber Subscribers} subscribed to
 	 * this channel
 	 */
-	private final Set<AbstractSubscriber> subscribers = new HashSet<AbstractSubscriber>();
+	private final Set<ISubscriber> subscribers = new HashSet<>();
 
 	/**
-	 * A queue of {@link events.AbstractEvent Events} posted to this {@link Channel}
+	 * A queue of {@link events.IEvent Events} posted to this {@link Channel}
 	 */
-	private final Queue<AbstractEvent> events = new ArrayDeque<AbstractEvent>();
+	private final Queue<IEvent> events = new ArrayDeque<>();
 
 	/**
 	 * The Protected constructor for this class. Use the {@link ChannelFactory} to
@@ -47,9 +45,9 @@ public class Channel extends AbstractChannel {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see pubSub.server.AbstractChannel#publishEvent(events.AbstractEvent)
+	 * @see pubSub.server.AbstractChannel#publishEvent(events.IEvent)
 	 */
-	protected void publishEvent(AbstractEvent event) {
+	protected void publishEvent(IEvent event) {
 		System.out.println(String.format("Channel '%s' has %s.", this.getChannelTopic(), event));
 		events.add(event);
 		notifySubscribers(event);
@@ -58,16 +56,16 @@ public class Channel extends AbstractChannel {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see pubSub.server.AbstractChannel#subscribe(subscribers.AbstractSubscriber)
+	 * @see pubSub.server.AbstractChannel#subscribe(subscribers.ISubscriber)
 	 */
-	protected void subscribe(AbstractSubscriber subscriber) {
+	protected void subscribe(ISubscriber subscriber) {
 		subscribers.add(subscriber); // add subscriber
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see pubSub.server.AbstractChannel#unsubscribe(subscribers.AbstractSubscriber)
+	 * @see pubSub.server.AbstractChannel#unsubscribe(subscribers.ISubscriber)
 	 */
 	protected void unsubscribe(ISubscriber subscriber) {
 		subscribers.remove(subscriber); // remove subscriber

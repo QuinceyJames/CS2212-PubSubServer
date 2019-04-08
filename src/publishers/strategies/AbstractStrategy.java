@@ -1,10 +1,12 @@
 package publishers.strategies;
 
-import events.AbstractEvent;
 import events.EventFactory;
 import events.EventType;
+import events.IEvent;
 import events.IEventFactory;
-import publishers.AbstractPublisher;
+import pubSub.local.ChannelDiscoveryProxy;
+import pubSub.server.IPubSubServerFacade;
+import pubSub.server.PubSubServerFacade;
 import publishers.IPublisher;
 
 /**
@@ -14,7 +16,13 @@ import publishers.IPublisher;
  * @author qjames2, tzhu63, zzhan746, mgianco2, rblack43
  */
 public abstract class AbstractStrategy implements IStrategy {
+	protected static final IPubSubServerFacade PUB_SUB_SERVER_FACADE = PubSubServerFacade.getInstance();
 
+	/**
+	 * A reference to the {@link pubSub.local.ChannelDiscoveryProxy} singleton
+	 */
+	protected static final ChannelDiscoveryProxy CHANNEL_DISCOVERY = ChannelDiscoveryProxy.getInstance();
+	
 	/**
 	 * A reference to the {@link events.EventFactory} singleton
 	 */
@@ -27,8 +35,10 @@ public abstract class AbstractStrategy implements IStrategy {
 	protected AbstractStrategy() {
 	}
 
-	/* (non-Javadoc)
-	 * @see publishers.strategies.IStrategy#doPublish(publishers.IPublisher)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see publishers.strategies.IStrategy#doPublish(IPublisher)
 	 */
 	@Override
 	public final void doPublish(IPublisher publisher) {
@@ -36,11 +46,13 @@ public abstract class AbstractStrategy implements IStrategy {
 				publisher); // Creates a default event for the publisher
 	}
 
-	/* (non-Javadoc)
-	 * @see publishers.strategies.IStrategy#doPublish(events.AbstractEvent, publishers.IPublisher)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see publishers.strategies.IStrategy#doPublish(IEvent, IPublisher)
 	 */
 	@Override
-	public final void doPublish(AbstractEvent event, IPublisher publisher) {
+	public final void doPublish(IEvent event, IPublisher publisher) {
 		System.out.println(String.format("%s publishes %s", publisher, event)); // Prints publisher with event
 		doPublishStrategy(event, publisher);
 	}
@@ -48,12 +60,17 @@ public abstract class AbstractStrategy implements IStrategy {
 	/**
 	 * The strategy logic should be defined in here for each of the concrete classes
 	 * 
-	 * @param event     the {@link AbstractPublisher} that has requested an event to
-	 *                  be published
-	 * @param publisher the {@link AbstractEvent} to be published
+	 * @param event     the {@link IPublisher} that has requested an event to be
+	 *                  published
+	 * @param publisher the {@link IEvent} to be published
 	 */
-	protected abstract void doPublishStrategy(AbstractEvent event, IPublisher publisher);
+	protected abstract void doPublishStrategy(IEvent event, IPublisher publisher);
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
 		return getClass().getSimpleName(); // toString method

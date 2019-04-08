@@ -2,15 +2,15 @@ package pubSub.server;
 
 import java.util.List;
 
-import events.AbstractEvent;
-import publishers.AbstractPublisher;
+import events.IEvent;
+import publishers.IPublisher;
 
 /**
  * MUST IMPLEMENT the Singleton design pattern Class providing an interface for
- * {@link AbstractPublisher} objects to cover their publishing needs
+ * {@link IPublisher} objects to cover their publishing needs
  * 
  * @author kkontog, ktsiouni, mgrigori, qjames2, tzhu63, zzhan746, mgianco2,
- *         rblack43 
+ *         rblack43
  */
 class ChannelEventDispatcher {
 
@@ -39,14 +39,14 @@ class ChannelEventDispatcher {
 	}
 
 	/**
-	 * Will post an {@link events.AbstractEvent Event} to the specified
+	 * Will post an {@link events.IEvent Event} to the specified
 	 * {@link AbstractChannel Channels}
 	 * 
 	 * @param event          event to be published
 	 * @param listOfChannels list of channel names to which the event must be
 	 *                       published to
 	 */
-	protected void postEvent(AbstractEvent event, List<String> listOfChannels) {
+	protected void postEvent(IEvent event, List<String> listOfChannels) {
 		for (String channelName : listOfChannels) {
 			AbstractChannel channel = ChannelPoolManager.getInstance().findChannel(channelName); // find the channel
 

@@ -1,17 +1,17 @@
 package pubSub.local;
 
 import pubSub.server.PubSubServerFacade;
-import subscribers.AbstractSubscriber;
+import subscribers.ISubscriber;
 
 /**
  * Implements the Singleton design pattern.
  * 
- * Allows for the discovery of existing {@link AbstractSubscriber Subscribers}
+ * Allows for the discovery of existing {@link ISubscriber Subscribers}
  * 
  * @author qjames2, tzhu63, zzhan746, mgianco2, rblack43
  * 
  */
-public class SubscriberDiscoveryProxy implements IDiscoveryProxy<AbstractSubscriber, Integer> {
+public class SubscriberDiscoveryProxy implements IDiscoveryProxy<ISubscriber, Integer> {
 
 	/**
 	 * Attribute holding reference to the single instance of this class
@@ -39,15 +39,14 @@ public class SubscriberDiscoveryProxy implements IDiscoveryProxy<AbstractSubscri
 	}
 
 	/**
-	 * Function to find and return an {@link AbstractSubscriber} given an
-	 * {@link AbstractSubscriber#subscriberID ID}
+	 * Function to find and return an {@link ISubscriber} given an ID
 	 * 
 	 * @param subscriberID the ID number of the looked-up subscriber
-	 * @return a {@link AbstractSubscriber} type object corresponding the the ID
-	 *         provided as input
+	 * @return a {@link ISubscriber} type object corresponding the the ID provided
+	 *         as input
 	 */
 	@Override
-	public AbstractSubscriber findUsingID(Integer subscriberID) {
+	public ISubscriber findUsingID(Integer subscriberID) {
 		return PubSubServerFacade.getInstance().findSubscriber(subscriberID);
 	}
 

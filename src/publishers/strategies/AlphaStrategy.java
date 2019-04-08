@@ -3,10 +3,8 @@ package publishers.strategies;
 import java.util.ArrayList;
 import java.util.List;
 
-import events.AbstractEvent;
-import pubSub.local.ChannelDiscoveryProxy;
-import pubSub.server.AbstractChannel;
-import pubSub.server.PubSubServerFacade;
+import events.IEvent;
+import pubSub.server.IChannel;
 import publishers.IPublisher;
 
 /**
@@ -15,11 +13,6 @@ import publishers.IPublisher;
  * @author qjames2, tzhu63, zzhan746, mgianco2, rblack43
  */
 public class AlphaStrategy extends AbstractStrategy {
-
-	/**
-	 * A reference to the {@link pubSub.local.ChannelDiscoveryProxy} singleton
-	 */
-	private static final ChannelDiscoveryProxy CHANNEL_DISCOVERY = ChannelDiscoveryProxy.getInstance();
 
 	/**
 	 * Protected constructor for {@link AlphaStrategy}. To create this object use
@@ -34,21 +27,20 @@ public class AlphaStrategy extends AbstractStrategy {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see
-	 * publishers.strategies.AbstractStrategy#doPublishStrategy(events.AbstractEvent,
-	 * publishers.AbstractPublisher)
+	 * @see publishers.strategies.AbstractStrategy#doPublishStrategy(IEvent,
+	 * IPublisher)
 	 */
 	@Override
-	protected void doPublishStrategy(AbstractEvent event, IPublisher publisher) {
-		List<AbstractChannel> channelList = CHANNEL_DISCOVERY.listChannels(); // Get the list of channels
+	protected void doPublishStrategy(IEvent event, IPublisher publisher) {
+		List<IChannel> channelList = CHANNEL_DISCOVERY.listChannels(); // Get the list of channels
 
 		ArrayList<String> outputList = new ArrayList<>();
-		for (AbstractChannel channel : channelList) {
+		for (IChannel channel : channelList) {
 			if (channel.getChannelTopic().length() <= 3) // add the channel topic if length is less than or equal to 3
 				outputList.add(channel.getChannelTopic());
 		}
 
-		PubSubServerFacade.getInstance().postEvent(event, outputList);
+		PUB_SUB_SERVER_FACADE.postEvent(event, outputList);
 	}
 
 }

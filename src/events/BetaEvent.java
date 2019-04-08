@@ -1,6 +1,5 @@
 package events;
 
-import publishers.AbstractPublisher;
 import publishers.IPublisher;
 
 /**
@@ -14,9 +13,9 @@ public class BetaEvent extends AbstractEvent {
 
 	/**
 	 * Protected constructor for {@link BetaEvent}. To create this object use
-	 * {@link EventFactory#createEvent(EventType, AbstractPublisher, String, String)}
+	 * {@link EventFactory#createEvent(EventType, IPublisher, String, String)}
 	 * 
-	 * @see AbstractEvent#AbstractEvent(long, AbstractPublisher, EventMessage)
+	 * @see AbstractEvent#AbstractEvent(long, IPublisher, EventMessage)
 	 */
 	protected BetaEvent(long eventID, IPublisher eventPublisher, EventMessage payload) {
 		super(eventID, eventPublisher, payload);

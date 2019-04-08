@@ -3,10 +3,8 @@ package publishers.strategies;
 import java.util.ArrayList;
 import java.util.List;
 
-import events.AbstractEvent;
-import pubSub.local.ChannelDiscoveryProxy;
-import pubSub.server.AbstractChannel;
-import pubSub.server.PubSubServerFacade;
+import events.IEvent;
+import pubSub.server.IChannel;
 import publishers.IPublisher;
 
 /**
@@ -29,19 +27,19 @@ public class GammaStrategy extends AbstractStrategy {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see publishers.strategies.AbstractStrategy#doPublishStrategy(events.
-	 * AbstractEvent, publishers.AbstractPublisher)
+	 * @see publishers.strategies.AbstractStrategy#doPublishStrategy(events.IEvent,
+	 * publishers.IPublisher)
 	 */
 	@Override
-	protected void doPublishStrategy(AbstractEvent event, IPublisher publisher) {
-		List<AbstractChannel> channelList = ChannelDiscoveryProxy.getInstance().listChannels();
+	protected void doPublishStrategy(IEvent event, IPublisher publisher) {
+		List<IChannel> channelList = CHANNEL_DISCOVERY.listChannels();
 
 		ArrayList<String> outputList = new ArrayList<>();
-		for (AbstractChannel channel : channelList) {
+		for (IChannel channel : channelList) {
 			if (channel.getChannelTopic().length() == 5) // add a channel if it is length 5
 				outputList.add(channel.getChannelTopic());
 		}
 
-		PubSubServerFacade.getInstance().postEvent(event, outputList);
+		PUB_SUB_SERVER_FACADE.postEvent(event, outputList);
 	}
 }
