@@ -5,9 +5,9 @@ Authors: Quincey James, Michael Giancola, Zhilong Zhang, Talon Zhu, Riley Black
 -----
 
 ## Assignment Infomation
-Administered By: Proffessor Kostas Kontogiannis
-Administered At: Western University
-Administered On: Winter 2019
+- Administered By: Proffessor Kostas Kontogiannis
+- Administered At: Western University
+- Administered On: Winter 2019
 
 ### Purpose
 To practice creating a Software Requirements Specification and Software Design Description documents. We also needed to change the provided base-code to implement as many design patterns as possible.
