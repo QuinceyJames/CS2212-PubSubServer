@@ -2,6 +2,26 @@
 
 Authors: Quincey James, Michael Giancola, Zhilong Zhang, Talon Zhu, Riley Black
 
+-----
+
+## Assignment Infomation
+Administered By: Proffessor Kostas Kontogiannis
+Administered At: Western University
+Administered On: Winter 2019
+
+### Purpose
+To practice creating a Software Requirements Specification and Software Design Description documents. We also needed to change the provided base-code to implement as many design patterns as possible.
+
+### Design Patterns Implemented
+- The Singleton
+- The Proxy
+- The Facade
+- The Observer
+- The Stategy
+- The State
+- The Chain of Responsibility
+- The Iterator
+
 ## Introduction
 This project is about the specification, design and implementation of a simple publish subscribe system.  The system may be simple in the operations it offers, but it provides ample opportunities to exercise your design skills, and practice the material presented in class. More specifically, you are expected to implement and use a number of design patterns including the Singleton, the State, the Strategy, the Proxy, and the Observer design patterns. 
 
@@ -17,3 +37,6 @@ An entity that handles events published on a channel. A subscriber is subscribin
 An entity that denotes an abstraction of a communication medium. It maintains a list of subscribers, and a queue of events. Once an event is added to the queue, the channel notifies its subscribers. There may be more than one channels in the system. 
 ### Event: 
 An entity that denotes a piece of information posted on a channel. An event has an event ID, a reference to its publisher, and a payload which is an EventMessage object. The EventMessage has a header and a body.
+
+## Java-doc
+The Java-doc generated for this project can be viewed here: https://quinceyjames.github.io/CS2212-PubSubServer/
