@@ -5,7 +5,7 @@ Authors: Quincey James, Michael Giancola, Zhilong Zhang, Talon Zhu, Riley Black
 
 
 ## Assignment Infomation
-- Administered By: Proffessor Kostas Kontogiannis
+- Administered By: Professor Kostas Kontogiannis
 - Administered At: Western University
 - Administered On: Winter 2019
 
