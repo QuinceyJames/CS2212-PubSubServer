@@ -2,7 +2,7 @@
 
 Authors: Quincey James, Michael Giancola, Zhilong Zhang, Talon Zhu, Riley Black
 
------
+
 
 ## Assignment Infomation
 - Administered By: Proffessor Kostas Kontogiannis
@@ -21,6 +21,8 @@ To practice creating a Software Requirements Specification and Software Design D
 - The State
 - The Chain of Responsibility
 - The Iterator
+
+# Project Description
 
 ## Introduction
 This project is about the specification, design and implementation of a simple publish subscribe system.  The system may be simple in the operations it offers, but it provides ample opportunities to exercise your design skills, and practice the material presented in class. More specifically, you are expected to implement and use a number of design patterns including the Singleton, the State, the Strategy, the Proxy, and the Observer design patterns. 
